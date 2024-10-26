@@ -11,7 +11,7 @@ class OrderItemController extends Controller
 {
     public function index(Order $order)
     {
-        $orderItems = $order->items()->with('product')->get();
+        $orderItems = $order->items()->with('products')->get();
         return view('order_items.index', compact('orderItems', 'order'));
     }
 
