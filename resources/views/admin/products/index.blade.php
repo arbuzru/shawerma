@@ -22,9 +22,10 @@
                     <td>{{ $product->price }}</td>
                     <td>{{ $product->category->name }}</td>
                     <td>
-                        <a href="{{ route('products.show', $product) }}" class="btn btn-info">Просмотр</a>
-                        <a href="{{ route('products.edit', $product) }}" class="btn btn-warning">Редактировать</a>
-                        <form action="{{ route('products.destroy', $product) }}" method="POST" style="display:inline;">
+                        <a href="{{ route('admin.products.show', $product) }}" class="btn btn-info">Просмотр</a>
+                        <a href="{{ route('admin.products.create', $product) }}" class="btn btn-info">Добавить</a>
+                        <a href="{{ route('admin.products.edit', $product) }}" class="btn btn-warning">Редактировать</a>
+                        <form action="{{ route('admin.products.destroy', $product) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Удалить</button>

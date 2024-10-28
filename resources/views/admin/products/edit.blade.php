@@ -5,7 +5,7 @@
 @section('content')
     <div class="container">
         <h1>Редактировать продукт</h1>
-        <form action="{{ route('products.update', $product) }}" method="POST">
+        <form action="{{ route('admin.products.update', $product) }}" method="POST">
             @csrf
             @method('PUT')
             <div class="form-group">
@@ -25,7 +25,7 @@
                 </select>
             </div>
             <button type="submit" class="btn btn-warning">Сохранить</button>
-            <a href="{{ route('products.index') }}" class="btn btn-secondary">Назад</a>
+            <a href="{{ route('admin.products.index') }}" class="btn btn-secondary">Назад</a>
         </form>
     </div>
 @endsection

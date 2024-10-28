@@ -10,10 +10,13 @@ Route::get('/', function () {
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('categories', CategoryController::class);
 });
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('products', ProductController::class);
+});
 
 
 
-Route::get('admin/products', [ProductController::class, 'index']);
-Route::get('admin/products/{id}', [ProductController::class, 'show']);
+//Route::get('admin/products', [ProductController::class, 'index']);
+//Route::get('admin/products/{id}', [ProductController::class, 'show']);
 //Route::get('admin/categories', [CategoryController::class, 'index']);
 //Route::get('admin/categories/{id}', [CategoryController::class, 'show']);
