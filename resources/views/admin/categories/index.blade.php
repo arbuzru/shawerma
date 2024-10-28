@@ -21,6 +21,7 @@
                     <td>{{ $category->name }}</td>
                     <td>
                         <a href="{{ route('admin.categories.show', $category) }}" class="btn btn-info">Просмотр</a>
+                        <a href="{{ route('admin.categories.create', $category) }}" class="btn btn-info">Добавить</a>
                         <a href="{{ route('admin.categories.edit', $category) }}" class="btn btn-warning">Редактировать</a>
                         <form action="{{ route('admin.categories.destroy', $category) }}" method="POST" style="display:inline;">
                             @csrf
