@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
+
 class CategoryController extends Controller
 {
     public function index()
@@ -20,13 +21,18 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
+        // Валидация данных
         $validated = $request->validate([
             'name' => 'required|string|max:255',
         ]);
 
+        // Создание новой категории
         Category::create($validated);
+
+        // Перенаправление с сообщением об успехе
         return redirect()->route('admin.categories.index')->with('success', 'Category created successfully.');
     }
+
 
     public function show(Category $category)
     {

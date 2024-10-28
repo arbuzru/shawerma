@@ -5,7 +5,7 @@
 @section('content')
     <div class="container">
         <h1>Категории</h1>
-{{--        <a href="{{ route('categories.create') }}" class="btn btn-primary">Добавить категорию</a>--}}
+        <a href="{{ route('admin.categories.create') }}" class="btn btn-primary">Добавить категорию</a>
         <table class="table">
             <thead>
             <tr>
@@ -20,9 +20,9 @@
                     <td>{{ $category->id }}</td>
                     <td>{{ $category->name }}</td>
                     <td>
-                        <a href="{{ route('categories.show', $category) }}" class="btn btn-info">Просмотр</a>
-                        <a href="{{ route('categories.edit', $category) }}" class="btn btn-warning">Редактировать</a>
-                        <form action="{{ route('categories.destroy', $category) }}" method="POST" style="display:inline;">
+                        <a href="{{ route('admin.categories.show', $category) }}" class="btn btn-info">Просмотр</a>
+                        <a href="{{ route('admin.categories.edit', $category) }}" class="btn btn-warning">Редактировать</a>
+                        <form action="{{ route('admin.categories.destroy', $category) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Удалить</button>
