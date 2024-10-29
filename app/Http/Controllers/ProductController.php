@@ -4,23 +4,28 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Models\Category;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Foundation\Application;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function index(): View|Factory|Application
     {
+
         $products = Product::with('category')->get();
         return view('admin.products.index', compact('products'));
     }
 
-    public function create()
+    public function create(): View|Factory|Application
     {
         $categories = Category::all();
         return view('admin.products.create', compact('categories'));
     }
 
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
