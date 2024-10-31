@@ -13,7 +13,7 @@
 </head>
 <body>
 
-    @include('partials.header') <!-- Включаем хедер -->
+{{--    @include('partials.header') <!-- Включаем хедер -->--}}
 
     <div class="">
          @yield('content')
