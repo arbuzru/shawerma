@@ -97,8 +97,9 @@
                             <div class="menu">
                                 <ul>
                                     <li>
-                                        <a href="{{ route('home') }}">Home
-                                            <span><i class="fa-solid fa-angle-down"></i></span>
+                                        <a href="/">Home</a>
+
+                                        <span><i class="fa-solid fa-angle-down"></i></span>
                                         </a>
                                         <ul>
                                             <li><a href="{{ route('home01') }}">Home-01</a></li>
