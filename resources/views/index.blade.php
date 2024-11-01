@@ -34,42 +34,7 @@
             </div>
         </div>
     </header>
-    <!-- offcanvas -->
-    <aside id="offcanvas-nav">
-        <nav class="m-nav">
-            <button id="nav-cls-btn"><i class="fa-solid fa-xmark"></i></button>
-            <div class="logo">
-                <a href="">
-                    <img src="{{ asset('images/logo/logo-header.svg') }}" alt="logo">
-                </a>
-            </div>
-            <ul class="nav-links">
-                <li class="dropdown">
-                    <a href="#">Home <span><i class="fa-solid fa-angle-down"></i></span> </a>
 
-                    <ul class="d-menu">
-                        <li><a href="index.html">Home-01 </a> </li>
-                        <li><a href="index-2.html">Home-02</a></li>
-                    </ul>
-
-
-                </li>
-                <li><a href="all-food.html">Menu</a></li>
-                <li>
-                    <a href="about.html">About Us</a>
-                </li>
-                <li><a href="contact.html">Contact</a></li>
-                <li class="dropdown"><a href="#">Blog</a>
-
-                    <ul class="d-menu">
-                        <li><a href="blog.html">Blog </a> </li>
-                        <li><a href="blog-details.html">Blog-Details</a></li>
-                    </ul>
-                </li>
-            </ul>
-
-        </nav>
-    </aside>
 
 
 

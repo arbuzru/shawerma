@@ -96,35 +96,26 @@
 
                             <div class="menu">
                                 <ul>
-                                    <li><a href="#">Home
+                                    <li>
+                                        <a href="{{ route('home') }}">Home
                                             <span><i class="fa-solid fa-angle-down"></i></span>
                                         </a>
-
                                         <ul>
-                                            <li>
-                                                <a href="index.html">Home-01</a>
-                                            </li>
-                                            <li>
-                                                <a href="index-2.html">Home-02</a>
-                                            </li>
+                                            <li><a href="{{ route('home01') }}">Home-01</a></li>
+                                            <li><a href="{{ route('home02') }}">Home-02</a></li>
                                         </ul>
-
-
                                     </li>
-                                    <li><a href="all-food.html">Menu</a></li>
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                    <li><a href="blog.html">Blog <span><i class="fa-solid fa-angle-down"></i></span>
-                                        </a>
-
-
+                                    <li><a href="{{ route('menu') }}">Menu</a></li>
+                                    <li><a href="{{ route('about') }}">About Us</a></li>
+                                    <li><a href="{{ route('contact') }}">Contact</a></li>
+                                    <li><a href="{{ route('products.index') }}">Products</a></li>
+                                    <li>
+                                    <li>
+                                        <a href="#">Blog <span><i class="fa-solid fa-angle-down"></i></span></a>
                                         <ul>
-                                            <li><a href="blog.html"> Blog</a></li>
-                                            <li><a href="blog-details.html"> Blog-Details</a></li>
+                                            <li><a href="{{ route('blog') }}"> Blog</a></li>
+                                            <li><a href="{{ route('blog.details') }}"> Blog-Details</a></li>
                                         </ul>
-
-
-
                                     </li>
                                 </ul>
                             </div>
@@ -667,6 +658,47 @@
                 </div>
             </div>
         </div>
+
+        <!-- offcanvas -->
+        <aside id="offcanvas-nav">
+            <nav class="m-nav">
+                <button id="nav-cls-btn"><i class="fa-solid fa-xmark"></i></button>
+                <div class="logo">
+                    <a href="">
+                        <img src="{{ asset('images/logo/logo-header.svg') }}" alt="logo">
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li class="dropdown">
+                        <a href="#">Home <span><i class="fa-solid fa-angle-down"></i></span> </a>
+
+                        <ul class="d-menu">
+                            <li><a href="index.html">Home-01 </a> </li>
+                            <li><a href="index-2.html">Home-02</a></li>
+                        </ul>
+
+
+                    </li>
+                    <li><a href="all-food.html">Menu</a></li>
+                    <li>
+                        <a href="about.html">About Us</a>
+                    </li>
+                    <li>
+                        <a href="resources/views/admin/products/index.blade.php">Products</a>
+                    </li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li class="dropdown"><a href="#">Blog</a>
+
+                        <ul class="d-menu">
+                            <li><a href="blog.html">Blog </a> </li>
+                            <li><a href="blog-details.html">Blog-Details</a></li>
+
+                        </ul>
+                    </li>
+                </ul>
+
+            </nav>
+        </aside>
 
 
     </nav>
