@@ -14,6 +14,10 @@ class Product extends Model
     {
     }
 
+    public static function findOrFail($id)
+    {
+    }
+
 
     public function category(): BelongsTo
     {
