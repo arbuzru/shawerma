@@ -125,26 +125,19 @@
 
                             <div class="menu">
                                 <ul>
-                                    <li><a href="#">Home
-                                            <span><i class="fa-solid fa-angle-down"></i></span>
-                                        </a>
-
-                                        <ul>
-                                            <li>
-                                                <a href="{{ route('home') }}">Home-01</a>
-                                            </li>
-                                            <li>
-                                                <a href="index-2.html">Home-02</a>
-                                            </li>
-                                        </ul>
-
-
+                                    <a href="/">Home <span><i class="fa-solid fa-angle-down"></i></span></a>
+                                    <ul>
+                                        <li><a href="{{ route('home') }}">Home-01</a></li>
+                                        <li><a href="{{ route('home02') }}">Home-02</a></li>
+                                    </ul>
                                     </li>
+
                                     <li><a href="{{ route('menu') }}">Menu</a></li>
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
-                                    <li><a href="blog.html">Blog <span><i class="fa-solid fa-angle-down"></i></span>
-                                        </a>
+                                    <li><a href="{{ route('about') }}">About Us</a></li>
+                                    <li><a href="{{ route('contact') }}">Contact</a></li>
+
+
+
 
 
                                         <ul>
