@@ -1,30 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
+
+
     <!-- ===== Loader Start ===== -->
     <div class="preloader-wrap">
         <div class="loader">
-            <img src="{{ asset('images/thumb/loader-2.gif') }}" alt="loader">
+            <img src="./images/thumb/loader-2.gif" alt="loader">
         </div>
     </div>
     <!-- ===== Loader End ===== -->
 
-    <!-- header part start  -->
 
-
-
-<!-- ===== Loader Start ===== -->
-<div class="preloader-wrap">
-    <div class="loader">
-        <img src="./assets/images/thumb/loader-2.gif" alt="loader">
-    </div>
-</div>
-<!-- ===== Loader End ===== -->
-
-
-
-
-<main>
+    <main>
 
     <!-- banner  -->
 
@@ -38,7 +26,7 @@
 
                     <div class="inner-banner-item">
                         <div class="left">
-                            <a href="index.html">Home</a>
+                            <a href="{{ route('home') }}">Home</a>
                         </div>
                         <div class="icon">
                                 <span>
@@ -66,64 +54,52 @@
     <!-- Food Details part-start   -->
 
 
-        <section class="food-details-section s-padding">
-            <div class="col-lg-8">
-                <div class="food-details-head">
-                    <div class="container">
-                        <div class="container mt-5">
-                            @if($product)
-                                    <div class="col-md-6">
-                                        <h1 class="mb-3">{{ $product->name }}</h1>
-                                        <p class="lead">{{ $product->description }}</p>
-                                        <p class="text-primary font-weight-bold">Price: ${{ number_format($product->price, 2) }}</p>
-                                    </div>
-                                </div>
-                            @else
-                                <p>Product not found.</p>
-                            @endif
-
-                        </div>
+    <section class="food-details-section s-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="food-details-head">
+                        <h2>Chicken skewers with Slices of Sweet </h2>
                     </div>
-
 
                     <div class="food-details-slick">
                         <div class="slider-for">
                             <div class="slider-for-img">
-                                <img src="./assets/images/thumb/slick-2.png" alt="img">
+                                <img src="./images/thumb/slick-2-real.png" alt="img">
                             </div>
                             <div class="slider-for-img">
-                                <img src="./assets/images/thumb/slick-3.png" alt="img">
+                                <img src="./images/thumb/slick-3-real.png" alt="img">
                             </div>
                             <div class="slider-for-img">
-                                <img src="./assets/images/thumb/slick-4.png" alt="img">
+                                <img src="./images/thumb/slick-4-real.png" alt="img">
                             </div>
                             <div class="slider-for-img">
-                                <img src="./assets/images/thumb/slick-5.png" alt="img">
+                                <img src="./images/thumb/slick-5-real.png" alt="img">
                             </div>
                             <div class="slider-for-img">
-                                <img src="./assets/images/thumb/slick-4.png" alt="img">
+                                <img src="./images/thumb/slick-4-real.png" alt="img">
                             </div>
                         </div>
 
                         <div class="slider-nav">
                             <div class="slider-nav-img">
-                                <img src="./assets/images/thumb/slick-2.png" alt="">
+                                <img src="./images/thumb/slick-2-real.png" alt="">
                                 <div class="overlay"></div>
                             </div>
                             <div class="slider-nav-img">
-                                <img src="./assets/images/thumb/slick-3.png" alt="">
+                                <img src="./images/thumb/slick-3-real.png" alt="">
                                 <div class="overlay"></div>
                             </div>
                             <div class="slider-nav-img">
-                                <img src="./assets/images/thumb/slick-4.png" alt="">
+                                <img src="./images/thumb/slick-4-real.png" alt="">
                                 <div class="overlay"></div>
                             </div>
                             <div class="slider-nav-img">
-                                <img src="./assets/images/thumb/slick-5.png" alt="">
+                                <img src="./images/thumb/slick-5-real.png" alt="">
                                 <div class="overlay"></div>
                             </div>
                             <div class="slider-nav-img">
-                                <img src="./assets/images/thumb/slick-4.png" alt="">
+                                <img src="./images/thumb/slick-4-real.png" alt="">
                                 <div class="overlay"></div>
                             </div>
                         </div>
@@ -229,7 +205,7 @@
 
 
                                 <div class="vedio-img">
-                                    <img src="./assets/images/thumb/food-video.png" alt="img">
+                                    <img src="./images/thumb/food-video.png" alt="img">
 
                                     <a class="my-video-links" data-autoplay="true" data-vbtype="video"
                                        href="https://youtu.be/EiNiSFIPIQE"><i class="fa-solid fa-play"></i></a>
@@ -321,7 +297,7 @@
 
                                         <div class="food-review-inner">
                                             <div class="food-review-inner-img">
-                                                <img src="./assets/images/small/review.png" alt="img">
+                                                <img src="./images/small/review.png" alt="img">
                                             </div>
 
                                             <div class="food-review-inner-text">
@@ -382,7 +358,7 @@
 
                                         <div class="food-review-inner">
                                             <div class="food-review-inner-img">
-                                                <img src="./assets/images/small/review.png" alt="img">
+                                                <img src="./images/small/review.png" alt="img">
                                             </div>
 
                                             <div class="food-review-inner-text">
@@ -443,7 +419,7 @@
 
                                         <div class="food-review-inner">
                                             <div class="food-review-inner-img">
-                                                <img src="./assets/images/small/review.png" alt="img">
+                                                <img src="./images/small/review.png" alt="img">
                                             </div>
 
                                             <div class="food-review-inner-text">
@@ -688,11 +664,11 @@
 
                     <div class="blog-details-promobanner-res-df">
                         <div class="blog-details-promobanner">
-                            <a href="#"> <img src="./assets/images/thumb/promobanner-01.png" class="w-100"
+                            <a href="#"> <img src="./images/thumb/promobanner-01-real.png" class="w-100"
                                               alt="img"></a>
                         </div>
                         <div class="blog-details-promobanner-two">
-                            <a href="#"> <img src="./assets/images/thumb/promobanner-02.png" class="w-100"
+                            <a href="#"> <img src="./images/thumb/promobanner-02-real.png" class="w-100"
                                               alt="img"></a>
                         </div>
                     </div>
@@ -729,7 +705,7 @@
                 <div class="col-lg-4 col-md-6" data-aos="fade-right">
                     <div class="featured-item  ">
                         <div class="featured-item-img">
-                            <img src="./assets/images/thumb/featured-1.png" class="w-100" alt="featured-thumb">
+                            <img src="./images/thumb/featured-1-real.png" class="w-100" alt="featured-thumb">
 
                             <div class="featured-item-img-overlay">
                                 <div class="featured-item-img-over-text">
@@ -849,7 +825,7 @@
                 <div class="col-lg-4 col-md-6" data-aos="fade-right" data-aos-delay="50">
                     <div class="featured-item">
                         <div class="featured-item-img">
-                            <img src="./assets/images/thumb/traditional-2.png" class="w-100" alt="featured-thumb">
+                            <img src="./images/thumb/traditional-2-real.png" class="w-100" alt="featured-thumb">
 
                             <div class="featured-item-img-overlay">
                                 <div class="featured-item-img-over-text">
@@ -968,7 +944,7 @@
                 <div class="col-lg-4 d-md-none d-lg-block" data-aos="fade-right" data-aos-delay="100">
                     <div class="featured-item">
                         <div class="featured-item-img">
-                            <img src="./assets/images/thumb/traditional-3.png" class="w-100" alt="featured-thumb">
+                            <img src="./images/thumb/traditional-3-real.png" class="w-100" alt="featured-thumb">
 
                             <div class="featured-item-img-overlay">
                                 <div class="featured-item-img-over-text">
@@ -1090,60 +1066,22 @@
         </div>
 
 
-    </section>
-    <!-- Restaurant part-start -->
-
-    <section class="restaurant">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="restaurant-taitel">
-                        <h2>Find out Better Restaurant Food Experience</h2>
-
-                        <h4>We've done it carefully and simply. Combined with the ingredients makes for beautiful
-                            landings.</h4>
-                    </div>
-
-                    <div class="restaurant-taitel-btn">
-                        <a href="#"> <span>
-                                    <img src="./assets/images/icon/Google_Play.png" alt="icon">
-                                </span> Google Play</a>
-                        <a href="#" class=" restaurant-taitel-btn-two"> <span>
-                                    <img src="./assets/images/icon/apple.png" alt="icon">
-                                </span> Google Play</a>
-                    </div>
-                </div>
 
 
-                <div class="col-lg-6" data-aos="fade-left">
-                    <div class="restaurant-img-main">
-                        <div class="restaurant-img">
-                            <img src="./assets/images/thumb/restaurant.png" alt="img">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+
+
     </section>
 
 
-    <!-- Restaurant part-end -->
+
+
+
+
+
 
 
 
 </main>
 
-@include('partials.footer') <!-- Включаем футер -->
-
 @endsection
-
-
-
-
-
-
-
-
-
-
-

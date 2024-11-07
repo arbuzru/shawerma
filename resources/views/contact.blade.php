@@ -6,14 +6,14 @@
     <!-- ===== Loader Start ===== -->
     <div class="preloader-wrap">
         <div class="loader">
-            <img src="./assets/images/thumb/loader-2.gif" alt="loader">
+            <img src="./images/thumb/loader-2.gif" alt="loader">
         </div>
     </div>
     <!-- ===== Loader End ===== -->
 
 
 
-    @include('partials.header_menu') <!-- Включаем хедер -->
+
 
     <main>
 
@@ -29,7 +29,7 @@
 
                     <div class="inner-banner-item">
                         <div class="left">
-                            <a href="index.html">Home</a>
+                            <a href="{{ route('home') }}">Home</a>
                         </div>
                         <div class="icon">
                                 <span>
@@ -289,13 +289,13 @@
                     <div class="row">
                         <div class="col-lg-8">
                             <div class="faq-img  ">
-                                <img src="./assets/images/thumb/faq-1.png" class="w-100" alt="thumb">
+                                <img src="./images/thumb/faq-1-real.png" class="w-100" alt="thumb">
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="faq-img">
                                 <div class="faq-img-two">
-                                    <img src="./assets/images/thumb/faq-2.png" alt="thumb">
+                                    <img src="./images/thumb/faq-2-real.png" alt="thumb">
                                     <div class="faq-img-overlay">
                                         <div class="faq-img-overlay-text">
                                             <h2>
@@ -322,7 +322,7 @@
                         <div class="col-lg-4">
                             <div class="faq-img img-mt">
                                 <div class="faq-img-two">
-                                    <img src="./assets/images/thumb/faq-3.png" alt="thumb">
+                                    <img src="./images/thumb/faq-3-real.png" alt="thumb">
                                     <div class="faq-img-overlay faq-img-overlay-two ">
                                         <div class="faq-img-overlay-text">
                                             <h2>
@@ -350,7 +350,7 @@
                             <div class="faq-img  ">
 
                                 <div class="img-animetion">
-                                    <img src="./assets/images/thumb/faq-4.png" alt="thumb">
+                                    <img src="/images/thumb/faq-4-real.png" alt="thumb">
                                 </div>
 
                             </div>
@@ -376,50 +376,15 @@
 
 
 
-    <!-- Restaurant part-start -->
-
-    <section class="restaurant">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="restaurant-taitel">
-                        <h2>Find out Better Restaurant Food Experience</h2>
-
-                        <h4>We've done it carefully and simply. Combined with the ingredients makes for beautiful
-                            landings.</h4>
-                    </div>
-
-                    <div class="restaurant-taitel-btn">
-                        <a href="#"> <span>
-                                    <img src="./assets/images/icon/Google_Play.png" alt="icon">
-                                </span> Google Play</a>
-                        <a href="#" class=" restaurant-taitel-btn-two"> <span>
-                                    <img src="./assets/images/icon/apple.png" alt="icon">
-                                </span> Google Play</a>
-                    </div>
-                </div>
 
 
-                <div class="col-lg-6" data-aos="fade-left">
-                    <div class="restaurant-img-main">
-                        <div class="restaurant-img">
-                            <img src="./assets/images/thumb/restaurant.png" alt="img">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-
-    <!-- Restaurant part-end -->
 
 
 
 </main>
 
 
-@include('partials.footer') <!-- Включаем футер -->
 
 
 @endsection

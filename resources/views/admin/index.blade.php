@@ -1098,7 +1098,7 @@
                                     <img src="{{ asset('images/victor/populer.png')}}" alt="img">
                                 </div>
                                 <div class="featured-item-img">
-                                    <img src="{{ asset('images/thumb/featured-1.png')}}" class="w-100" alt="featured-thumb">
+                                    <img src="{{ asset('images/thumb/featured-1-real.png')}}" class="w-100" alt="featured-thumb">
 
                                     <div class="featured-item-img-overlay">
                                         <div class="featured-item-img-over-text">

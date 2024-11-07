@@ -1532,7 +1532,7 @@ p {
 }
 .banner {
   padding: 240px 0 60px 0;
-  background: url(../assets/images/banner/banner-1.png) lightgray 0px -15px/100% 106.977% no-repeat;
+  background: url(../images/banner/banner-1.png) lightgray 0px -15px/100% 106.977% no-repeat;
 }
 .banner .banner-rating {
   width: 254px;
@@ -1594,7 +1594,7 @@ p {
 
 .banner-two {
   padding: 263px 0 247px 0;
-  background: url(../assets/images/banner/banner-bg-two.png) no-repeat center/cover;
+  background: url(../images/banner/banner-bg-two-real.png) no-repeat center/cover;
   position: relative;
   z-index: 1;
 }
@@ -2201,7 +2201,7 @@ p {
 }
 
 .categories {
-  background-image: url(../assets/images/banner/categories-bg.png);
+  background-image: url(../images/banner/categories-bg.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -2492,7 +2492,7 @@ p {
 }
 .contact-us .contact-us-from {
   background-color: var(--grey-scale-50);
-  background-image: url(../assets/images/thumb/from.png);
+  background-image: url(../images/thumb/from.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -3586,7 +3586,7 @@ p {
 .food-details {
   padding-top: 100px;
   padding-bottom: 100px;
-  background: url(../assets/images/banner/all-food-bg.png) no-repeat center/cover;
+  background: url(../images/banner/all-food-bg.png) no-repeat center/cover;
   background-color: rgba(252, 203, 213, 0.1019607843);
 }
 .food-details .food-details-btn-box {
@@ -4550,7 +4550,7 @@ p {
 
 .inner-banner {
   padding: 270px 0 128px 0;
-  background: url(../assets/images/banner/inner-bg.png) no-repeat center/cover;
+  background: url(../images/banner/inner-bg.png) no-repeat center/cover;
 }
 .inner-banner .inner-banner-head {
   text-align: center;
@@ -4590,7 +4590,7 @@ p {
 }
 
 .promotions {
-  background-image: url(../assets/images/banner/promotions-bg.png);
+  background-image: url(../images/banner/promotions-bg.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -4636,7 +4636,7 @@ p {
 }
 
 .process {
-  background-image: url(../assets/images/banner/Process-bg.png);
+  background-image: url(../images/banner/Process-bg.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -5063,7 +5063,7 @@ p {
 }
 
 .work {
-  background-image: url(../assets/images/banner/work-bg.png);
+  background-image: url(../images/banner/work-bg.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -5419,7 +5419,7 @@ p {
 }
 
 .traditional {
-  background-image: url(../assets/images/banner/traditional-bg.png);
+  background-image: url(../images/banner/traditional-bg.png);
   background-repeat: no-repeat;
 }
 .traditional .traditional-head h2 {
@@ -5617,7 +5617,7 @@ p {
 }
 
 .faq {
-  background-image: url(../assets/images/banner/faq-bg.png);
+  background-image: url(../images/banner/faq-bg.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -5970,7 +5970,7 @@ p {
 }
 
 .restaurant {
-  background: url(../assets/images/banner/rest-bg.png) no-repeat center/cover;
+  background: url(../images/banner/rest-bg.png) no-repeat center/cover;
   padding: 101px 0 120px 0;
 }
 .restaurant .restaurant-taitel h2 {
@@ -6194,7 +6194,7 @@ p {
   top: -10px;
   width: 24px;
   height: 24px;
-  background: url(../assets/images/icon/close.svg) no-repeat center center;
+  background: url(../images/icon/close.svg) no-repeat center center;
   border: 0;
   border-radius: 10px;
   opacity: 1;
@@ -6978,7 +6978,7 @@ p {
 
 .footer {
   padding: 110px 0;
-  background: url(../assets/images/banner/Footers-bg.png) no-repeat center/cover;
+  background: url(../images/banner/Footers-bg.png) no-repeat center/cover;
 }
 .footer .footer-text {
   padding-top: 12px;

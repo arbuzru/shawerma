@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 class FoodController extends Controller
 {
-    public function showDetails()
+    public function foodDetails()
     {
-        return view('food-details');  // Возвращает страницу с деталями
+        return view('food-details'); // или какие-то данные
     }
 }

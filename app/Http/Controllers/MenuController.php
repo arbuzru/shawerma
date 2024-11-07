@@ -27,6 +27,7 @@ class MenuController extends Controller
         }
 
         // Передаем продукт в представление food-details
-        return view('menu.food-details', compact('product'));
+        return view('food-details', compact('product'));
     }
+
 }

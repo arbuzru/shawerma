@@ -13,13 +13,13 @@
 </head>
 <body>
 
-{{--    @include('partials.header') <!-- Включаем хедер -->--}}
+  @include('partials.header') <!-- Включаем хедер -->
 
     <div class="">
          @yield('content')
     </div>
 
-    @include('partials.footer') <!-- Включаем футер -->
+  @include('partials.footer') <!-- Включаем футер -->
 
     <!-- Подключение скриптов -->
     <script src="{{ asset('js/jquery-3.6.3.min.js') }}"></script>

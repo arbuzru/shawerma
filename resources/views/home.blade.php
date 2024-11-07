@@ -7,13 +7,6 @@
             <img src="{{ asset('images/thumb/loader-2.gif') }}" alt="loader">
         </div>
     </div>
-    <!-- ===== Loader End ===== -->
-
-    <!-- header part start  -->
-
-    @include('partials.header') <!-- Включаем хедер -->
-
-
 
     <!-- mobile navigation start -->
     <header class="mobile-header">
@@ -290,8 +283,8 @@
                 <div class="row">
                     <div class="col-lg-5 col-md-5">
                         <div class="promotions-img promotions-img-two">
-                            <a href="foods-details.html">
-                                <img src="{{ asset('images/thumb/PromoBanner-2.png') }}" class="w-100" alt="thumb">
+                            <a href="menu.food-details.blade.php">
+                                <img src="{{ asset('images/thumb/PromoBanner-2-real.png') }}" class="w-100" alt="thumb">
                             </a>
                         </div>
                     </div>
@@ -299,7 +292,7 @@
                         <div class="promotions-img">
 
                             <a href="foods-details.html">
-                                <img src="{{asset('images/thumb/PromoBanner-1.png')}}"
+                                <img src="{{asset('images/thumb/PromoBanner-1-real.png')}}"
                                      class="w-100" alt="thumb"></a>
                         </div>
                     </div>
@@ -362,7 +355,7 @@
                                     <img src="{{ asset('images/victor/populer.png')}}" alt="img">
                                 </div>
                                 <div class="featured-item-img">
-                                    <img src="{{ asset('images/thumb/featured-1.png')}}" class="w-100" alt="featured-thumb">
+                                    <img src="{{ asset('images/thumb/featured-1-real.png')}}" class="w-100" alt="featured-thumb">
 
                                     <div class="featured-item-img-overlay">
                                         <div class="featured-item-img-over-text">
@@ -480,7 +473,7 @@
 
                             <div class="featured-item" data-aos="fade-up">
                                 <div class="featured-item-img">
-                                    <img src="{{asset('images/thumb/traditional-2.pnggit')}}" class="w-100" alt="featured-thumb">
+                                    <img src="{{asset('images/thumb/traditional-2-real.png')}}" class="w-100" alt="featured-thumb">
 
 
                                     <div class="featured-item-img-overlay">
@@ -599,7 +592,7 @@
                         <div class="col-lg-4 col-md-6 shaf-item res-mb-20px  " data-groups='[ "development"]'>
                             <div class="featured-item" data-aos="fade-up">
                                 <div class="featured-item-img">
-                                    <img src="./assets/images/thumb/traditional-3.png" class="w-100"
+                                    <img src="./images/thumb/traditional-3-real.png" class="w-100"
                                          alt="featured-thumb">
 
                                     <div class="featured-item-img-overlay">
@@ -717,7 +710,7 @@
 
                             <div class="featured-item" data-aos="fade-up">
                                 <div class="featured-item-img">
-                                    <img src="./assets/images/thumb/traditional-4.png" class="w-100"
+                                    <img src="./images/thumb/traditional-4-real.png" class="w-100"
                                          alt="featured-thumb">
 
                                     <div class="featured-item-img-overlay">
@@ -834,7 +827,7 @@
 
                             <div class="featured-item" data-aos="fade-up">
                                 <div class="featured-item-img">
-                                    <img src="./assets/images/thumb/traditional-5.png" class="w-100"
+                                    <img src="./images/thumb/traditional-5-real.png" class="w-100"
                                          alt="featured-thumb">
 
                                     <div class="featured-item-img-overlay">
@@ -951,7 +944,7 @@
 
                             <div class="featured-item" data-aos="fade-up">
                                 <div class="featured-item-img">
-                                    <img src="./assets/images/thumb/traditional-6.png" class="w-100"
+                                    <img src="./images/thumb/traditional-6-real.png" class="w-100"
                                          alt="featured-thumb">
 
                                     <div class="featured-item-img-overlay">
@@ -1095,7 +1088,7 @@
                     <div class="col-lg-6 " data-aos="fade-right">
                         <div class="process-img-box">
                             <div class="process-img">
-                                <img src="./assets/images/thumb/process-themb.png" alt="thumb">
+                                <img src="./images/thumb/process-themb.png" alt="thumb">
                             </div>
                         </div>
                     </div>
@@ -1131,7 +1124,7 @@
                                 </div>
 
                                 <div class="process-item-right-img">
-                                    <img src="./assets/images/icon/1.png" alt="img">
+                                    <img src="./images/icon/1.png" alt="img">
                                 </div>
                             </div>
                             <div class="process-item" data-aos="fade-up" data-aos-delay="200">
@@ -1159,7 +1152,7 @@
                                 </div>
 
                                 <div class="process-item-right-img">
-                                    <img src="./assets/images/icon/2.png" alt="img">
+                                    <img src="./images/icon/2.png" alt="img">
                                 </div>
                             </div>
                             <div class="process-item" data-aos="fade-up" data-aos-delay="300">
@@ -1193,7 +1186,7 @@
                                 </div>
 
                                 <div class="process-item-right-img">
-                                    <img src="./assets/images/icon/3.png" alt="img">
+                                    <img src="./images/icon/3.png" alt="img">
                                 </div>
                             </div>
                             <div class="process-item" data-aos="fade-up" data-aos-delay="400">
@@ -1233,7 +1226,7 @@
                                 </div>
 
                                 <div class="process-item-right-img">
-                                    <img src="./assets/images/icon/4.png" alt="img">
+                                    <img src="./images/icon/4.png" alt="img">
                                 </div>
                             </div>
 
@@ -1266,7 +1259,7 @@
                     <div class="col-lg-6" data-aos="fade-up">
                         <div class="popular-item-box">
                             <div class="popular-item-box-img">
-                                <img src="./assets/images/thumb/popular-1.png" alt="thumb">
+                                <img src="./images/thumb/popular-1-real.png" alt="thumb">
 
                                 <div class="popular-item-box-img-overlay">
                                     <div class="icon">
@@ -1366,7 +1359,7 @@
                     <div class="col-lg-6 res-popular-item-mt-30px" data-aos="fade-up">
                         <div class="popular-item-box">
                             <div class="popular-item-box-img">
-                                <img src="./assets/images/thumb/popular-2.png" alt="thumb">
+                                <img src="./images/thumb/popular-2-real.png" alt="thumb">
                                 <div class="popular-item-box-img-overlay">
                                     <div class="icon">
                                         <span>
@@ -1464,7 +1457,7 @@
                     <div class="col-lg-6 popular-item-mt-30px" data-aos="fade-up">
                         <div class="popular-item-box">
                             <div class="popular-item-box-img">
-                                <img src="./assets/images/thumb/popular-3.png" alt="thumb">
+                                <img src="./images/thumb/popular-3-real.png" alt="thumb">
                                 <div class="popular-item-box-img-overlay">
                                     <div class="icon">
                                         <span>
@@ -1562,7 +1555,7 @@
                     <div class="col-lg-6 popular-item-mt-30px" data-aos="fade-up">
                         <div class="popular-item-box">
                             <div class="popular-item-box-img">
-                                <img src="./assets/images/thumb/popular-4.png" alt="thumb">
+                                <img src="./images/thumb/popular-4-real.png" alt="thumb">
                                 <div class="popular-item-box-img-overlay">
                                     <div class="icon">
                                         <span>
@@ -1660,7 +1653,7 @@
                     <div class="col-lg-6 popular-item-mt-30px" data-aos="fade-up">
                         <div class="popular-item-box">
                             <div class="popular-item-box-img">
-                                <img src="./assets/images/thumb/popular-5.png" alt="thumb">
+                                <img src="./images/thumb/popular-5-real.png" alt="thumb">
                                 <div class="popular-item-box-img-overlay">
                                     <div class="icon">
                                         <span>
@@ -1758,7 +1751,7 @@
                     <div class="col-lg-6 popular-item-mt-30px" data-aos="fade-up">
                         <div class="popular-item-box">
                             <div class="popular-item-box-img">
-                                <img src="./assets/images/thumb/popular-6.png" alt="thumb">
+                                <img src="./images/thumb/popular-6-real.png" alt="thumb">
                                 <div class="popular-item-box-img-overlay">
                                     <div class="icon">
                                         <span>
@@ -1880,7 +1873,7 @@
                         <div class="customer-item">
 
                             <div class="customer-img">
-                                <img src="./assets/images/icon/customer-icon.png" alt="icon">
+                                <img src="./images/icon/customer-icon.png" alt="icon">
                             </div>
                             <div class="customer-item-text">
                                 <p>"An absolute foodie's paradise! The flavors at
@@ -1891,16 +1884,16 @@
 
                         <div class="customer-inner">
                             <div class="customer-inner-img">
-                                <img src="./assets/images/small/customer-1.png" alt="img">
+                                <img src="./images/small/customer-1-real.png" alt="img">
                             </div>
 
                             <div class="customer-inner-text">
                                 <div class="icon">
-                                    <img src="./assets/images/icon/star.svg" alt="img">
-                                    <img src="./assets/images/icon/star.svg" alt="img">
-                                    <img src="./assets/images/icon/star.svg" alt="img">
-                                    <img src="./assets/images/icon/star.svg" alt="img">
-                                    <img src="./assets/images/icon/star.svg" alt="img">
+                                    <img src="./images/icon/star.svg" alt="img">
+                                    <img src="./images/icon/star.svg" alt="img">
+                                    <img src="./images/icon/star.svg" alt="img">
+                                    <img src="./images/icon/star.svg" alt="img">
+                                    <img src="./images/icon/star.svg" alt="img">
                                 </div>
 
                                 <h3>Jonson Roy</h3>
@@ -1912,7 +1905,7 @@
                         <div class="customer-item ">
 
                             <div class="customer-img">
-                                <img src="./assets/images/icon/customer-icon.png" alt="icon">
+                                <img src="./images/icon/customer-icon.png" alt="icon">
                             </div>
                             <div class="customer-item-text">
                                 <p>"An absolute foodie's paradise! The flavors at
@@ -1923,16 +1916,16 @@
 
                         <div class="customer-inner">
                             <div class="customer-inner-img">
-                                <img src="./assets/images/small/customer-2.png" alt="img">
+                                <img src="./images/small/customer-2-real.png" alt="img">
                             </div>
 
                             <div class="customer-inner-text">
                                 <div class="icon">
-                                    <img src="./assets/images/icon/star.svg" alt="img">
-                                    <img src="./assets/images/icon/star.svg" alt="img">
-                                    <img src="./assets/images/icon/star.svg" alt="img">
-                                    <img src="./assets/images/icon/star.svg" alt="img">
-                                    <img src="./assets/images/icon/star.svg" alt="img">
+                                    <img src="./images/icon/star.svg" alt="img">
+                                    <img src="./images/icon/star.svg" alt="img">
+                                    <img src="./images/icon/star.svg" alt="img">
+                                    <img src="./images/icon/star.svg" alt="img">
+                                    <img src="./images/icon/star.svg" alt="img">
                                 </div>
 
                                 <h3>David Ethic</h3>
@@ -1944,7 +1937,7 @@
                         <div class="customer-item">
 
                             <div class="customer-img">
-                                <img src="./assets/images/icon/customer-icon.png" alt="icon">
+                                <img src="./images/icon/customer-icon.png" alt="icon">
                             </div>
                             <div class="customer-item-text">
                                 <p>"An absolute foodie's paradise! The flavors at
@@ -1955,16 +1948,16 @@
 
                         <div class="customer-inner">
                             <div class="customer-inner-img">
-                                <img src="./assets/images/small/customer-3.png" alt="img">
+                                <img src="./images/small/customer-3-real.png" alt="img">
                             </div>
 
                             <div class="customer-inner-text">
                                 <div class="icon">
-                                    <img src="./assets/images/icon/star.svg" alt="img">
-                                    <img src="./assets/images/icon/star.svg" alt="img">
-                                    <img src="./assets/images/icon/star.svg" alt="img">
-                                    <img src="./assets/images/icon/star.svg" alt="img">
-                                    <img src="./assets/images/icon/star.svg" alt="img">
+                                    <img src="./images/icon/star.svg" alt="img">
+                                    <img src="./images/icon/star.svg" alt="img">
+                                    <img src="./images/icon/star.svg" alt="img">
+                                    <img src="./images/icon/star.svg" alt="img">
+                                    <img src="./images/icon/star.svg" alt="img">
                                 </div>
 
                                 <h3>Robert Fox</h3>
@@ -1976,7 +1969,7 @@
                         <div class="customer-item">
 
                             <div class="customer-img">
-                                <img src="./assets/images/icon/customer-icon.png" alt="icon">
+                                <img src="./images/icon/customer-icon.png" alt="icon">
                             </div>
                             <div class="customer-item-text">
                                 <p>"An absolute foodie's paradise! The flavors at
@@ -1987,16 +1980,16 @@
 
                         <div class="customer-inner">
                             <div class="customer-inner-img">
-                                <img src="./assets/images/small/customer-1.png" alt="img">
+                                <img src="./images/small/customer-1-real.png" alt="img">
                             </div>
 
                             <div class="customer-inner-text">
                                 <div class="icon">
-                                    <img src="./assets/images/icon/star.svg" alt="img">
-                                    <img src="./assets/images/icon/star.svg" alt="img">
-                                    <img src="./assets/images/icon/star.svg" alt="img">
-                                    <img src="./assets/images/icon/star.svg" alt="img">
-                                    <img src="./assets/images/icon/star.svg" alt="img">
+                                    <img src="./images/icon/star.svg" alt="img">
+                                    <img src="./images/icon/star.svg" alt="img">
+                                    <img src="./images/icon/star.svg" alt="img">
+                                    <img src="./images/icon/star.svg" alt="img">
+                                    <img src="./images/icon/star.svg" alt="img">
                                 </div>
 
                                 <h3>Jonson Roy</h3>
@@ -2008,7 +2001,7 @@
                         <div class="customer-item ">
 
                             <div class="customer-img">
-                                <img src="./assets/images/icon/customer-icon.png" alt="icon">
+                                <img src="./images/icon/customer-icon.png" alt="icon">
                             </div>
                             <div class="customer-item-text">
                                 <p>"An absolute foodie's paradise! The flavors at
@@ -2019,16 +2012,16 @@
 
                         <div class="customer-inner">
                             <div class="customer-inner-img">
-                                <img src="./assets/images/small/customer-2.png" alt="img">
+                                <img src="./images/small/customer-2-real.png" alt="img">
                             </div>
 
                             <div class="customer-inner-text">
                                 <div class="icon">
-                                    <img src="./assets/images/icon/star.svg" alt="img">
-                                    <img src="./assets/images/icon/star.svg" alt="img">
-                                    <img src="./assets/images/icon/star.svg" alt="img">
-                                    <img src="./assets/images/icon/star.svg" alt="img">
-                                    <img src="./assets/images/icon/star.svg" alt="img">
+                                    <img src="./images/icon/star.svg" alt="img">
+                                    <img src="./images/icon/star.svg" alt="img">
+                                    <img src="./images/icon/star.svg" alt="img">
+                                    <img src="./images/icon/star.svg" alt="img">
+                                    <img src="./images/icon/star.svg" alt="img">
                                 </div>
 
                                 <h3>David Ethic</h3>
@@ -2040,7 +2033,7 @@
                         <div class="customer-item">
 
                             <div class="customer-img">
-                                <img src="./assets/images/icon/customer-icon.png" alt="icon">
+                                <img src="./images/icon/customer-icon.png" alt="icon">
                             </div>
                             <div class="customer-item-text">
                                 <p>"An absolute foodie's paradise! The flavors at
@@ -2051,16 +2044,16 @@
 
                         <div class="customer-inner">
                             <div class="customer-inner-img">
-                                <img src="./assets/images/small/customer-3.png" alt="img">
+                                <img src="./images/small/customer-3-real.png" alt="img">
                             </div>
 
                             <div class="customer-inner-text">
                                 <div class="icon">
-                                    <img src="./assets/images/icon/star.svg" alt="img">
-                                    <img src="./assets/images/icon/star.svg" alt="img">
-                                    <img src="./assets/images/icon/star.svg" alt="img">
-                                    <img src="./assets/images/icon/star.svg" alt="img">
-                                    <img src="./assets/images/icon/star.svg" alt="img">
+                                    <img src="./images/icon/star.svg" alt="img">
+                                    <img src="./images/icon/star.svg" alt="img">
+                                    <img src="./images/icon/star.svg" alt="img">
+                                    <img src="./images/icon/star.svg" alt="img">
+                                    <img src="./images/icon/star.svg" alt="img">
                                 </div>
 
                                 <h3>Robert Fox</h3>
@@ -2169,13 +2162,13 @@
                         <div class="row">
                             <div class="col-lg-8">
                                 <div class="faq-img  ">
-                                    <img src="./assets/images/thumb/faq-1.png" class="w-100" alt="thumb">
+                                    <img src="./images/thumb/faq-1-real.png" class="w-100" alt="thumb">
                                 </div>
                             </div>
                             <div class="col-lg-4">
                                 <div class="faq-img">
                                     <div class="faq-img-two">
-                                        <img src="./assets/images/thumb/faq-2.png" alt="thumb">
+                                        <img src="./images/thumb/faq-2-real.png" alt="thumb">
                                         <div class="faq-img-overlay">
                                             <div class="faq-img-overlay-text">
                                                 <h2>
@@ -2202,7 +2195,7 @@
                             <div class="col-lg-4">
                                 <div class="faq-img img-mt">
                                     <div class="faq-img-two">
-                                        <img src="./assets/images/thumb/faq-3.png" alt="thumb">
+                                        <img src="./images/thumb/faq-3-real.png" alt="thumb">
                                         <div class="faq-img-overlay faq-img-overlay-two ">
                                             <div class="faq-img-overlay-text">
                                                 <h2>
@@ -2230,7 +2223,7 @@
                                 <div class="faq-img  ">
 
                                     <div class="img-animetion">
-                                        <img src="./assets/images/thumb/faq-4.png" alt="thumb">
+                                        <img src="./images/thumb/faq-4-real.png" alt="thumb">
                                     </div>
 
                                 </div>
@@ -2253,55 +2246,10 @@
 
         <!-- faq part-end -->
 
-
-
-
-        <!-- Restaurant part-start -->
-
-        <section class="restaurant">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <div class="restaurant-taitel">
-                            <h2>Find out Better Restaurant Food Experience</h2>
-
-                            <h4>We've done it carefully and simply. Combined with the ingredients makes for beautiful
-                                landings.</h4>
-                        </div>
-
-                        <div class="restaurant-taitel-btn">
-                            <a href="#"> <span>
-                                    <img src="./assets/images/icon/Google_Play.png" alt="icon">
-                                </span> Google Play</a>
-                            <a href="#" class=" restaurant-taitel-btn-two"> <span>
-                                    <img src="./assets/images/icon/apple.png" alt="icon">
-                                </span> Google Play</a>
-                        </div>
-                    </div>
-
-
-                    <div class="col-lg-6" data-aos="fade-left">
-                        <div class="restaurant-img-main">
-                            <div class="restaurant-img">
-                                <img src="./assets/images/thumb/restaurant.png" alt="img">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-
-        <!-- Restaurant part-end -->
-
-
-
-
-
     </main>
 
 
 
-    @include('partials.footer') <!-- Включаем футер -->
+
 
 @endsection
