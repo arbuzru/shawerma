@@ -53,7 +53,45 @@
 
     <!-- Food Details part-start   -->
 
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="product-detail">
+{{--                        <!-- Изображение продукта -->--}}
+{{--                        <div class="product-image">--}}
+{{--                            <img src="{{ $product->image_url }}" alt="{{ $product->name }}" class="img-fluid">--}}
+{{--                        </div>--}}
 
+                        <!-- Название и цена продукта -->
+                        <div class="product-info">
+                            <h1>{{ $product->name }}</h1>
+                            <p><strong>Цена:</strong> ${{ $product->price }}</p>
+                            <p>{{ $product->description }}</p>
+
+                            <!-- Если есть скидка, показываем информацию о скидке -->
+                            @if ($product->discount)
+                                <p><strong>Скидка:</strong> {{ $product->discount }}%</p>
+                            @endif
+
+                            <!-- Добавить в корзину -->
+                            <div class="add-to-cart">
+                                <a href="#" class="btn btn-primary">Добавить в корзину</a>
+                            </div>
+                        </div>
+
+                        <!-- Ингредиенты -->
+                        <div class="product-ingredients">
+                            <h4>Ингредиенты:</h4>
+                            <ul>
+                                <li>{{ $product->ingredient_1 }}</li>
+                                <li>{{ $product->ingredient_2 }}</li>
+                                <!-- Можно добавить другие ингредиенты -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     <section class="food-details-section s-padding">
         <div class="container">
             <div class="row">
