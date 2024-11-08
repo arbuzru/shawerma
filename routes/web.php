@@ -10,25 +10,26 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\WishlistController;
 use Illuminate\Support\Facades\Route;
 
-
+// Админские маршруты
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('categories', CategoryController::class);
-});
-Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('products', ProductController::class);
 });
 
-
+// Маршруты для страниц
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/home-02', [HomeController::class, 'home02'])->name('home02');
-Route::get('/menu', [MenuController::class, 'index'])->name('menu');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
-Route::get('/menu/food-details/{id}', [MenuController::class, 'foodDetails'])->name('menu.food-details');
-Route::get('/food-details', [FoodController::class, 'foodDetails'])->name('food-details');
 Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist.index');
+Route::get('/food-details', [FoodController::class, 'foodDetails'])->name('food-details');
 
 
+// Меню и детали продукта
+Route::get('/menu', [MenuController::class, 'index'])->name('menu');
+Route::get('/menu/food-details/{id}', [MenuController::class, 'foodDetails'])->name('menu.food-details');
+
+// Главная страница
 Route::group(['prefix' => '/'], function () {
     Route::get('', function () {
         return view('index');

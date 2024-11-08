@@ -7,14 +7,14 @@
 <!-- ===== Loader Start ===== -->
 <div class="preloader-wrap">
     <div class="loader">
-        <img src="./assets/images/thumb/loader-2.gif" alt="loader">
+        <img src="./images/thumb/loader-2.gif" alt="loader">
     </div>
 </div>
 <!-- ===== Loader End ===== -->
 
 
 
-@include('partials.header_home02')
+
 
 
 
@@ -127,9 +127,9 @@
 
                 <div class="col-lg-5">
                     <div class="banner-img">
-                        <img src="./assets/images/thumb/banner-thunb.png" alt="thumb">
+                        <img src="./images/thumb/banner-thunb-real.png" alt="thumb">
                         <div class="banner-img-position">
-                            <img src="./assets/images/victor/banner-victor.png" alt="victor-img">
+                            <img src="./images/victor/banner-victor.png" alt="victor-img">
                         </div>
                     </div>
 
@@ -359,7 +359,7 @@
                 <div class="featured-slick  ">
                     <div class="featured-item">
                         <div class="featured-item-img">
-                            <img src="./assets/images/thumb/featured-1.png" class="w-100" alt="featured-thumb">
+                            <img src="./images/thumb/featured-1-real.png" class="w-100" alt="featured-thumb">
 
                             <div class="featured-item-img-overlay">
                                 <div class="featured-item-img-over-text">
@@ -472,7 +472,7 @@
                     </div>
                     <div class="featured-item">
                         <div class="featured-item-img">
-                            <img src="./assets/images/thumb/featured-2.png" class="w-100" alt="featured-thumb">
+                            <img src="./images/thumb/featured-2-real.png" class="w-100" alt="featured-thumb">
 
                             <div class="featured-item-img-overlay">
                                 <div class="featured-item-img-over-text">
@@ -585,7 +585,7 @@
                     </div>
                     <div class="featured-item">
                         <div class="featured-item-img">
-                            <img src="./assets/images/thumb/featured-3.png" class="w-100" alt="featured-thumb">
+                            <img src="./images/thumb/featured-3-real.png" class="w-100" alt="featured-thumb">
 
                             <div class="featured-item-img-overlay">
                                 <div class="featured-item-img-over-text">
@@ -698,7 +698,7 @@
                     </div>
                     <div class="featured-item">
                         <div class="featured-item-img">
-                            <img src="./assets/images/thumb/featured-1.png" class="w-100" alt="featured-thumb">
+                            <img src="./images/thumb/featured-1-real.png" class="w-100" alt="featured-thumb">
 
                             <div class="featured-item-img-overlay">
                                 <div class="featured-item-img-over-text">
@@ -811,7 +811,7 @@
                     </div>
                     <div class="featured-item">
                         <div class="featured-item-img">
-                            <img src="./assets/images/thumb/featured-2.png" class="w-100" alt="featured-thumb">
+                            <img src="./images/thumb/featured-2-real.png" class="w-100" alt="featured-thumb">
 
                             <div class="featured-item-img-overlay">
                                 <div class="featured-item-img-over-text">
@@ -924,7 +924,7 @@
                     </div>
                     <div class="featured-item">
                         <div class="featured-item-img">
-                            <img src="./assets/images/thumb/featured-3.png" class="w-100" alt="featured-thumb">
+                            <img src="./images/thumb/featured-3-real.png" class="w-100" alt="featured-thumb">
 
                             <div class="featured-item-img-overlay">
                                 <div class="featured-item-img-over-text">
@@ -1064,14 +1064,14 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6">
                     <div class="promotions-img">
-                        <a href="foods-details.html"> <img src="./assets/images/thumb/PromoBanner-1.png"
-                                                           class="w-100" alt="thumb"></a>
+                        <a href="foods-details.html">
+                            <img src="./images/thumb/PromoBanner-1-real.png" class="w-100" alt="thumb"></a>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <div class="promotions-img">
-                        <a href="foods-details.html"> <img src="./assets/images/thumb/PromoBanner-2.png"
-                                                           class="w-100" alt="thumb"></a>
+                        <a href="foods-details.html">
+                            <img src="./images/thumb/PromoBanner-2-real.png" class="w-100" alt="thumb"></a>
                     </div>
                 </div>
             </div>
@@ -1349,10 +1349,10 @@
 
                         <div class="featured-item  " data-aos="fade-up">
                             <div class="featured-item-img-populer">
-                                <img src="./assets/images/victor/populer.png" alt="img">
+                                <img src="./images/victor/populer.png" alt="img">
                             </div>
                             <div class="featured-item-img">
-                                <img src="./assets/images/thumb/featured-1.png" class="w-100" alt="featured-thumb">
+                                <img src="./images/thumb/featured-1-real.png" class="w-100" alt="featured-thumb">
 
                                 <div class="featured-item-img-overlay">
                                     <div class="featured-item-img-over-text">
@@ -1470,7 +1470,7 @@
 
                         <div class="featured-item" data-aos="fade-up" data-aos-delay="100">
                             <div class="featured-item-img">
-                                <img src="./assets/images/thumb/traditional-2.png" class="w-100"
+                                <img src="./images/thumb/traditional-2-real.png" class="w-100"
                                      alt="featured-thumb">
 
                                 <div class="featured-item-img-overlay">
@@ -1589,7 +1589,7 @@
                     <div class="col-lg-4 col-md-6 shaf-item res-mb-20px " data-groups='[ "development"]'>
                         <div class="featured-item" data-aos="fade-up" data-aos-delay="200">
                             <div class="featured-item-img">
-                                <img src="./assets/images/thumb/traditional-3.png" class="w-100"
+                                <img src="./images/thumb/traditional-3-real.png" class="w-100"
                                      alt="featured-thumb">
 
                                 <div class="featured-item-img-overlay">
@@ -1707,7 +1707,7 @@
 
                         <div class="featured-item" data-aos="fade-up" data-aos-delay="300">
                             <div class="featured-item-img">
-                                <img src="./assets/images/thumb/traditional-4.png" class="w-100"
+                                <img src="./images/thumb/traditional-4-real.png" class="w-100"
                                      alt="featured-thumb">
 
                                 <div class="featured-item-img-overlay">
@@ -1824,7 +1824,7 @@
 
                         <div class="featured-item" data-aos="fade-up" data-aos-delay="400">
                             <div class="featured-item-img">
-                                <img src="./assets/images/thumb/traditional-5.png" class="w-100"
+                                <img src="./images/thumb/traditional-5-real.png" class="w-100"
                                      alt="featured-thumb">
 
                                 <div class="featured-item-img-overlay">
@@ -1941,7 +1941,7 @@
 
                         <div class="featured-item" data-aos="fade-up" data-aos-delay="500">
                             <div class="featured-item-img">
-                                <img src="./assets/images/thumb/traditional-6.png" class="w-100"
+                                <img src="./images/thumb/traditional-6-real.png" class="w-100"
                                      alt="featured-thumb">
 
                                 <div class="featured-item-img-overlay">
@@ -2173,13 +2173,13 @@
                     <div class="row">
                         <div class="col-lg-8">
                             <div class="faq-img  ">
-                                <img src="./assets/images/thumb/faq-1.png" class="w-100" alt="thumb">
+                                <img src="./images/thumb/faq-1-real.png" class="w-100" alt="thumb">
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="faq-img">
                                 <div class="faq-img-two">
-                                    <img src="./assets/images/thumb/faq-2.png" alt="thumb">
+                                    <img src="./images/thumb/faq-2-real.png" alt="thumb">
                                     <div class="faq-img-overlay">
                                         <div class="faq-img-overlay-text">
                                             <h2>
@@ -2206,7 +2206,7 @@
                         <div class="col-lg-4">
                             <div class="faq-img img-mt">
                                 <div class="faq-img-two">
-                                    <img src="./assets/images/thumb/faq-3.png" alt="thumb">
+                                    <img src="./images/thumb/faq-3-real.png" alt="thumb">
                                     <div class="faq-img-overlay faq-img-overlay-two ">
                                         <div class="faq-img-overlay-text">
                                             <h2>
@@ -2234,7 +2234,7 @@
                             <div class="faq-img  ">
 
                                 <div class="img-animetion">
-                                    <img src="./assets/images/thumb/faq-4.png" alt="thumb">
+                                    <img src="./images/thumb/faq-4-real.png" alt="thumb">
                                 </div>
 
                             </div>
@@ -2277,7 +2277,7 @@
                     <div class="customer-item">
 
                         <div class="customer-img">
-                            <img src="./assets/images/icon/customer-icon.png" alt="icon">
+                            <img src="./images/icon/customer-icon.png" alt="icon">
                         </div>
                         <div class="customer-item-text">
                             <p>"An absolute foodie's paradise! The flavors at
@@ -2288,16 +2288,16 @@
 
                     <div class="customer-inner">
                         <div class="customer-inner-img">
-                            <img src="./assets/images/small/customer-1.png" alt="img">
+                            <img src="./images/small/customer-1-real.png" alt="img">
                         </div>
 
                         <div class="customer-inner-text">
                             <div class="icon">
-                                <img src="./assets/images/icon/star.svg" alt="img">
-                                <img src="./assets/images/icon/star.svg" alt="img">
-                                <img src="./assets/images/icon/star.svg" alt="img">
-                                <img src="./assets/images/icon/star.svg" alt="img">
-                                <img src="./assets/images/icon/star.svg" alt="img">
+                                <img src="./images/icon/star.svg" alt="img">
+                                <img src="./images/icon/star.svg" alt="img">
+                                <img src="./images/icon/star.svg" alt="img">
+                                <img src="./images/icon/star.svg" alt="img">
+                                <img src="./images/icon/star.svg" alt="img">
                             </div>
 
                             <h3>Jonson Roy</h3>
@@ -2309,7 +2309,7 @@
                     <div class="customer-item ">
 
                         <div class="customer-img">
-                            <img src="./assets/images/icon/customer-icon.png" alt="icon">
+                            <img src="./images/icon/customer-icon.png" alt="icon">
                         </div>
                         <div class="customer-item-text">
                             <p>"An absolute foodie's paradise! The flavors at
@@ -2320,16 +2320,16 @@
 
                     <div class="customer-inner">
                         <div class="customer-inner-img">
-                            <img src="./assets/images/small/customer-2.png" alt="img">
+                            <img src="./images/small/customer-2-real.png" alt="img">
                         </div>
 
                         <div class="customer-inner-text">
                             <div class="icon">
-                                <img src="./assets/images/icon/star.svg" alt="img">
-                                <img src="./assets/images/icon/star.svg" alt="img">
-                                <img src="./assets/images/icon/star.svg" alt="img">
-                                <img src="./assets/images/icon/star.svg" alt="img">
-                                <img src="./assets/images/icon/star.svg" alt="img">
+                                <img src="./images/icon/star.svg" alt="img">
+                                <img src="./images/icon/star.svg" alt="img">
+                                <img src="./images/icon/star.svg" alt="img">
+                                <img src="./images/icon/star.svg" alt="img">
+                                <img src="./images/icon/star.svg" alt="img">
                             </div>
 
                             <h3>David Ethic</h3>
@@ -2341,7 +2341,7 @@
                     <div class="customer-item">
 
                         <div class="customer-img">
-                            <img src="./assets/images/icon/customer-icon.png" alt="icon">
+                            <img src="./images/icon/customer-icon.png" alt="icon">
                         </div>
                         <div class="customer-item-text">
                             <p>"An absolute foodie's paradise! The flavors at
@@ -2352,16 +2352,16 @@
 
                     <div class="customer-inner">
                         <div class="customer-inner-img">
-                            <img src="./assets/images/small/customer-3.png" alt="img">
+                            <img src="./images/small/customer-3-real.png" alt="img">
                         </div>
 
                         <div class="customer-inner-text">
                             <div class="icon">
-                                <img src="./assets/images/icon/star.svg" alt="img">
-                                <img src="./assets/images/icon/star.svg" alt="img">
-                                <img src="./assets/images/icon/star.svg" alt="img">
-                                <img src="./assets/images/icon/star.svg" alt="img">
-                                <img src="./assets/images/icon/star.svg" alt="img">
+                                <img src="./images/icon/star.svg" alt="img">
+                                <img src="./images/icon/star.svg" alt="img">
+                                <img src="./images/icon/star.svg" alt="img">
+                                <img src="./images/icon/star.svg" alt="img">
+                                <img src="./images/icon/star.svg" alt="img">
                             </div>
 
                             <h3>Robert Fox</h3>
@@ -2373,7 +2373,7 @@
                     <div class="customer-item">
 
                         <div class="customer-img">
-                            <img src="./assets/images/icon/customer-icon.png" alt="icon">
+                            <img src="./images/icon/customer-icon.png" alt="icon">
                         </div>
                         <div class="customer-item-text">
                             <p>"An absolute foodie's paradise! The flavors at
@@ -2384,16 +2384,16 @@
 
                     <div class="customer-inner">
                         <div class="customer-inner-img">
-                            <img src="./assets/images/small/customer-1.png" alt="img">
+                            <img src="./images/small/customer-1-real.png" alt="img">
                         </div>
 
                         <div class="customer-inner-text">
                             <div class="icon">
-                                <img src="./assets/images/icon/star.svg" alt="img">
-                                <img src="./assets/images/icon/star.svg" alt="img">
-                                <img src="./assets/images/icon/star.svg" alt="img">
-                                <img src="./assets/images/icon/star.svg" alt="img">
-                                <img src="./assets/images/icon/star.svg" alt="img">
+                                <img src="./images/icon/star.svg" alt="img">
+                                <img src="./images/icon/star.svg" alt="img">
+                                <img src="./images/icon/star.svg" alt="img">
+                                <img src="./images/icon/star.svg" alt="img">
+                                <img src="./images/icon/star.svg" alt="img">
                             </div>
 
                             <h3>Jonson Roy</h3>
@@ -2405,7 +2405,7 @@
                     <div class="customer-item ">
 
                         <div class="customer-img">
-                            <img src="./assets/images/icon/customer-icon.png" alt="icon">
+                            <img src="./images/icon/customer-icon.png" alt="icon">
                         </div>
                         <div class="customer-item-text">
                             <p>"An absolute foodie's paradise! The flavors at
@@ -2416,16 +2416,16 @@
 
                     <div class="customer-inner">
                         <div class="customer-inner-img">
-                            <img src="./assets/images/small/customer-2.png" alt="img">
+                            <img src="./images/small/customer-2-real.png" alt="img">
                         </div>
 
                         <div class="customer-inner-text">
                             <div class="icon">
-                                <img src="./assets/images/icon/star.svg" alt="img">
-                                <img src="./assets/images/icon/star.svg" alt="img">
-                                <img src="./assets/images/icon/star.svg" alt="img">
-                                <img src="./assets/images/icon/star.svg" alt="img">
-                                <img src="./assets/images/icon/star.svg" alt="img">
+                                <img src="./images/icon/star.svg" alt="img">
+                                <img src="./images/icon/star.svg" alt="img">
+                                <img src="./images/icon/star.svg" alt="img">
+                                <img src="./images/icon/star.svg" alt="img">
+                                <img src="./images/icon/star.svg" alt="img">
                             </div>
 
                             <h3>David Ethic</h3>
@@ -2437,7 +2437,7 @@
                     <div class="customer-item">
 
                         <div class="customer-img">
-                            <img src="./assets/images/icon/customer-icon.png" alt="icon">
+                            <img src="./images/icon/customer-icon.png" alt="icon">
                         </div>
                         <div class="customer-item-text">
                             <p>"An absolute foodie's paradise! The flavors at
@@ -2448,16 +2448,16 @@
 
                     <div class="customer-inner">
                         <div class="customer-inner-img">
-                            <img src="./assets/images/small/customer-3.png" alt="img">
+                            <img src="./images/small/customer-3-real.png" alt="img">
                         </div>
 
                         <div class="customer-inner-text">
                             <div class="icon">
-                                <img src="./assets/images/icon/star.svg" alt="img">
-                                <img src="./assets/images/icon/star.svg" alt="img">
-                                <img src="./assets/images/icon/star.svg" alt="img">
-                                <img src="./assets/images/icon/star.svg" alt="img">
-                                <img src="./assets/images/icon/star.svg" alt="img">
+                                <img src="./images/icon/star.svg" alt="img">
+                                <img src="./images/icon/star.svg" alt="img">
+                                <img src="./images/icon/star.svg" alt="img">
+                                <img src="./images/icon/star.svg" alt="img">
+                                <img src="./images/icon/star.svg" alt="img">
                             </div>
 
                             <h3>Robert Fox</h3>
@@ -2498,7 +2498,7 @@
                 <div class="col-lg-4 pd-15px  ">
                     <div class="news-item">
                         <div class="news-img">
-                            <img src="./assets/images/thumb/news-1.png" class="w-100" alt="img">
+                            <img src="./images/thumb/news-1-real.png" class="w-100" alt="img">
 
                             <div class="news-img-overlay">
                                 <div class="news-img-overlay-text">
@@ -2525,7 +2525,7 @@
                 <div class="col-lg-4 pd-15px">
                     <div class="news-item">
                         <div class="news-img">
-                            <img src="./assets/images/thumb/news-2.png" class="w-100" alt="img">
+                            <img src="./images/thumb/news-2-real.png" class="w-100" alt="img">
 
                             <div class="news-img-overlay">
                                 <div class="news-img-overlay-text">
@@ -2552,7 +2552,7 @@
                 <div class="col-lg-4 pd-15px">
                     <div class="news-item">
                         <div class="news-img">
-                            <img src="./assets/images/thumb/news-3.png" class="w-100" alt="img">
+                            <img src="./images/thumb/news-3-real.png" class="w-100" alt="img">
 
                             <div class="news-img-overlay">
                                 <div class="news-img-overlay-text">
@@ -2579,7 +2579,7 @@
                 <div class="col-lg-4 pd-15px">
                     <div class="news-item">
                         <div class="news-img">
-                            <img src="./assets/images/thumb/news-1.png" class="w-100" alt="img">
+                            <img src="./images/thumb/news-1-real.png" class="w-100" alt="img">
 
                             <div class="news-img-overlay">
                                 <div class="news-img-overlay-text">
@@ -2607,7 +2607,7 @@
                 <div class="col-lg-4 pd-15px">
                     <div class="news-item">
                         <div class="news-img">
-                            <img src="./assets/images/thumb/news-2.png" class="w-100" alt="img">
+                            <img src="./images/thumb/news-2-real.png" class="w-100" alt="img">
 
                             <div class="news-img-overlay">
                                 <div class="news-img-overlay-text">
@@ -2634,7 +2634,7 @@
                 <div class="col-lg-4 pd-15px">
                     <div class="news-item">
                         <div class="news-img">
-                            <img src="./assets/images/thumb/news-3.png" class="w-100" alt="img">
+                            <img src="./images/thumb/news-3-real.png" class="w-100" alt="img">
 
                             <div class="news-img-overlay">
                                 <div class="news-img-overlay-text">
@@ -2667,44 +2667,6 @@
 
 
 
-    <!-- Restaurant part-start -->
-
-    <section class="restaurant">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="restaurant-taitel">
-                        <h2>Find out Better Restaurant Food Experience</h2>
-
-                        <h4>We've done it carefully and simply. Combined with the ingredients makes for beautiful
-                            landings.</h4>
-                    </div>
-
-                    <div class="restaurant-taitel-btn">
-                        <a href="#"> <span>
-                                    <img src="./assets/images/icon/Google_Play.png" alt="icon">
-                                </span> Google Play</a>
-                        <a href="#" class=" restaurant-taitel-btn-two"> <span>
-                                    <img src="./assets/images/icon/apple.png" alt="icon">
-                                </span> Google Play</a>
-                    </div>
-                </div>
-
-
-                <div class="col-lg-6" data-aos="fade-left">
-                    <div class="restaurant-img-main">
-                        <div class="restaurant-img">
-                            <img src="./assets/images/thumb/restaurant.png" alt="img">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Restaurant part-end -->
-
 
 
 
@@ -2713,7 +2675,7 @@
 
 
 
-@include('partials.footer_home02')
+
 
 
 

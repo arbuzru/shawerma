@@ -1,46 +1,34 @@
 @extends('layouts.app')
 
 @section('content')
+
+
     <!-- ===== Loader Start ===== -->
     <div class="preloader-wrap">
         <div class="loader">
-            <img src="{{ asset('images/thumb/loader-2.gif') }}" alt="loader">
+            <img src="./images/thumb/loader-2.gif" alt="loader">
         </div>
     </div>
     <!-- ===== Loader End ===== -->
 
-    <!-- header part start  -->
 
+    <main>
 
+        <!-- banner  -->
 
-<!-- ===== Loader Start ===== -->
-<div class="preloader-wrap">
-    <div class="loader">
-        <img src="./assets/images/thumb/loader-2.gif" alt="loader">
-    </div>
-</div>
-<!-- ===== Loader End ===== -->
-
-
-
-
-<main>
-
-    <!-- banner  -->
-
-    <div class="inner-banner">
-        <div class="container">
-            <div class="row  ">
-                <div class="col-lg-12">
-                    <div class="inner-banner-head">
-                        <h1>Food Details</h1>
-                    </div>
-
-                    <div class="inner-banner-item">
-                        <div class="left">
-                            <a href="index.html">Home</a>
+        <div class="inner-banner">
+            <div class="container">
+                <div class="row  ">
+                    <div class="col-lg-12">
+                        <div class="inner-banner-head">
+                            <h1>Food Details</h1>
                         </div>
-                        <div class="icon">
+
+                        <div class="inner-banner-item">
+                            <div class="left">
+                                <a href="{{ route('home') }}">Home</a>
+                            </div>
+                            <div class="icon">
                                 <span>
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                          xmlns="http://www.w3.org/2000/svg">
@@ -48,210 +36,198 @@
                                               stroke-linecap="round" stroke-linejoin="round" />
                                     </svg>
                                 </span>
-                        </div>
-                        <div class="left">
-                            <span>Food Details</span>
+                            </div>
+                            <div class="left">
+                                <span>Food Details</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- banner  -->
-
+        <!-- banner  -->
 
 
 
-    <!-- Food Details part-start   -->
+
+        <!-- Food Details part-start   -->
 
 
         <section class="food-details-section s-padding">
-            <div class="col-lg-8">
-                <div class="food-details-head">
-                    <div class="container">
-                        <div class="container mt-5">
-                            @if($product)
-                                    <div class="col-md-6">
-                                        <h1 class="mb-3">{{ $product->name }}</h1>
-                                        <p class="lead">{{ $product->description }}</p>
-                                        <p class="text-primary font-weight-bold">Price: ${{ number_format($product->price, 2) }}</p>
-                                    </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="food-details-head">
+                            <h2>Chicken skewers with Slices of Sweet </h2>
+                        </div>
+
+                        <div class="food-details-slick">
+                            <div class="slider-for">
+                                <div class="slider-for-img">
+                                    <img src="./images/thumb/slick-2-real.png" alt="img">
                                 </div>
-                            @else
-                                <p>Product not found.</p>
-                            @endif
+                                <div class="slider-for-img">
+                                    <img src="./images/thumb/slick-3-real.png" alt="img">
+                                </div>
+                                <div class="slider-for-img">
+                                    <img src="./images/thumb/slick-4-real.png" alt="img">
+                                </div>
+                                <div class="slider-for-img">
+                                    <img src="./images/thumb/slick-5-real.png" alt="img">
+                                </div>
+                                <div class="slider-for-img">
+                                    <img src="./images/thumb/slick-4-real.png" alt="img">
+                                </div>
+                            </div>
 
-                        </div>
-                    </div>
-
-
-                    <div class="food-details-slick">
-                        <div class="slider-for">
-                            <div class="slider-for-img">
-                                <img src="./assets/images/thumb/slick-2.png" alt="img">
-                            </div>
-                            <div class="slider-for-img">
-                                <img src="./assets/images/thumb/slick-3.png" alt="img">
-                            </div>
-                            <div class="slider-for-img">
-                                <img src="./assets/images/thumb/slick-4.png" alt="img">
-                            </div>
-                            <div class="slider-for-img">
-                                <img src="./assets/images/thumb/slick-5.png" alt="img">
-                            </div>
-                            <div class="slider-for-img">
-                                <img src="./assets/images/thumb/slick-4.png" alt="img">
-                            </div>
-                        </div>
-
-                        <div class="slider-nav">
-                            <div class="slider-nav-img">
-                                <img src="./assets/images/thumb/slick-2.png" alt="">
-                                <div class="overlay"></div>
-                            </div>
-                            <div class="slider-nav-img">
-                                <img src="./assets/images/thumb/slick-3.png" alt="">
-                                <div class="overlay"></div>
-                            </div>
-                            <div class="slider-nav-img">
-                                <img src="./assets/images/thumb/slick-4.png" alt="">
-                                <div class="overlay"></div>
-                            </div>
-                            <div class="slider-nav-img">
-                                <img src="./assets/images/thumb/slick-5.png" alt="">
-                                <div class="overlay"></div>
-                            </div>
-                            <div class="slider-nav-img">
-                                <img src="./assets/images/thumb/slick-4.png" alt="">
-                                <div class="overlay"></div>
+                            <div class="slider-nav">
+                                <div class="slider-nav-img">
+                                    <img src="./images/thumb/slick-2-real.png" alt="">
+                                    <div class="overlay"></div>
+                                </div>
+                                <div class="slider-nav-img">
+                                    <img src="./images/thumb/slick-3-real.png" alt="">
+                                    <div class="overlay"></div>
+                                </div>
+                                <div class="slider-nav-img">
+                                    <img src="./images/thumb/slick-4-real.png" alt="">
+                                    <div class="overlay"></div>
+                                </div>
+                                <div class="slider-nav-img">
+                                    <img src="./images/thumb/slick-5-real.png" alt="">
+                                    <div class="overlay"></div>
+                                </div>
+                                <div class="slider-nav-img">
+                                    <img src="./images/thumb/slick-4-real.png" alt="">
+                                    <div class="overlay"></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
 
 
 
-                    <div class="food-details-item-box">
-                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
-                                        data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
-                                        aria-selected="true">Food Details </button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
-                                        data-bs-target="#pills-profile" type="button" role="tab"
-                                        aria-controls="pills-profile" aria-selected="false">Food Video</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
-                                        data-bs-target="#pills-contact" type="button" role="tab"
-                                        aria-controls="pills-contact" aria-selected="false">Review</button>
-                            </li>
-                        </ul>
-                        <div class="tab-content" id="pills-tabContent">
-                            <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
-                                 aria-labelledby="pills-home-tab">
+                        <div class="food-details-item-box">
+                            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                                            data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                                            aria-selected="true">Food Details </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
+                                            data-bs-target="#pills-profile" type="button" role="tab"
+                                            aria-controls="pills-profile" aria-selected="false">Food Video</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                                            data-bs-target="#pills-contact" type="button" role="tab"
+                                            aria-controls="pills-contact" aria-selected="false">Review</button>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="pills-tabContent">
+                                <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                                     aria-labelledby="pills-home-tab">
 
 
 
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="food-details-text">
-                                            <p>Indulge in a mouthwatering culinary delight with our Chicken Skewers
-                                                paired with vibrant slices of sweet bell peppers. Tender pieces of
-                                                succulent chicken are marinated to perfection, resulting in a
-                                                flavorful and juicy experience. </p>
-                                        </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="food-details-text">
+                                                <p>Indulge in a mouthwatering culinary delight with our Chicken Skewers
+                                                    paired with vibrant slices of sweet bell peppers. Tender pieces of
+                                                    succulent chicken are marinated to perfection, resulting in a
+                                                    flavorful and juicy experience. </p>
+                                            </div>
 
-                                        <div class="food-details-text-two">
-                                            <h5>Ingredients:</h5>
+                                            <div class="food-details-text-two">
+                                                <h5>Ingredients:</h5>
 
-                                            <ul>
-                                                <li>Fresh chicken breast or thigh meat, cubed</li>
-                                                <li>Assorted sweet bell peppers (red, yellow, and green), sliced
-                                                    into rings</li>
-                                                <li>Marinade (your choice of herbs, spices, and seasonings)</li>
-                                                <li>Olive oil</li>
-                                                <li>Salt and pepper </li>
-                                            </ul>
-                                        </div>
+                                                <ul>
+                                                    <li>Fresh chicken breast or thigh meat, cubed</li>
+                                                    <li>Assorted sweet bell peppers (red, yellow, and green), sliced
+                                                        into rings</li>
+                                                    <li>Marinade (your choice of herbs, spices, and seasonings)</li>
+                                                    <li>Olive oil</li>
+                                                    <li>Salt and pepper </li>
+                                                </ul>
+                                            </div>
 
-                                        <div class="food-details-text-two food-details-text-three ">
-                                            <h5>Preparation:</h5>
+                                            <div class="food-details-text-two food-details-text-three ">
+                                                <h5>Preparation:</h5>
 
-                                            <ul>
-                                                <li>In a bowl, prepare the marinade by combining your choice of
-                                                    herbs, spices, olive oil, salt, and pepper.</li>
-                                                <li>While the chicken is marinating, prepare the sweet bell peppers
-                                                    by slicing them into rings.</li>
-                                                <li>Thread the marinated chicken pieces onto skewers, alternating
-                                                    with slices of sweet bell peppers.</li>
-                                                <li>While grilling, you can brush any leftover marinade onto the
-                                                    skewers for extra flavor.</li>
-                                                <li>Once cooked, remove the skewers from the grill and let them rest
-                                                    for a minute before serving. </li>
-                                            </ul>
-                                        </div>
-                                        <div class="food-details-text-two  ">
-                                            <h5>Preparation:</h5>
+                                                <ul>
+                                                    <li>In a bowl, prepare the marinade by combining your choice of
+                                                        herbs, spices, olive oil, salt, and pepper.</li>
+                                                    <li>While the chicken is marinating, prepare the sweet bell peppers
+                                                        by slicing them into rings.</li>
+                                                    <li>Thread the marinated chicken pieces onto skewers, alternating
+                                                        with slices of sweet bell peppers.</li>
+                                                    <li>While grilling, you can brush any leftover marinade onto the
+                                                        skewers for extra flavor.</li>
+                                                    <li>Once cooked, remove the skewers from the grill and let them rest
+                                                        for a minute before serving. </li>
+                                                </ul>
+                                            </div>
+                                            <div class="food-details-text-two  ">
+                                                <h5>Preparation:</h5>
 
-                                            <ul>
-                                                <li>Enjoy the skewers with a side of fresh salad or rice for a
-                                                    complete meal.</li>
-                                                <li>Drizzle with a zesty lemon or lime juice for an extra burst of
-                                                    flavor.</li>
-                                                <li>Pair with your favorite dipping sauce or chutney for added
-                                                    variety.</li>
+                                                <ul>
+                                                    <li>Enjoy the skewers with a side of fresh salad or rice for a
+                                                        complete meal.</li>
+                                                    <li>Drizzle with a zesty lemon or lime juice for an extra burst of
+                                                        flavor.</li>
+                                                    <li>Pair with your favorite dipping sauce or chutney for added
+                                                        variety.</li>
 
-                                            </ul>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-
-
-                            </div>
-                            <div class="tab-pane fade" id="pills-profile" role="tabpanel"
-                                 aria-labelledby="pills-profile-tab">
-
-                                <div class="food-video-text">
-                                    <p>In this vlog video, join us on a culinary journey as we create a
-                                        mouthwatering dish that's perfect for any occasion - Grilled Chicken Skewers
-                                        with Slices of Sweet Bell Peppers. Get ready to tantalize your taste buds as
-                                        we showcase the step-by-step process of marinating tender chicken,</p>
-                                </div>
-
-
-
-
-
-
-                                <div class="vedio-img">
-                                    <img src="./assets/images/thumb/food-video.png" alt="img">
-
-                                    <a class="my-video-links" data-autoplay="true" data-vbtype="video"
-                                       href="https://youtu.be/EiNiSFIPIQE"><i class="fa-solid fa-play"></i></a>
-                                </div>
-
-
-
-
-
-
-                                <div class="food-video-text-btm">
-                                    <p>Join us in the kitchen as we share our passion for cooking and culinary
-                                        creativity. Whether you're looking for a delightful appetizer, a flavorful
-                                        main course, or simply a cooking inspiration, these Grilled Chicken Skewers
-                                        with Slices of Sweet Bell Peppers are a must-try!</p>
-                                    <p><span>Note:</span> This is a fictional vlog video description and
-                                        timestamps. You can
-                                        adjust the content and timestamps based on your actual video footage and
-                                        narration.</p>
 
 
                                 </div>
+                                <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                                     aria-labelledby="pills-profile-tab">
+
+                                    <div class="food-video-text">
+                                        <p>In this vlog video, join us on a culinary journey as we create a
+                                            mouthwatering dish that's perfect for any occasion - Grilled Chicken Skewers
+                                            with Slices of Sweet Bell Peppers. Get ready to tantalize your taste buds as
+                                            we showcase the step-by-step process of marinating tender chicken,</p>
+                                    </div>
+
+
+
+
+
+
+                                    <div class="vedio-img">
+                                        <img src="./images/thumb/food-video.png" alt="img">
+
+                                        <a class="my-video-links" data-autoplay="true" data-vbtype="video"
+                                           href="https://youtu.be/EiNiSFIPIQE"><i class="fa-solid fa-play"></i></a>
+                                    </div>
+
+
+
+
+
+
+                                    <div class="food-video-text-btm">
+                                        <p>Join us in the kitchen as we share our passion for cooking and culinary
+                                            creativity. Whether you're looking for a delightful appetizer, a flavorful
+                                            main course, or simply a cooking inspiration, these Grilled Chicken Skewers
+                                            with Slices of Sweet Bell Peppers are a must-try!</p>
+                                        <p><span>Note:</span> This is a fictional vlog video description and
+                                            timestamps. You can
+                                            adjust the content and timestamps based on your actual video footage and
+                                            narration.</p>
+
+
+                                    </div>
 
 
 
@@ -263,15 +239,15 @@
 
 
 
-                            </div>
-                            <div class="tab-pane fade" id="pills-contact" role="tabpanel"
-                                 aria-labelledby="pills-contact-tab">
+                                </div>
+                                <div class="tab-pane fade" id="pills-contact" role="tabpanel"
+                                     aria-labelledby="pills-contact-tab">
 
 
-                                <div class="food-review">
-                                    <div class="food-review-item">
-                                        <div class="food-review-item-top">
-                                            <div class="icon">
+                                    <div class="food-review">
+                                        <div class="food-review-item">
+                                            <div class="food-review-item-top">
+                                                <div class="icon">
                                                     <span>
                                                         <svg width="144" height="20" viewBox="0 0 144 20" fill="none"
                                                              xmlns="http://www.w3.org/2000/svg">
@@ -307,32 +283,32 @@
                                                                 fill="#FFC403" />
                                                         </svg>
                                                     </span>
+                                                </div>
+
+                                                <div class="text">
+                                                    <a href="#">2 days ago</a>
+                                                </div>
                                             </div>
 
-                                            <div class="text">
-                                                <a href="#">2 days ago</a>
+                                            <div class="food-review-item-text">
+                                                <p>“There are many variations of passages of Lorem Ipsum available,to
+                                                    majority have into the find end to suffered.”</p>
+                                            </div>
+
+                                            <div class="food-review-inner">
+                                                <div class="food-review-inner-img">
+                                                    <img src="./images/small/review.png" alt="img">
+                                                </div>
+
+                                                <div class="food-review-inner-text">
+                                                    <h4>Jerome Bell</h4>
+                                                    <p>Dog Trainer</p>
+                                                </div>
                                             </div>
                                         </div>
-
-                                        <div class="food-review-item-text">
-                                            <p>“There are many variations of passages of Lorem Ipsum available,to
-                                                majority have into the find end to suffered.”</p>
-                                        </div>
-
-                                        <div class="food-review-inner">
-                                            <div class="food-review-inner-img">
-                                                <img src="./assets/images/small/review.png" alt="img">
-                                            </div>
-
-                                            <div class="food-review-inner-text">
-                                                <h4>Jerome Bell</h4>
-                                                <p>Dog Trainer</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="food-review-item">
-                                        <div class="food-review-item-top">
-                                            <div class="icon">
+                                        <div class="food-review-item">
+                                            <div class="food-review-item-top">
+                                                <div class="icon">
                                                     <span>
                                                         <svg width="144" height="20" viewBox="0 0 144 20" fill="none"
                                                              xmlns="http://www.w3.org/2000/svg">
@@ -368,32 +344,32 @@
                                                                 fill="#FFC403" />
                                                         </svg>
                                                     </span>
+                                                </div>
+
+                                                <div class="text">
+                                                    <a href="#">2 days ago</a>
+                                                </div>
                                             </div>
 
-                                            <div class="text">
-                                                <a href="#">2 days ago</a>
+                                            <div class="food-review-item-text">
+                                                <p>“There are many variations of passages of Lorem Ipsum available,to
+                                                    majority have into the find end to suffered.”</p>
+                                            </div>
+
+                                            <div class="food-review-inner">
+                                                <div class="food-review-inner-img">
+                                                    <img src="./images/small/review.png" alt="img">
+                                                </div>
+
+                                                <div class="food-review-inner-text">
+                                                    <h4>Jerome Bell</h4>
+                                                    <p>Dog Trainer</p>
+                                                </div>
                                             </div>
                                         </div>
-
-                                        <div class="food-review-item-text">
-                                            <p>“There are many variations of passages of Lorem Ipsum available,to
-                                                majority have into the find end to suffered.”</p>
-                                        </div>
-
-                                        <div class="food-review-inner">
-                                            <div class="food-review-inner-img">
-                                                <img src="./assets/images/small/review.png" alt="img">
-                                            </div>
-
-                                            <div class="food-review-inner-text">
-                                                <h4>Jerome Bell</h4>
-                                                <p>Dog Trainer</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="food-review-item">
-                                        <div class="food-review-item-top">
-                                            <div class="icon">
+                                        <div class="food-review-item">
+                                            <div class="food-review-item-top">
+                                                <div class="icon">
                                                     <span>
                                                         <svg width="144" height="20" viewBox="0 0 144 20" fill="none"
                                                              xmlns="http://www.w3.org/2000/svg">
@@ -429,239 +405,239 @@
                                                                 fill="#FFC403" />
                                                         </svg>
                                                     </span>
+                                                </div>
+
+                                                <div class="text">
+                                                    <a href="#">2 days ago</a>
+                                                </div>
                                             </div>
 
-                                            <div class="text">
-                                                <a href="#">2 days ago</a>
+                                            <div class="food-review-item-text">
+                                                <p>“There are many variations of passages of Lorem Ipsum available,to
+                                                    majority have into the find end to suffered.”</p>
+                                            </div>
+
+                                            <div class="food-review-inner">
+                                                <div class="food-review-inner-img">
+                                                    <img src="./images/small/review.png" alt="img">
+                                                </div>
+
+                                                <div class="food-review-inner-text">
+                                                    <h4>Jerome Bell</h4>
+                                                    <p>Dog Trainer</p>
+                                                </div>
                                             </div>
                                         </div>
 
-                                        <div class="food-review-item-text">
-                                            <p>“There are many variations of passages of Lorem Ipsum available,to
-                                                majority have into the find end to suffered.”</p>
-                                        </div>
 
-                                        <div class="food-review-inner">
-                                            <div class="food-review-inner-img">
-                                                <img src="./assets/images/small/review.png" alt="img">
-                                            </div>
-
-                                            <div class="food-review-inner-text">
-                                                <h4>Jerome Bell</h4>
-                                                <p>Dog Trainer</p>
-                                            </div>
+                                        <div class="food-review-item-btn">
+                                            <a href="blog-details.html" class="main-btn">See more</a>
                                         </div>
                                     </div>
 
 
-                                    <div class="food-review-item-btn">
-                                        <a href="blog-details.html" class="main-btn">See more</a>
-                                    </div>
-                                </div>
 
 
 
+                                    <div class="sent-review">
+                                        <div class="comment-from-box-main">
+                                            <div class="comment-from-box-text">
+                                                <h3>Sent Review</h3>
 
+                                                <p>Your email address will not be published. Required fields are marked
+                                                    *</p>
+                                            </div>
 
-                                <div class="sent-review">
-                                    <div class="comment-from-box-main">
-                                        <div class="comment-from-box-text">
-                                            <h3>Sent Review</h3>
-
-                                            <p>Your email address will not be published. Required fields are marked
-                                                *</p>
-                                        </div>
-
-                                        <div class="from-box">
-                                            <div class="from-item">
-                                                <div class="from-inner-df">
-                                                    <div class="from-inner">
-                                                        <input type="email" class="form-control"
-                                                               id="exampleFormControlInput6" placeholder="Don Norman">
-                                                    </div>
-                                                    <div class="from-inner from-inner-rate ">
-                                                        <div class="rate">
-                                                            <input type="radio" id="star5" name="rate" value="5" />
-                                                            <label for="star5" title="text">5 stars</label>
-                                                            <input type="radio" id="star4" name="rate" value="4" />
-                                                            <label for="star4" title="text">4 stars</label>
-                                                            <input type="radio" id="star3" name="rate" value="3" />
-                                                            <label for="star3" title="text">3 stars</label>
-                                                            <input type="radio" id="star2" name="rate" value="2" />
-                                                            <label for="star2" title="text">2 stars</label>
-                                                            <input type="radio" id="star1" name="rate" value="1" />
-                                                            <label for="star1" title="text">1 star</label>
+                                            <div class="from-box">
+                                                <div class="from-item">
+                                                    <div class="from-inner-df">
+                                                        <div class="from-inner">
+                                                            <input type="email" class="form-control"
+                                                                   id="exampleFormControlInput6" placeholder="Don Norman">
+                                                        </div>
+                                                        <div class="from-inner from-inner-rate ">
+                                                            <div class="rate">
+                                                                <input type="radio" id="star5" name="rate" value="5" />
+                                                                <label for="star5" title="text">5 stars</label>
+                                                                <input type="radio" id="star4" name="rate" value="4" />
+                                                                <label for="star4" title="text">4 stars</label>
+                                                                <input type="radio" id="star3" name="rate" value="3" />
+                                                                <label for="star3" title="text">3 stars</label>
+                                                                <input type="radio" id="star2" name="rate" value="2" />
+                                                                <label for="star2" title="text">2 stars</label>
+                                                                <input type="radio" id="star1" name="rate" value="1" />
+                                                                <label for="star1" title="text">1 star</label>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
 
-                                                <div class="from-inner-two  ">
+                                                    <div class="from-inner-two  ">
                                                         <textarea class="form-control" id="exampleFormControlTextarea1"
                                                                   rows="5" placeholder="Write Review"></textarea>
-                                                </div>
+                                                    </div>
 
-                                                <div class="from-btn">
-                                                    <a href="#" class="main-btn-four">Submit Now</a>
-                                                </div>
+                                                    <div class="from-btn">
+                                                        <a href="#" class="main-btn-four">Submit Now</a>
+                                                    </div>
 
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+
+
+
+
                                 </div>
-
-
-
-
                             </div>
+
                         </div>
+
+
+
+
 
                     </div>
 
 
 
-
-
-                </div>
-
-
-
-                <div class="col-lg-4">
-                    <div class="together-box">
-                        <div class="together-box-text">
-                            <h5>Frequently Bought together</h5>
-                        </div>
-
-                        <div class="together-box-item">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                    Chicken Leg ($30.00)
-                                </label>
+                    <div class="col-lg-4">
+                        <div class="together-box">
+                            <div class="together-box-text">
+                                <h5>Frequently Bought together</h5>
                             </div>
 
-
-
-                            <div class="form-check-btn">
-                                <div class="form-check-btn">
-
-                                    <div class="grid">
-                                        <button class="btn btn-minus "><i class="fa-solid fa-minus"></i></button>
-                                        <div class="column product-qty">0</div>
-                                        <button class="btn btn-plus "><i class="fa-solid fa-plus"></i></button>
-                                    </div>
-
+                            <div class="together-box-item">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Chicken Leg ($30.00)
+                                    </label>
                                 </div>
-                            </div>
-
-
-                        </div>
-                        <div class="together-box-item">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
-                                <label class="form-check-label" for="flexCheckDefault1">
-                                    Drinks ($25.00)
-                                </label>
-                            </div>
 
 
 
-                            <div class="form-check-btn">
                                 <div class="form-check-btn">
+                                    <div class="form-check-btn">
 
-                                    <div class="grid">
-                                        <button class="btn btn-minus "><i class="fa-solid fa-minus"></i></button>
-                                        <div class="column product-qty">1</div>
-                                        <button class="btn btn-plus "><i class="fa-solid fa-plus"></i></button>
+                                        <div class="grid">
+                                            <button class="btn btn-minus "><i class="fa-solid fa-minus"></i></button>
+                                            <div class="column product-qty">0</div>
+                                            <button class="btn btn-plus "><i class="fa-solid fa-plus"></i></button>
+                                        </div>
+
                                     </div>
-
                                 </div>
+
+
                             </div>
-
-
-                        </div>
-                        <div class="together-box-item">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
-                                <label class="form-check-label" for="flexCheckDefault2">
-                                    Nan ($10.00)
-                                </label>
-                            </div>
+                            <div class="together-box-item">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
+                                    <label class="form-check-label" for="flexCheckDefault1">
+                                        Drinks ($25.00)
+                                    </label>
+                                </div>
 
 
 
-                            <div class="form-check-btn">
                                 <div class="form-check-btn">
+                                    <div class="form-check-btn">
 
-                                    <div class="grid">
-                                        <button class="btn btn-minus "><i class="fa-solid fa-minus"></i></button>
-                                        <div class="column product-qty">1</div>
-                                        <button class="btn btn-plus "><i class="fa-solid fa-plus"></i></button>
+                                        <div class="grid">
+                                            <button class="btn btn-minus "><i class="fa-solid fa-minus"></i></button>
+                                            <div class="column product-qty">1</div>
+                                            <button class="btn btn-plus "><i class="fa-solid fa-plus"></i></button>
+                                        </div>
+
                                     </div>
-
                                 </div>
+
+
                             </div>
-
-
-                        </div>
-                        <div class="together-box-item">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
-                                <label class="form-check-label" for="flexCheckDefault3">
-                                    Extra Chess ($5.00)
-                                </label>
-                            </div>
+                            <div class="together-box-item">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
+                                    <label class="form-check-label" for="flexCheckDefault2">
+                                        Nan ($10.00)
+                                    </label>
+                                </div>
 
 
 
-                            <div class="form-check-btn">
                                 <div class="form-check-btn">
+                                    <div class="form-check-btn">
 
-                                    <div class="grid">
-                                        <button class="btn btn-minus "><i class="fa-solid fa-minus"></i></button>
-                                        <div class="column product-qty">0</div>
-                                        <button class="btn btn-plus "><i class="fa-solid fa-plus"></i></button>
+                                        <div class="grid">
+                                            <button class="btn btn-minus "><i class="fa-solid fa-minus"></i></button>
+                                            <div class="column product-qty">1</div>
+                                            <button class="btn btn-plus "><i class="fa-solid fa-plus"></i></button>
+                                        </div>
+
                                     </div>
-
                                 </div>
+
+
+                            </div>
+                            <div class="together-box-item">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
+                                    <label class="form-check-label" for="flexCheckDefault3">
+                                        Extra Chess ($5.00)
+                                    </label>
+                                </div>
+
+
+
+                                <div class="form-check-btn">
+                                    <div class="form-check-btn">
+
+                                        <div class="grid">
+                                            <button class="btn btn-minus "><i class="fa-solid fa-minus"></i></button>
+                                            <div class="column product-qty">0</div>
+                                            <button class="btn btn-plus "><i class="fa-solid fa-plus"></i></button>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
                             </div>
 
 
-                        </div>
+                            <div class="together-box-inner-btn">
+
+                                <div class="grid">
+                                    <button class="btn btn-minus "><i class="fa-solid fa-minus"></i></button>
+                                    <div class="column product-qty">2</div>
+                                    <button class="btn btn-plus "><i class="fa-solid fa-plus"></i></button>
+                                </div>
 
 
-                        <div class="together-box-inner-btn">
-
-                            <div class="grid">
-                                <button class="btn btn-minus "><i class="fa-solid fa-minus"></i></button>
-                                <div class="column product-qty">2</div>
-                                <button class="btn btn-plus "><i class="fa-solid fa-plus"></i></button>
-                            </div>
-
-
-                            <div class="together-box-inner-btn-dropdown">
-                                <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button"
-                                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Variation Size <span>
+                                <div class="together-box-inner-btn-dropdown">
+                                    <div class="dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle" type="button"
+                                                id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Variation Size <span>
                                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M7 10L12 14L17 10" stroke="white" stroke-width="1.5"
                                                           stroke-linecap="round" stroke-linejoin="round" />
                                                 </svg>
                                             </span>
-                                    </button>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                        <li><a class="dropdown-item" href="#">10</a></li>
-                                        <li><a class="dropdown-item" href="#">20</a></li>
-                                        <li><a class="dropdown-item" href="#">30</a></li>
-                                    </ul>
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                            <li><a class="dropdown-item" href="#">10</a></li>
+                                            <li><a class="dropdown-item" href="#">20</a></li>
+                                            <li><a class="dropdown-item" href="#">30</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
+
+
                             </div>
-
-
-                        </div>
-                        <div class="together-box-inner-btn-btm">
-                            <a href="#" class="main-btn-six" tabindex="-1">
+                            <div class="together-box-inner-btn-btm">
+                                <a href="#" class="main-btn-six" tabindex="-1">
                                     <span>
                                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                              xmlns="http://www.w3.org/2000/svg">
@@ -681,60 +657,60 @@
                                                   stroke-linejoin="round"></path>
                                         </svg>
                                     </span>
-                                Add to Cart
-                            </a>
+                                    Add to Cart
+                                </a>
+                            </div>
                         </div>
+
+                        <div class="blog-details-promobanner-res-df">
+                            <div class="blog-details-promobanner">
+                                <a href="#"> <img src="./images/thumb/promobanner-01-real.png" class="w-100"
+                                                  alt="img"></a>
+                            </div>
+                            <div class="blog-details-promobanner-two">
+                                <a href="#"> <img src="./images/thumb/promobanner-02-real.png" class="w-100"
+                                                  alt="img"></a>
+                            </div>
+                        </div>
+
+
+
+
+
                     </div>
-
-                    <div class="blog-details-promobanner-res-df">
-                        <div class="blog-details-promobanner">
-                            <a href="#"> <img src="./assets/images/thumb/promobanner-01.png" class="w-100"
-                                              alt="img"></a>
-                        </div>
-                        <div class="blog-details-promobanner-two">
-                            <a href="#"> <img src="./assets/images/thumb/promobanner-02.png" class="w-100"
-                                              alt="img"></a>
-                        </div>
-                    </div>
-
-
-
-
-
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
 
 
-    <!-- Food Details  part end -->
-
-
-
+        <!-- Food Details  part end -->
 
 
 
 
-    <section class="food-details food-details-two      ">
-        <div class="container">
 
-            <div class="row responsive-df">
 
-                <div class="col-lg-12">
-                    <div class="recent-order-text">
-                        <h5>Recent Order</h5>
+
+        <section class="food-details food-details-two      ">
+            <div class="container">
+
+                <div class="row responsive-df">
+
+                    <div class="col-lg-12">
+                        <div class="recent-order-text">
+                            <h5>Recent Order</h5>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-right">
-                    <div class="featured-item  ">
-                        <div class="featured-item-img">
-                            <img src="./assets/images/thumb/featured-1.png" class="w-100" alt="featured-thumb">
+                    <div class="col-lg-4 col-md-6" data-aos="fade-right">
+                        <div class="featured-item  ">
+                            <div class="featured-item-img">
+                                <img src="./images/thumb/featured-1-real.png" class="w-100" alt="featured-thumb">
 
-                            <div class="featured-item-img-overlay">
-                                <div class="featured-item-img-over-text">
-                                    <div class="left-text">
-                                        <a href="./dashboard-wishlist.html" class="icon">
+                                <div class="featured-item-img-overlay">
+                                    <div class="featured-item-img-over-text">
+                                        <div class="left-text">
+                                            <a href="./dashboard-wishlist.html" class="icon">
                                                 <span>
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                          xmlns="http://www.w3.org/2000/svg">
@@ -744,41 +720,41 @@
                                                             stroke-linejoin="round" />
                                                     </svg>
                                                 </span>
-                                        </a>
-                                    </div>
-                                    <div class="right-text">
-                                        <h5>20% Off </h5>
+                                            </a>
+                                        </div>
+                                        <div class="right-text">
+                                            <h5>20% Off </h5>
+                                        </div>
                                     </div>
                                 </div>
+
                             </div>
 
-                        </div>
-
-                        <div class="featured-item-text">
-                            <div class="text-item">
-                                <div class="left">
-                                    <h3>$30.00</h3>
-                                </div>
-                                <div class="right">
-                                    <div class="icon">
+                            <div class="featured-item-text">
+                                <div class="text-item">
+                                    <div class="left">
+                                        <h3>$30.00</h3>
+                                    </div>
+                                    <div class="right">
+                                        <div class="icon">
                                             <span><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                        xmlns="http://www.w3.org/2000/svg">
                                                     <path
                                                         d="M10.0328 3.27141C10.8375 1.5762 13.1625 1.5762 13.9672 3.27141L15.3579 6.20118C15.6774 6.87435 16.2951 7.34094 17.0096 7.44888L20.1193 7.91869C21.9187 8.19053 22.6371 10.4895 21.3351 11.8091L19.0849 14.0896C18.5679 14.6136 18.332 15.3685 18.454 16.1084L18.9852 19.3285C19.2926 21.1918 17.4116 22.6126 15.8022 21.7329L13.0208 20.2126C12.3817 19.8633 11.6183 19.8633 10.9792 20.2126L8.19776 21.7329C6.58839 22.6126 4.70742 21.1918 5.01479 19.3286L5.54599 16.1084C5.66804 15.3685 5.43211 14.6136 4.91508 14.0896L2.66488 11.8091C1.36287 10.4895 2.08133 8.19053 3.88066 7.91869L6.99037 7.44888C7.70489 7.34094 8.32257 6.87435 8.64211 6.20118L10.0328 3.27141Z"
                                                         fill="#FFB23E"></path>
                                                 </svg></span>
+                                        </div>
+                                        <h5> 4.7(2.5K)</h5>
                                     </div>
-                                    <h5> 4.7(2.5K)</h5>
                                 </div>
-                            </div>
 
-                            <div class="text-item-center">
-                                <h3><a href="all-food.html">Baked Chicken Wings and Legs</a></h3>
-                            </div>
+                                <div class="text-item-center">
+                                    <h3><a href="all-food.html">Baked Chicken Wings and Legs</a></h3>
+                                </div>
 
-                            <div class="text-item-center-item-box">
-                                <div class="text-item-center-item">
-                                    <div class="icon">
+                                <div class="text-item-center-item-box">
+                                    <div class="text-item-center-item">
+                                        <div class="icon">
                                             <span>
                                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
@@ -789,14 +765,14 @@
                                                     </path>
                                                 </svg>
                                             </span>
-                                    </div>
+                                        </div>
 
-                                    <div class="text">
-                                        <h5>4 Piece Chicken</h5>
+                                        <div class="text">
+                                            <h5>4 Piece Chicken</h5>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="text-item-center-item">
-                                    <div class="icon">
+                                    <div class="text-item-center-item">
+                                        <div class="icon">
                                             <span>
                                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
@@ -807,15 +783,15 @@
                                                     </path>
                                                 </svg>
                                             </span>
+                                        </div>
+
+                                        <div class="text">
+                                            <h5>Spicy Sauce</h5>
+                                        </div>
                                     </div>
 
-                                    <div class="text">
-                                        <h5>Spicy Sauce</h5>
-                                    </div>
-                                </div>
-
-                                <div class="featured-item-btn">
-                                    <a href="shopping-cart.html" class="main-btn-three">
+                                    <div class="featured-item-btn">
+                                        <a href="shopping-cart.html" class="main-btn-three">
                                             <span>
                                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
@@ -837,24 +813,24 @@
                                                     </path>
                                                 </svg>
                                             </span>
-                                        Add to Cart
-                                    </a>
+                                            Add to Cart
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
 
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col-lg-4 col-md-6" data-aos="fade-right" data-aos-delay="50">
-                    <div class="featured-item">
-                        <div class="featured-item-img">
-                            <img src="./assets/images/thumb/traditional-2.png" class="w-100" alt="featured-thumb">
+                    <div class="col-lg-4 col-md-6" data-aos="fade-right" data-aos-delay="50">
+                        <div class="featured-item">
+                            <div class="featured-item-img">
+                                <img src="./images/thumb/traditional-2-real.png" class="w-100" alt="featured-thumb">
 
-                            <div class="featured-item-img-overlay">
-                                <div class="featured-item-img-over-text">
-                                    <div class="left-text">
-                                        <a href="./dashboard-wishlist.html" class="icon">
+                                <div class="featured-item-img-overlay">
+                                    <div class="featured-item-img-over-text">
+                                        <div class="left-text">
+                                            <a href="./dashboard-wishlist.html" class="icon">
                                                 <span>
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                          xmlns="http://www.w3.org/2000/svg">
@@ -864,41 +840,41 @@
                                                             stroke-linejoin="round" />
                                                     </svg>
                                                 </span>
-                                        </a>
-                                    </div>
-                                    <div class="right-text">
-                                        <h5>20% Off </h5>
+                                            </a>
+                                        </div>
+                                        <div class="right-text">
+                                            <h5>20% Off </h5>
+                                        </div>
                                     </div>
                                 </div>
+
                             </div>
 
-                        </div>
-
-                        <div class="featured-item-text">
-                            <div class="text-item">
-                                <div class="left">
-                                    <h3>$20.00</h3>
-                                </div>
-                                <div class="right">
-                                    <div class="icon">
+                            <div class="featured-item-text">
+                                <div class="text-item">
+                                    <div class="left">
+                                        <h3>$20.00</h3>
+                                    </div>
+                                    <div class="right">
+                                        <div class="icon">
                                             <span><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                        xmlns="http://www.w3.org/2000/svg">
                                                     <path
                                                         d="M10.0328 3.27141C10.8375 1.5762 13.1625 1.5762 13.9672 3.27141L15.3579 6.20118C15.6774 6.87435 16.2951 7.34094 17.0096 7.44888L20.1193 7.91869C21.9187 8.19053 22.6371 10.4895 21.3351 11.8091L19.0849 14.0896C18.5679 14.6136 18.332 15.3685 18.454 16.1084L18.9852 19.3285C19.2926 21.1918 17.4116 22.6126 15.8022 21.7329L13.0208 20.2126C12.3817 19.8633 11.6183 19.8633 10.9792 20.2126L8.19776 21.7329C6.58839 22.6126 4.70742 21.1918 5.01479 19.3286L5.54599 16.1084C5.66804 15.3685 5.43211 14.6136 4.91508 14.0896L2.66488 11.8091C1.36287 10.4895 2.08133 8.19053 3.88066 7.91869L6.99037 7.44888C7.70489 7.34094 8.32257 6.87435 8.64211 6.20118L10.0328 3.27141Z"
                                                         fill="#FFB23E"></path>
                                                 </svg></span>
+                                        </div>
+                                        <h5> 4.7(2.5K)</h5>
                                     </div>
-                                    <h5> 4.7(2.5K)</h5>
                                 </div>
-                            </div>
 
-                            <div class="text-item-center">
-                                <h3><a href="all-food.html">BBQ Pulled Pork Sandwich</a></h3>
-                            </div>
+                                <div class="text-item-center">
+                                    <h3><a href="all-food.html">BBQ Pulled Pork Sandwich</a></h3>
+                                </div>
 
-                            <div class="text-item-center-item-box">
-                                <div class="text-item-center-item">
-                                    <div class="icon">
+                                <div class="text-item-center-item-box">
+                                    <div class="text-item-center-item">
+                                        <div class="icon">
                                             <span>
                                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
@@ -909,14 +885,14 @@
                                                     </path>
                                                 </svg>
                                             </span>
-                                    </div>
+                                        </div>
 
-                                    <div class="text">
-                                        <h5>4 Piece Chicken</h5>
+                                        <div class="text">
+                                            <h5>4 Piece Chicken</h5>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="text-item-center-item">
-                                    <div class="icon">
+                                    <div class="text-item-center-item">
+                                        <div class="icon">
                                             <span>
                                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
@@ -927,15 +903,15 @@
                                                     </path>
                                                 </svg>
                                             </span>
+                                        </div>
+
+                                        <div class="text">
+                                            <h5>Spicy Sauce</h5>
+                                        </div>
                                     </div>
 
-                                    <div class="text">
-                                        <h5>Spicy Sauce</h5>
-                                    </div>
-                                </div>
-
-                                <div class="featured-item-btn">
-                                    <a href="shopping-cart.html" class="main-btn-three">
+                                    <div class="featured-item-btn">
+                                        <a href="shopping-cart.html" class="main-btn-three">
                                             <span>
                                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
@@ -957,23 +933,23 @@
                                                     </path>
                                                 </svg>
                                             </span>
-                                        Add to Cart
-                                    </a>
+                                            Add to Cart
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
 
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 d-md-none d-lg-block" data-aos="fade-right" data-aos-delay="100">
-                    <div class="featured-item">
-                        <div class="featured-item-img">
-                            <img src="./assets/images/thumb/traditional-3.png" class="w-100" alt="featured-thumb">
+                    <div class="col-lg-4 d-md-none d-lg-block" data-aos="fade-right" data-aos-delay="100">
+                        <div class="featured-item">
+                            <div class="featured-item-img">
+                                <img src="./images/thumb/traditional-3-real.png" class="w-100" alt="featured-thumb">
 
-                            <div class="featured-item-img-overlay">
-                                <div class="featured-item-img-over-text">
-                                    <div class="left-text">
-                                        <a href="./dashboard-wishlist.html" class="icon">
+                                <div class="featured-item-img-overlay">
+                                    <div class="featured-item-img-over-text">
+                                        <div class="left-text">
+                                            <a href="./dashboard-wishlist.html" class="icon">
                                                 <span>
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                          xmlns="http://www.w3.org/2000/svg">
@@ -983,41 +959,41 @@
                                                             stroke-linejoin="round" />
                                                     </svg>
                                                 </span>
-                                        </a>
-                                    </div>
-                                    <div class="right-text">
-                                        <h5>20% Off </h5>
+                                            </a>
+                                        </div>
+                                        <div class="right-text">
+                                            <h5>20% Off </h5>
+                                        </div>
                                     </div>
                                 </div>
+
                             </div>
 
-                        </div>
-
-                        <div class="featured-item-text">
-                            <div class="text-item">
-                                <div class="left">
-                                    <h3>$18.00</h3>
-                                </div>
-                                <div class="right">
-                                    <div class="icon">
+                            <div class="featured-item-text">
+                                <div class="text-item">
+                                    <div class="left">
+                                        <h3>$18.00</h3>
+                                    </div>
+                                    <div class="right">
+                                        <div class="icon">
                                             <span><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                        xmlns="http://www.w3.org/2000/svg">
                                                     <path
                                                         d="M10.0328 3.27141C10.8375 1.5762 13.1625 1.5762 13.9672 3.27141L15.3579 6.20118C15.6774 6.87435 16.2951 7.34094 17.0096 7.44888L20.1193 7.91869C21.9187 8.19053 22.6371 10.4895 21.3351 11.8091L19.0849 14.0896C18.5679 14.6136 18.332 15.3685 18.454 16.1084L18.9852 19.3285C19.2926 21.1918 17.4116 22.6126 15.8022 21.7329L13.0208 20.2126C12.3817 19.8633 11.6183 19.8633 10.9792 20.2126L8.19776 21.7329C6.58839 22.6126 4.70742 21.1918 5.01479 19.3286L5.54599 16.1084C5.66804 15.3685 5.43211 14.6136 4.91508 14.0896L2.66488 11.8091C1.36287 10.4895 2.08133 8.19053 3.88066 7.91869L6.99037 7.44888C7.70489 7.34094 8.32257 6.87435 8.64211 6.20118L10.0328 3.27141Z"
                                                         fill="#FFB23E"></path>
                                                 </svg></span>
+                                        </div>
+                                        <h5> 4.7(2.5K)</h5>
                                     </div>
-                                    <h5> 4.7(2.5K)</h5>
                                 </div>
-                            </div>
 
-                            <div class="text-item-center">
-                                <h3><a href="all-food.html">Pork Chop with Apple Chutney</a></h3>
-                            </div>
+                                <div class="text-item-center">
+                                    <h3><a href="all-food.html">Pork Chop with Apple Chutney</a></h3>
+                                </div>
 
-                            <div class="text-item-center-item-box">
-                                <div class="text-item-center-item">
-                                    <div class="icon">
+                                <div class="text-item-center-item-box">
+                                    <div class="text-item-center-item">
+                                        <div class="icon">
                                             <span>
                                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
@@ -1028,14 +1004,14 @@
                                                     </path>
                                                 </svg>
                                             </span>
-                                    </div>
+                                        </div>
 
-                                    <div class="text">
-                                        <h5>4 Piece Chicken</h5>
+                                        <div class="text">
+                                            <h5>4 Piece Chicken</h5>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="text-item-center-item">
-                                    <div class="icon">
+                                    <div class="text-item-center-item">
+                                        <div class="icon">
                                             <span>
                                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
@@ -1046,15 +1022,15 @@
                                                     </path>
                                                 </svg>
                                             </span>
+                                        </div>
+
+                                        <div class="text">
+                                            <h5>Spicy Sauce</h5>
+                                        </div>
                                     </div>
 
-                                    <div class="text">
-                                        <h5>Spicy Sauce</h5>
-                                    </div>
-                                </div>
-
-                                <div class="featured-item-btn">
-                                    <a href="shopping-cart.html" class="main-btn-three">
+                                    <div class="featured-item-btn">
+                                        <a href="shopping-cart.html" class="main-btn-three">
                                             <span>
                                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                      xmlns="http://www.w3.org/2000/svg">
@@ -1076,74 +1052,36 @@
                                                     </path>
                                                 </svg>
                                             </span>
-                                        Add to Cart
-                                    </a>
+                                            Add to Cart
+                                        </a>
+                                    </div>
                                 </div>
+
                             </div>
-
                         </div>
                     </div>
                 </div>
+
+
             </div>
 
 
-        </div>
-
-
-    </section>
-    <!-- Restaurant part-start -->
-
-    <section class="restaurant">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="restaurant-taitel">
-                        <h2>Find out Better Restaurant Food Experience</h2>
-
-                        <h4>We've done it carefully and simply. Combined with the ingredients makes for beautiful
-                            landings.</h4>
-                    </div>
-
-                    <div class="restaurant-taitel-btn">
-                        <a href="#"> <span>
-                                    <img src="./assets/images/icon/Google_Play.png" alt="icon">
-                                </span> Google Play</a>
-                        <a href="#" class=" restaurant-taitel-btn-two"> <span>
-                                    <img src="./assets/images/icon/apple.png" alt="icon">
-                                </span> Google Play</a>
-                    </div>
-                </div>
-
-
-                <div class="col-lg-6" data-aos="fade-left">
-                    <div class="restaurant-img-main">
-                        <div class="restaurant-img">
-                            <img src="./assets/images/thumb/restaurant.png" alt="img">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Restaurant part-end -->
 
 
 
-</main>
 
-@include('partials.footer') <!-- Включаем футер -->
+
+        </section>
+
+
+
+
+
+
+
+
+
+
+    </main>
 
 @endsection
-
-
-
-
-
-
-
-
-
-
-
