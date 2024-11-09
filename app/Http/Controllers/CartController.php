@@ -2,34 +2,45 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
-    public function index($userId)
-    {
-        $cartItems = Cart::with('products')->where('user_id', $userId)->get();
-        return view('cart.index', compact('cartItems'));
-    }
-
+    // Метод для добавления продукта в корзину
     public function add(Request $request)
     {
-        $validated = $request->validate([
-            'user_id' => 'required|exists:users,id',
-            'product_id' => 'required|exists:products,id',
-            'quantity' => 'required|integer|min:1',
-        ]);
+        $productId = $request->input('product_id');
+        $quantity = $request->input('quantity', 1);
 
-        Cart::create($validated);
-        return redirect()->route('cart.index', $validated['user_id'])->with('success', 'Item added to cart.');
+        // Получаем продукт по ID
+        $product = Product::findOrFail($productId);
+
+        // Добавляем продукт в корзину
+        $cart = session()->get('cart', []);
+
+        if (isset($cart[$productId])) {
+            $cart[$productId]['quantity'] += $quantity;
+        } else {
+            $cart[$productId] = [
+                'name' => $product->name,
+                'price' => $product->price,
+                'quantity' => $quantity,
+            ];
+        }
+
+        session()->put('cart', $cart);
+
+        // Перенаправляем на страницу корзины или меню
+        return redirect()->route('cart.view');
     }
 
-    public function remove(Cart $cartItem)
+    // Метод для отображения корзины
+    public function view()
     {
-        $cartItem->delete();
-        return redirect()->route('cart.index', $cartItem->user_id)->with('success', 'Item removed from cart.');
+        $cart = session()->get('cart', []);
+        return view('cart.view', compact('cart'));
     }
 }
+
 

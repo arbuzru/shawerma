@@ -18,16 +18,24 @@ class MenuController extends Controller
 
     public function foodDetails($id)
     {
-        // Попробуем найти продукт по ID
+        // Получаем продукт по ID
         $product = Product::find($id);
 
-        // Если продукт не найден, перенаправляем на другую страницу или показываем 404
+        // Если продукт не найден, показываем ошибку 404
         if (!$product) {
             abort(404, 'Product not found');
         }
 
-        // Передаем продукт в представление food-details
-        return view('food-details', compact('product'));
+        // Получаем связанные продукты (по категории или другим критериям)
+        $relatedProducts = Product::where('category_id', $product->category_id)
+            ->where('id', '!=', $product->id) // Исключаем текущий продукт
+            ->take(4) // Ограничиваем количество связанных продуктов
+            ->get();
+
+
+
+        // Передаем продукт и связанные товары в представление
+        return view('menu.food-details', compact('product', 'relatedProducts'));
     }
 
 }
