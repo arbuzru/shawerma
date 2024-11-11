@@ -4,16 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 
 class CartController extends Controller
 {
+
     // Метод для добавления продукта в корзину
     public function add(Request $request)
     {
         $productId = $request->input('product_id');
         $quantity = $request->input('quantity', 1);
 
-        // Получаем продукт по ID
+        // Попробуйте найти продукт по ID. Если не найден, выбрасывается исключение 404.
         $product = Product::findOrFail($productId);
 
         // Добавляем продукт в корзину
@@ -29,18 +32,49 @@ class CartController extends Controller
             ];
         }
 
+        // Обновляем корзину в сессии
         session()->put('cart', $cart);
 
-        // Перенаправляем на страницу корзины или меню
+        return redirect()->route('cart.view');
+    }
+    public function remove($productId)
+    {
+        $cart = session()->get('cart', []);
+
+        // Удаляем товар из корзины
+        if (isset($cart[$productId])) {
+            unset($cart[$productId]);
+        }
+
+        // Обновляем корзину в сессии
+        session()->put('cart', $cart);
+
         return redirect()->route('cart.view');
     }
 
+
+    // Метод для отображения корзины
+
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
     // Метод для отображения корзины
     public function view()
     {
+        // Получаем корзину из сессии
         $cart = session()->get('cart', []);
-        return view('cart.view', compact('cart'));
+
+        // Пересчитываем стоимость
+        $total = 0;
+        foreach ($cart as $item) {
+            $total += $item['price'] * $item['quantity'];
+        }
+
+        // Передаем данные в представление
+        return view('cart.view', compact('cart', 'total'));
     }
+
 }
 
 

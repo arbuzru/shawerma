@@ -1,12 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <!-- ===== Loader Start ===== -->
-    <div class="preloader-wrap">
-        <div class="loader">
-            <img src="{{ asset('images/thumb/loader-2.gif') }}" alt="loader">
-        </div>
-    </div>
+
 
 
 <main>

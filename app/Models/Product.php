@@ -8,22 +8,15 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Product extends Model
 {
-    protected $fillable = ['name', 'description','price', 'category_id'];
+    protected $fillable = ['name', 'description', 'price', 'category_id'];
 
-    public static function create(array $validated)
-    {
-    }
-
-    public static function findOrFail($id)
-    {
-    }
-
-
+    // Отношение с категорией
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
     }
 
+    // Отношение с элементами заказов
     public function orderItems()
     {
         return $this->hasMany(OrderItem::class);

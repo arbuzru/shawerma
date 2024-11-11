@@ -13,10 +13,10 @@
 
                 <div class="restaurant-taitel-btn">
                     <a href="#"> <span>
-                                    <img src="./images/icon/Google_Play.png" alt="icon">
+                                    <img src="/images/icon/Google_Play.png" alt="icon">
                                 </span> Google Play</a>
                     <a href="#" class=" restaurant-taitel-btn-two"> <span>
-                                    <img src="./images/icon/apple.png" alt="icon">
+                                    <img src="/images/icon/apple.png" alt="icon">
                                 </span> Google Play</a>
                 </div>
             </div>
@@ -25,7 +25,7 @@
             <div class="col-lg-6" data-aos="fade-left">
                 <div class="restaurant-img-main">
                     <div class="restaurant-img">
-                        <img src="./images/thumb/restaurant-real.png" alt="img">
+                        <img src="/images/thumb/restaurant-real.png" alt="img">
 
                     </div>
                 </div>
@@ -42,7 +42,7 @@
             <div class="col-lg-4 col-md-12" data-aos="fade-right">
                 <div class="footer-logo">
                     <div class="logo">
-                        <img src="./images/logo/footer-logo.svg" alt="logo">
+                        <img src="/images/logo/footer-logo.svg" alt="logo">
                     </div>
                 </div>
 
@@ -127,7 +127,7 @@
 
                             <div class="quick-line-btn">
                                 <div class="icon">
-                                    <img src="./images/icon/sms.png" alt="icon">
+                                    <img src="/images/icon/sms.png" alt="icon">
                                 </div>
                                 <input type="email" class="form-control" id="exampleFormControlInput6"
                                        placeholder="Your email">
@@ -141,19 +141,19 @@
 
                             <div class="quick-line-btn-img">
                                 <a href="#">
-                                    <img src="./images/small/Visa-real.png" alt="img">
+                                    <img src="/images/small/Visa-real.png" alt="img">
                                 </a>
                                 <a href="#">
-                                    <img src="./images/small/Amex-real.png" alt="img">
+                                    <img src="/images/small/Amex-real.png" alt="img">
                                 </a>
                                 <a href="#">
-                                    <img src="./images/small/PayPal-real.png" alt="img">
+                                    <img src="/images/small/PayPal-real.png" alt="img">
                                 </a>
                                 <a href="#">
-                                    <img src="./images/small/Mastercard-real.png" alt="img">
+                                    <img src="/images/small/Mastercard-real.png" alt="img">
                                 </a>
                                 <a href="#">
-                                    <img src="./images/small/GooglePay-real.png" alt="img">
+                                    <img src="/images/small/GooglePay-real.png" alt="img">
                                 </a>
                             </div>
                         </div>

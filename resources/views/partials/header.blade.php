@@ -118,7 +118,7 @@
                         <div class="nav-main">
                             <div class="logo">
                                 <a href="{{ route('home') }}">
-                                    <img src="./images/logo/footer-logo.svg" alt="logo"></a>
+                                    <img src="/images/logo/footer-logo.svg" alt="logo"></a>
                             </div>
 
                             <div class="menu">
