@@ -501,7 +501,8 @@
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                                     <label class="form-check-label" for="flexCheckDefault">
-                                        Chicken Leg ($30.00)
+                                        {{ $product->name }}
+                                        <p><strong>Цена:</strong> ${{ $product->price }}</p>
                                     </label>
                                 </div>
 
@@ -525,7 +526,8 @@
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
                                     <label class="form-check-label" for="flexCheckDefault1">
-                                        Drinks ($25.00)
+                                        {{ $product->name }}
+                                        <p><strong>Цена:</strong> ${{ $product->price }}</p>
                                     </label>
                                 </div>
 
@@ -549,7 +551,8 @@
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
                                     <label class="form-check-label" for="flexCheckDefault2">
-                                        Nan ($10.00)
+                                        {{ $product->name }}
+                                        <p><strong>Цена:</strong> ${{ $product->price }}</p>
                                     </label>
                                 </div>
 
@@ -573,7 +576,8 @@
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3">
                                     <label class="form-check-label" for="flexCheckDefault3">
-                                        Extra Chess ($5.00)
+                                        {{ $product->name }}
+                                        <p><strong>Цена:</strong> ${{ $product->price }}</p>
                                     </label>
                                 </div>
 
@@ -627,28 +631,23 @@
 
                             </div>
                             <div class="together-box-inner-btn-btm">
-                                <a href="#" class="main-btn-six" tabindex="-1">
-                                    <span>
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                             xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M6 4H18C20.2091 4 22 5.79086 22 8V13C22 15.2091 20.2091 17 18 17H10C7.79086 17 6 15.2091 6 13V4ZM6 4C6 2.89543 5.10457 2 4 2H2"
-                                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                            </path>
-                                            <path
-                                                d="M11 20.5C11 21.3284 10.3284 22 9.5 22C8.67157 22 8 21.3284 8 20.5C8 19.6716 8.67157 19 9.5 19C10.3284 19 11 19.6716 11 20.5Z"
-                                                stroke-width="1.5"></path>
-                                            <path
-                                                d="M20 20.5C20 21.3284 19.3284 22 18.5 22C17.6716 22 17 21.3284 17 20.5C17 19.6716 17.6716 19 18.5 19C19.3284 19 20 19.6716 20 20.5Z"
-                                                stroke-width="1.5"></path>
-                                            <path d="M14 8L14 13" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
-                                            <path d="M16.5 10.5L11.5 10.5" stroke-width="1.5" stroke-linecap="round"
-                                                  stroke-linejoin="round"></path>
-                                        </svg>
-                                    </span>
-                                    Add to Cart
-                                </a>
+                                <form action="{{ route('cart.add') }}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="product_id" value="{{ $product->id }}">
+
+                                    <button type="submit" class="main-btn-six btn btn-success mt-3" tabindex="-1">
+                                        <span>
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6 4H18C20.2091 4 22 5.79086 22 8V13C22 15.2091 20.2091 17 18 17H10C7.79086 17 6 15.2091 6 13V4ZM6 4C6 2.89543 5.10457 2 4 2H2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                <path d="M11 20.5C11 21.3284 10.3284 22 9.5 22C8.67157 22 8 21.3284 8 20.5C8 19.6716 8.67157 19 9.5 19C10.3284 19 11 19.6716 11 20.5Z" stroke-width="1.5"></path>
+                                                <path d="M20 20.5C20 21.3284 19.3284 22 18.5 22C17.6716 22 17 21.3284 17 20.5C17 19.6716 17.6716 19 18.5 19C19.3284 19 20 19.6716 20 20.5Z" stroke-width="1.5"></path>
+                                                <path d="M14 8L14 13" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                <path d="M16.5 10.5L11.5 10.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                            </svg>
+                                        </span>
+                                        Add to Cart
+                                    </button>
+                                </form>
                             </div>
                         </div>
 
@@ -739,7 +738,7 @@
                                 </div>
 
                                 <div class="text-item-center">
-                                    <h3><a href="{{ route('menu') }}">Baked Chicken Wings and Legs</a></h3>
+                                    <h3><a href="{{ route('menu.food-details', $product->id) }}">{{ $product->name }}</a></h3>
                                 </div>
 
                                 <div class="text-item-center-item-box">
@@ -781,30 +780,23 @@
                                     </div>
 
                                     <div class="featured-item-btn">
-                                        <a href="shopping-cart.html" class="main-btn-three">
-                                            <span>
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                     xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M6 4H18C20.2091 4 22 5.79086 22 8V13C22 15.2091 20.2091 17 18 17H10C7.79086 17 6 15.2091 6 13V4ZM6 4C6 2.89543 5.10457 2 4 2H2"
-                                                        stroke-width="1.5" stroke-linecap="round"
-                                                        stroke-linejoin="round"></path>
-                                                    <path
-                                                        d="M11 20.5C11 21.3284 10.3284 22 9.5 22C8.67157 22 8 21.3284 8 20.5C8 19.6716 8.67157 19 9.5 19C10.3284 19 11 19.6716 11 20.5Z"
-                                                        stroke-width="1.5"></path>
-                                                    <path
-                                                        d="M20 20.5C20 21.3284 19.3284 22 18.5 22C17.6716 22 17 21.3284 17 20.5C17 19.6716 17.6716 19 18.5 19C19.3284 19 20 19.6716 20 20.5Z"
-                                                        stroke-width="1.5"></path>
-                                                    <path d="M14 8L14 13" stroke-width="1.5" stroke-linecap="round"
-                                                          stroke-linejoin="round">
-                                                    </path>
-                                                    <path d="M16.5 10.5L11.5 10.5" stroke-width="1.5"
-                                                          stroke-linecap="round" stroke-linejoin="round">
-                                                    </path>
-                                                </svg>
-                                            </span>
-                                            Add to Cart
-                                        </a>
+                                        <form action="{{ route('cart.add') }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+
+                                            <button type="submit" class="main-btn-six btn btn-success mt-3" tabindex="-1">
+                                        <span>
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6 4H18C20.2091 4 22 5.79086 22 8V13C22 15.2091 20.2091 17 18 17H10C7.79086 17 6 15.2091 6 13V4ZM6 4C6 2.89543 5.10457 2 4 2H2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                <path d="M11 20.5C11 21.3284 10.3284 22 9.5 22C8.67157 22 8 21.3284 8 20.5C8 19.6716 8.67157 19 9.5 19C10.3284 19 11 19.6716 11 20.5Z" stroke-width="1.5"></path>
+                                                <path d="M20 20.5C20 21.3284 19.3284 22 18.5 22C17.6716 22 17 21.3284 17 20.5C17 19.6716 17.6716 19 18.5 19C19.3284 19 20 19.6716 20 20.5Z" stroke-width="1.5"></path>
+                                                <path d="M14 8L14 13" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                <path d="M16.5 10.5L11.5 10.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                            </svg>
+                                        </span>
+                                                Add to Cart
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
 
@@ -859,7 +851,7 @@
                                 </div>
 
                                 <div class="text-item-center">
-                                    <h3><a href="{{ route('menu') }}">BBQ Pulled Pork Sandwich</a></h3>
+                                    <h3><a href="{{ route('menu.food-details', $product->id) }}">{{ $product->name }}</a></h3>
                                 </div>
 
                                 <div class="text-item-center-item-box">
@@ -901,30 +893,23 @@
                                     </div>
 
                                     <div class="featured-item-btn">
-                                        <a href="shopping-cart.html" class="main-btn-three">
-                                            <span>
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                     xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M6 4H18C20.2091 4 22 5.79086 22 8V13C22 15.2091 20.2091 17 18 17H10C7.79086 17 6 15.2091 6 13V4ZM6 4C6 2.89543 5.10457 2 4 2H2"
-                                                        stroke-width="1.5" stroke-linecap="round"
-                                                        stroke-linejoin="round"></path>
-                                                    <path
-                                                        d="M11 20.5C11 21.3284 10.3284 22 9.5 22C8.67157 22 8 21.3284 8 20.5C8 19.6716 8.67157 19 9.5 19C10.3284 19 11 19.6716 11 20.5Z"
-                                                        stroke-width="1.5"></path>
-                                                    <path
-                                                        d="M20 20.5C20 21.3284 19.3284 22 18.5 22C17.6716 22 17 21.3284 17 20.5C17 19.6716 17.6716 19 18.5 19C19.3284 19 20 19.6716 20 20.5Z"
-                                                        stroke-width="1.5"></path>
-                                                    <path d="M14 8L14 13" stroke-width="1.5" stroke-linecap="round"
-                                                          stroke-linejoin="round">
-                                                    </path>
-                                                    <path d="M16.5 10.5L11.5 10.5" stroke-width="1.5"
-                                                          stroke-linecap="round" stroke-linejoin="round">
-                                                    </path>
-                                                </svg>
-                                            </span>
-                                            Add to Cart
-                                        </a>
+                                        <form action="{{ route('cart.add') }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+
+                                            <button type="submit" class="main-btn-six btn btn-success mt-3" tabindex="-1">
+                                        <span>
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6 4H18C20.2091 4 22 5.79086 22 8V13C22 15.2091 20.2091 17 18 17H10C7.79086 17 6 15.2091 6 13V4ZM6 4C6 2.89543 5.10457 2 4 2H2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                <path d="M11 20.5C11 21.3284 10.3284 22 9.5 22C8.67157 22 8 21.3284 8 20.5C8 19.6716 8.67157 19 9.5 19C10.3284 19 11 19.6716 11 20.5Z" stroke-width="1.5"></path>
+                                                <path d="M20 20.5C20 21.3284 19.3284 22 18.5 22C17.6716 22 17 21.3284 17 20.5C17 19.6716 17.6716 19 18.5 19C19.3284 19 20 19.6716 20 20.5Z" stroke-width="1.5"></path>
+                                                <path d="M14 8L14 13" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                <path d="M16.5 10.5L11.5 10.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                            </svg>
+                                        </span>
+                                                Add to Cart
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
 
@@ -978,7 +963,7 @@
                                 </div>
 
                                 <div class="text-item-center">
-                                    <h3><a href="{{ route('menu') }}">Pork Chop with Apple Chutney</a></h3>
+                                    <h3><a href="{{ route('menu.food-details', $product->id) }}">{{ $product->name }}</a></h3>
                                 </div>
 
                                 <div class="text-item-center-item-box">
@@ -1020,30 +1005,23 @@
                                     </div>
 
                                     <div class="featured-item-btn">
-                                        <a href="shopping-cart.html" class="main-btn-three">
-                                            <span>
-                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                     xmlns="http://www.w3.org/2000/svg">
-                                                    <path
-                                                        d="M6 4H18C20.2091 4 22 5.79086 22 8V13C22 15.2091 20.2091 17 18 17H10C7.79086 17 6 15.2091 6 13V4ZM6 4C6 2.89543 5.10457 2 4 2H2"
-                                                        stroke-width="1.5" stroke-linecap="round"
-                                                        stroke-linejoin="round"></path>
-                                                    <path
-                                                        d="M11 20.5C11 21.3284 10.3284 22 9.5 22C8.67157 22 8 21.3284 8 20.5C8 19.6716 8.67157 19 9.5 19C10.3284 19 11 19.6716 11 20.5Z"
-                                                        stroke-width="1.5"></path>
-                                                    <path
-                                                        d="M20 20.5C20 21.3284 19.3284 22 18.5 22C17.6716 22 17 21.3284 17 20.5C17 19.6716 17.6716 19 18.5 19C19.3284 19 20 19.6716 20 20.5Z"
-                                                        stroke-width="1.5"></path>
-                                                    <path d="M14 8L14 13" stroke-width="1.5" stroke-linecap="round"
-                                                          stroke-linejoin="round">
-                                                    </path>
-                                                    <path d="M16.5 10.5L11.5 10.5" stroke-width="1.5"
-                                                          stroke-linecap="round" stroke-linejoin="round">
-                                                    </path>
-                                                </svg>
-                                            </span>
-                                            Add to Cart
-                                        </a>
+                                        <form action="{{ route('cart.add') }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+
+                                            <button type="submit" class="main-btn-six btn btn-success mt-3" tabindex="-1">
+                                        <span>
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6 4H18C20.2091 4 22 5.79086 22 8V13C22 15.2091 20.2091 17 18 17H10C7.79086 17 6 15.2091 6 13V4ZM6 4C6 2.89543 5.10457 2 4 2H2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                <path d="M11 20.5C11 21.3284 10.3284 22 9.5 22C8.67157 22 8 21.3284 8 20.5C8 19.6716 8.67157 19 9.5 19C10.3284 19 11 19.6716 11 20.5Z" stroke-width="1.5"></path>
+                                                <path d="M20 20.5C20 21.3284 19.3284 22 18.5 22C17.6716 22 17 21.3284 17 20.5C17 19.6716 17.6716 19 18.5 19C19.3284 19 20 19.6716 20 20.5Z" stroke-width="1.5"></path>
+                                                <path d="M14 8L14 13" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                                <path d="M16.5 10.5L11.5 10.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                            </svg>
+                                        </span>
+                                                Add to Cart
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
 

@@ -390,7 +390,7 @@
                                             </div>
 
                                             <div class="text-item-center">
-                                                <h3><a href="{{ route('menu.food-details', $product->id)  }}">Baked Chicken Wings and Legs</a>
+                                                <h3><a href="{{ route('menu.food-details', $product->id) }}">{{ $product->name }}</a>
                                                 </h3>
                                             </div>
 
@@ -512,7 +512,7 @@
                                             </div>
 
                                             <div class="text-item-center">
-                                                <h3><a href="{{ route('menu.food-details', $product->id)  }}">BBQ Pulled Pork Sandwich</a></h3>
+                                                <h3><a href="{{ route('menu.food-details', $product->id)  }}">{{ $product->name }}</a></h3>
                                             </div>
 
                                             <div class="text-item-center-item-box">
@@ -632,7 +632,7 @@
                                             </div>
 
                                             <div class="text-item-center">
-                                                <h3><a href="{{ route('menu.food-details', $product->id) }}">Pork Chop with Apple Chutney</a>
+                                                <h3><a href="{{ route('menu.food-details', $product->id) }}">{{ $product->name }}</a>
                                                 </h3>
                                             </div>
 
@@ -753,7 +753,7 @@
                                             </div>
 
                                             <div class="text-item-center">
-                                                <h3><a href="{{ route('menu.food-details', $product->id)  }}">Pork Chop with Apple Chutney</a>
+                                                <h3><a href="{{ route('menu.food-details', $product->id)  }}">{{ $product->name }}</a>
                                                 </h3>
                                             </div>
 
@@ -874,7 +874,7 @@
                                             </div>
 
                                             <div class="text-item-center">
-                                                <h3><a href="{{ route('menu.food-details', $product->id)  }}">Eggplant Parmesan & Linguine</a>
+                                                <h3><a href="{{ route('menu.food-details', $product->id)  }}">{{ $product->name }}</a>
                                                 </h3>
                                             </div>
 
@@ -995,7 +995,7 @@
                                             </div>
 
                                             <div class="text-item-center">
-                                                <h3><a href="{{ route('menu.food-details', $product->id)  }}">Fish Tacos with Chipotle Crema</a>
+                                                <h3><a href="{{ route('menu.food-details', $product->id)  }}">{{ $product->name }}</a>
                                                 </h3>
                                             </div>
 
@@ -1116,7 +1116,7 @@
                                             </div>
 
                                             <div class="text-item-center">
-                                                <h3><a href="{{ route('menu.food-details', $product->id)  }}">Quinoa-Stuffed Bell Pepper</a></h3>
+                                                <h3><a href="{{ route('menu.food-details', $product->id)  }}">{{ $product->name }}</a></h3>
                                             </div>
 
                                             <div class="text-item-center-item-box">
@@ -1237,7 +1237,7 @@
                                             </div>
 
                                             <div class="text-item-center">
-                                                <h3><a href="{{ route('menu.food-details', $product->id)  }}">Baked Chicken Wings and Legs</a>
+                                                <h3><a href="{{ route('menu.food-details', $product->id)  }}">{{ $product->name }}</a>
                                                 </h3>
                                             </div>
 
@@ -1358,7 +1358,7 @@
                                             </div>
 
                                             <div class="text-item-center">
-                                                <h3><a href="{{ route('menu.food-details', $product->id)  }}">Fish Tacos with Chipotle Crema</a>
+                                                <h3><a href="{{ route('menu.food-details', $product->id)  }}">{{ $product->name }}</a>
                                                 </h3>
                                             </div>
 
