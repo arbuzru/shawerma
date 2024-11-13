@@ -172,7 +172,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="copyright-text">
-                    <h4>©2023 <span>ReservQ</span>. All rights reserved</h4>
+                    <h4>©2024 <span>ReservQ</span>. All rights reserved</h4>
                 </div>
             </div>
         </div>

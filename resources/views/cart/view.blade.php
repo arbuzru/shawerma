@@ -377,14 +377,14 @@
                                     </td>
                                     <td>
                                         <div class="tabel-text">
-                                            <h5>Chicken Skewers with Slices</h5>
+                                            <h5>{{ $item['name'] }}</h5>
                                             <a href="#"><span>Size :</span> Small</a>
                                             <p><span>Addon :</span>Soft Drinks (+$30)</p>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="tabel-text">
-                                            <h6>$120</h6>
+                                            <h6>${{ number_format($item['price'], 2) }}</h6>
                                         </div>
                                     </td>
                                     <td>
@@ -401,7 +401,7 @@
                                     </td>
                                     <td>
                                         <div class="tabel-text">
-                                            <h6>$120</h6>
+                                            <h6>${{ number_format($total, 2) }}</h6>
                                         </div>
                                     </td>
                                     <td>
@@ -429,71 +429,94 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="details-control">
-                                        <input class="form-check-input" type="checkbox" id="checkboxNoLabel3"
-                                               value="" aria-label="...">
-                                    </td>
-                                    <td>
-                                        <div class="tabel-item">
-                                            <div class="tabel-img">
-                                                <img src="/images/small/tabel-5-real.png" alt="img">
-                                            </div>
+                                @foreach($cart as $productId => $item)
+                                    <tr>
+                                        <!-- Столбец с чекбоксом -->
+                                        <td class="details-control">
+                                            <input class="form-check-input" type="checkbox" id="checkboxNoLabel2" value="" aria-label="...">
+                                        </td>
 
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="tabel-text">
-                                            <h5>Roasted Steak with Garnish</h5>
-                                            <a href="#"><span>Size :</span> Small</a>
-                                            <p><span>Addon :</span>Soft Drinks (+$30)</p>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="tabel-text">
-                                            <h6>$120</h6>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="tabel-text-btn">
-                                            <div class="grid">
-                                                <button class="btn btn-minus "><i
-                                                        class="fa-solid fa-minus"></i></button>
-                                                <div class="column product-qty">2</div>
-                                                <button class="btn btn-plus "><i
-                                                        class="fa-solid fa-plus"></i></button>
+                                        <!-- Столбец с изображением товара -->
+                                        <td>
+                                            <div class="tabel-item">
+                                                <div class="tabel-img">
+                                                    <img src="/images/small/tabel-4-real.png" alt="img">
+                                                </div>
                                             </div>
-                                        </div>
+                                        </td>
 
-                                    </td>
-                                    <td>
-                                        <div class="tabel-text">
-                                            <h6>$120</h6>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="tabel-modal-btn">
-                                            <button type="button" class="view-btn" data-bs-toggle="modal"
-                                                    data-bs-target="#exampleModal">
-                                                    <span><svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-                                                               xmlns="http://www.w3.org/2000/svg">
-                                                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                                                  d="M21.1303 14.1469C22.2899 12.9268 22.2899 11.0732 21.1303 9.8531C19.1745 7.79533 15.8155 5 12 5C8.18448 5 4.82549 7.79533 2.86971 9.8531C1.7101 11.0732 1.7101 12.9268 2.86971 14.1469C4.82549 16.2047 8.18448 19 12 19C15.8155 19 19.1745 16.2047 21.1303 14.1469ZM12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z"
-                                                                  fill="white" />
-                                                        </svg></span> View
-                                            </button>
-                                            <a href="#">
+                                        <!-- Столбец с названием и дополнительной информацией -->
+                                        <td>
+                                            <div class="tabel-text">
+                                                <h5>{{ $item['name'] }}</h5>
+                                                <a href="#"><span>Size :</span> Small</a>
+                                                <p><span>Addon :</span> Soft Drinks (+$30)</p>
+                                            </div>
+                                        </td>
+
+                                        <!-- Столбец с ценой -->
+                                        <td>
+                                            <div class="tabel-text">
+                                                <h6>${{ number_format($item['price'], 2) }}</h6>
+                                            </div>
+                                        </td>
+
+                                        <!-- Столбец с кнопками для изменения количества товара -->
+                                        <td>
+                                            <div class="tabel-text-btn">
+                                                <div class="grid">
+                                                    <button class="btn btn-minus"><i class="fa-solid fa-minus"></i></button>
+                                                    <div class="column product-qty">{{ $item['quantity'] }}</div>
+                                                    <button class="btn btn-plus"><i class="fa-solid fa-plus"></i></button>
+                                                </div>
+                                            </div>
+                                        </td>
+
+                                        <!-- Столбец с общей стоимостью товара (цена * количество) -->
+                                        <td>
+                                            <div class="tabel-text">
+                                                <h6>${{ number_format($item['price'] * $item['quantity'], 2) }}</h6>
+                                            </div>
+                                        </td>
+
+                                        <!-- Столбец с кнопкой удаления товара -->
+                                        <td>
+                                            <div class="tabel-modal-btn">
+                                                <button type="button" class="view-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                     <span>
-                                                        <svg width="17" height="20" viewBox="0 0 17 20" fill="none"
-                                                             xmlns="http://www.w3.org/2000/svg">
-                                                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                                                  d="M5.834 0.890599C6.20493 0.334202 6.8294 0 7.4981 0H9.35737C10.0261 0 10.6505 0.334202 11.0215 0.8906L11.9277 2.25H15.6777C16.0919 2.25 16.4277 2.58579 16.4277 3C16.4277 3.41421 16.0919 3.75 15.6777 3.75H1.17773C0.763521 3.75 0.427734 3.41421 0.427734 3C0.427734 2.58579 0.763521 2.25 1.17773 2.25H4.92773L5.834 0.890599ZM11.4277 20H5.42773C3.2186 20 1.42773 18.2091 1.42773 16V5H15.4277V16C15.4277 18.2091 13.6369 20 11.4277 20ZM6.42773 8.25C6.84195 8.25 7.17773 8.58579 7.17773 9V16C7.17773 16.4142 6.84195 16.75 6.42773 16.75C6.01352 16.75 5.67773 16.4142 5.67773 16L5.67773 9C5.67773 8.58579 6.01352 8.25 6.42773 8.25ZM10.4277 8.25C10.8419 8.25 11.1777 8.58579 11.1777 9V16C11.1777 16.4142 10.8419 16.75 10.4277 16.75C10.0135 16.75 9.67774 16.4142 9.67773 16V9C9.67773 8.58579 10.0135 8.25 10.4277 8.25Z"
-                                                                  fill="white" />
+                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M21.1303 14.1469C22.2899 12.9268 22.2899 11.0732 21.1303 9.8531C19.1745 7.79533 15.8155 5 12 5C8.18448 5 4.82549 7.79533 2.86971 9.8531C1.7101 11.0732 1.7101 12.9268 2.86971 14.1469C4.82549 16.2047 8.18448 19 12 19C15.8155 19 19.1745 16.2047 21.1303 14.1469ZM12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" fill="white" />
+                                                        </svg>
+                                                    </span> View
+                                                </button>
+                                                <a href="">
+                                                    <span>
+                                                        <svg width="17" height="20" viewBox="0 0 17 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.834 0.890599C6.20493 0.334202 6.8294 0 7.4981 0H9.35737C10.0261 0 10.6505 0.334202 11.0215 0.8906L11.9277 2.25H15.6777C16.0919 2.25 16.4277 2.58579 16.4277 3C16.4277 3.41421 16.0919 3.75 15.6777 3.75H1.17773C0.763521 3.75 0.427734 3.41421 0.427734 3C0.427734 2.58579 0.763521 2.25 1.17773 2.25H4.92773L5.834 0.890599ZM11.4277 20H5.42773C3.2186 20 1.42773 18.2091 1.42773 16V5H15.4277V16C15.4277 18.2091 13.6369 20 11.4277 20ZM6.42773 8.25C6.84195 8.25 7.17773 8.58579 7.17773 9V16C7.17773 16.4142 6.84195 16.75 6.42773 16.75C6.01352 16.75 5.67773 16.4142 5.67773 16L5.67773 9C5.67773 8.58579 6.01352 8.25 6.42773 8.25ZM10.4277 8.25C10.8419 8.25 11.1777 8.58579 11.1777 9V16C11.1777 16.4142 10.8419 16.75 10.4277 16.75C10.0135 16.75 9.67774 16.4142 9.67773 16V9C9.67773 8.58579 10.0135 8.25 10.4277 8.25Z" fill="white" />
                                                         </svg>
                                                     </span>
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
+                                                </a>
+                                            </div>
+                                        </td>
+
+                                        <!-- Форма для удаления товара из корзины -->
+                                        <td>
+                                            <form action="{{ route('cart.remove', $productId) }}" method="POST" style="display:inline;">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger btn-sm" style="border: none; background: transparent; padding: 0;">
+                                                    <span>
+                                                        <svg width="17" height="20" viewBox="0 0 17 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M5.834 0.890599C6.20493 0.334202 6.8294 0 7.4981 0H9.35737C10.0261 0 10.6505 0.334202 11.0215 0.8906L11.9277 2.25H15.6777C16.0919 2.25 16.4277 2.58579 16.4277 3C16.4277 3.41421 16.0919 3.75 15.6777 3.75H1.17773C0.763521 3.75 0.427734 3.41421 0.427734 3C0.427734 2.58579 0.763521 2.25 1.17773 2.25H4.92773L5.834 0.890599ZM11.4277 20H5.42773C3.2186 20 1.42773 18.2091 1.42773 16V5H15.4277V16C15.4277 18.2091 13.6369 20 11.4277 20ZM6.42773 8.25C6.84195 8.25 7.17773 8.58579 7.17773 9V16C7.17773 16.4142 6.84195 16.75 6.42773 16.75C6.01352 16.75 5.67773 16.4142 5.67773 16L5.67773 9C5.67773 8.58579 6.01352 8.25 6.42773 8.25ZM10.4277 8.25C10.8419 8.25 11.1777 8.58579 11.1777 9V16C11.1777 16.4142 10.8419 16.75 10.4277 16.75C10.0135 16.75 9.67774 16.4142 9.67773 16V9C9.67773 8.58579 10.0135 8.25 10.4277 8.25Z" fill="white" />
+                                                        </svg>
+                                                    </span>
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
+
+                                </tbody>
                                 <tr>
                                     <td class="details-control">
                                         <input class="form-check-input" type="checkbox" id="checkboxNoLabel4"
@@ -509,14 +532,14 @@
                                     </td>
                                     <td>
                                         <div class="tabel-text">
-                                            <h5>Roasted Steak with Garnish</h5>
+                                            <h5>{{ $item['name'] }}</h5>
                                             <a href="#"><span>Size :</span> Small</a>
                                             <p><span>Addon :</span>Soft Drinks (+$30)</p>
                                         </div>
                                     </td>
                                     <td>
                                         <div class="tabel-text">
-                                            <h6>$120</h6>
+                                            <h6>${{ number_format($item['price'], 2) }}</h6>
                                         </div>
                                     </td>
                                     <td>
@@ -533,7 +556,7 @@
                                     </td>
                                     <td>
                                         <div class="tabel-text">
-                                            <h6>$120</h6>
+                                            <h6>${{ number_format($total, 2) }}</h6>
                                         </div>
                                     </td>
                                     <td>
@@ -547,7 +570,7 @@
                                                                   fill="white" />
                                                         </svg></span> View
                                             </button>
-                                            <a href="#">
+                                            <a href="">
                                                     <span>
                                                         <svg width="17" height="20" viewBox="0 0 17 20" fill="none"
                                                              xmlns="http://www.w3.org/2000/svg">
@@ -665,7 +688,8 @@
                                                         <input class="form-check-input" type="checkbox" value=""
                                                                id="flexCheckDefault2">
                                                         <label class="form-check-label" for="flexCheckDefault2">
-                                                            Nan ($10.00)
+                                                            {{ $item['name'] }}
+
                                                         </label>
                                                     </div>
 
@@ -692,7 +716,7 @@
                                                         <input class="form-check-input" type="checkbox" value=""
                                                                id="flexCheckDefault3">
                                                         <label class="form-check-label" for="flexCheckDefault3">
-                                                            Extra Chess ($5.00)
+                                                            ${{ number_format($item['price'], 2) }}
                                                         </label>
                                                     </div>
 
@@ -813,7 +837,7 @@
 
 
                         <div class="tabel-main-btn">
-                            <a href="shopping-cart-02.html" class="main-btn-six">
+                            <a href="{{ route('checkout') }}" class="main-btn-six">
                                 Process to Checkout
                                 <span>
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
