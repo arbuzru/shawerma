@@ -63,7 +63,7 @@
 
                         <div class="inner-banner-item">
                             <div class="left">
-                                <a href="index.html">Home</a>
+                                <a href="{{ route('home') }}">Home</a>
                             </div>
                             <div class="icon">
                                 <span>
