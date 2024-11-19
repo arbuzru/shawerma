@@ -28,6 +28,7 @@ Route::get('/food-details', [FoodController::class, 'foodDetails'])->name('food-
 /* карзина */
 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
 Route::get('/cart', [CartController::class, 'view'])->name('cart.view');
+Route::post('/cart/update/{productId}', [CartController::class, 'update'])->name('cart.update');
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');
 Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
 // Для удаления товара из корзины

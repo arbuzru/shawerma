@@ -1,54 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container my-5">
-        <h1 class="mb-4">Ваша корзина</h1>
 
-        @if(count($cart) > 0)
-            <div class="cart-table">
-                <table class="table table-striped table-bordered">
-                    <thead>
-                    <tr>
-                        <th>Продукт</th>
-                        <th>Цена</th>
-                        <th>Количество</th>
-                        <th>Итого</th>
-                        <th>Действия</th> <!-- Добавляем колонку для кнопки удаления -->
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($cart as $productId => $item)
-                        <tr>
-                            <td>{{ $item['name'] }}</td>
-                            <td>${{ number_format($item['price'], 2) }}</td>
-                            <td>{{ $item['quantity'] }}</td>
-                            <td>${{ number_format($item['price'] * $item['quantity'], 2) }}</td>
-                            <td>
-                                <!-- Форма для удаления товара из корзины -->
-                                <form action="{{ route('cart.remove', $productId) }}" method="POST" style="display:inline;">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm">Удалить</button>
-                                </form>
-                            </td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="total-price mt-4">
-                <h3>Общая сумма: ${{ number_format($total, 2) }}</h3>
-            </div>
-
-            <div class="checkout-button mt-4">
-                <a href="{{ route('checkout') }}" class="btn btn-success">Перейти к оформлению</a>
-            </div>
-        @else
-            <p>Ваша корзина пуста.</p>
-        @endif
-    </div>
-
+    @foreach ($cart as $productId => $item)
+    @endforeach
     <main>
 
         <!-- banner  -->
@@ -256,16 +211,33 @@
                                     </td>
                                     <td>
                                         <div class="tabel-text-btn">
-                                            <div class="grid">
-                                                <button class="btn btn-minus "><i
-                                                        class="fa-solid fa-minus"></i></button>
-                                                <div class="column product-qty">2</div>
-                                                <button class="btn btn-plus "><i
-                                                        class="fa-solid fa-plus"></i></button>
+                                            <div class="grid d-flex align-items-center">
+                                                <!-- Кнопка уменьшения количества -->
+                                                <form action="{{ route('cart.update', $productId) }}" method="POST" style="display:inline;">
+                                                    @csrf
+                                                    @method('PATCH')
+                                                    <input type="hidden" name="quantity" value="{{ $item['quantity'] - 1 }}">
+                                                    <button type="submit" class="btn btn-minus" @if($item['quantity'] <= 1) disabled @endif>
+                                                        <i class="fa-solid fa-minus"></i>
+                                                    </button>
+                                                </form>
+
+                                                <!-- Текущее количество товара -->
+                                                <div class="column product-qty mx-2">{{ $item['quantity'] }}</div>
+
+                                                <!-- Кнопка увеличения количества -->
+                                                <form action="{{ route('cart.update', $productId) }}" method="POST" style="display:inline;">
+                                                    @csrf
+                                                    @method('PATCH')
+                                                    <input type="hidden" name="quantity" value="{{ $item['quantity'] + 1 }}">
+                                                    <button type="submit" class="btn btn-plus">
+                                                        <i class="fa-solid fa-plus"></i>
+                                                    </button>
+                                                </form>
                                             </div>
                                         </div>
-
                                     </td>
+
                                     <td>
                                         <div class="tabel-text">
                                             <h6>${{ number_format($total, 2) }}</h6>
@@ -323,15 +295,31 @@
                                     </td>
                                     <td>
                                         <div class="tabel-text-btn">
-                                            <div class="grid">
-                                                <button class="btn btn-minus "><i
-                                                        class="fa-solid fa-minus"></i></button>
-                                                <div class="column product-qty">2</div>
-                                                <button class="btn btn-plus "><i
-                                                        class="fa-solid fa-plus"></i></button>
+                                            <div class="grid d-flex align-items-center">
+                                                <!-- Кнопка уменьшения количества -->
+                                                <form action="{{ route('cart.update', $productId) }}" method="POST" style="display:inline;">
+                                                    @csrf
+                                                    @method('PATCH')
+                                                    <input type="hidden" name="quantity" value="{{ $item['quantity'] - 1 }}">
+                                                    <button type="submit" class="btn btn-minus" @if($item['quantity'] <= 1) disabled @endif>
+                                                        <i class="fa-solid fa-minus"></i>
+                                                    </button>
+                                                </form>
+
+                                                <!-- Текущее количество товара -->
+                                                <div class="column product-qty mx-2">{{ $item['quantity'] }}</div>
+
+                                                <!-- Кнопка увеличения количества -->
+                                                <form action="{{ route('cart.update', $productId) }}" method="POST" style="display:inline;">
+                                                    @csrf
+                                                    @method('PATCH')
+                                                    <input type="hidden" name="quantity" value="{{ $item['quantity'] + 1 }}">
+                                                    <button type="submit" class="btn btn-plus">
+                                                        <i class="fa-solid fa-plus"></i>
+                                                    </button>
+                                                </form>
                                             </div>
                                         </div>
-
                                     </td>
                                     <td>
                                         <div class="tabel-text">
@@ -389,16 +377,33 @@
                                     </td>
                                     <td>
                                         <div class="tabel-text-btn">
-                                            <div class="grid">
-                                                <button class="btn btn-minus "><i
-                                                        class="fa-solid fa-minus"></i></button>
-                                                <div class="column product-qty">2</div>
-                                                <button class="btn btn-plus "><i
-                                                        class="fa-solid fa-plus"></i></button>
+                                            <div class="grid d-flex align-items-center">
+                                                <!-- Кнопка уменьшения количества -->
+                                                <form action="{{ route('cart.update', $productId) }}" method="POST" style="display:inline;">
+                                                    @csrf
+                                                    @method('PATCH')
+                                                    <input type="hidden" name="quantity" value="{{ $item['quantity'] - 1 }}">
+                                                    <button type="submit" class="btn btn-minus" @if($item['quantity'] <= 1) disabled @endif>
+                                                        <i class="fa-solid fa-minus"></i>
+                                                    </button>
+                                                </form>
+
+                                                <!-- Текущее количество товара -->
+                                                <div class="column product-qty mx-2">{{ $item['quantity'] }}</div>
+
+                                                <!-- Кнопка увеличения количества -->
+                                                <form action="{{ route('cart.update', $productId) }}" method="POST" style="display:inline;">
+                                                    @csrf
+                                                    @method('PATCH')
+                                                    <input type="hidden" name="quantity" value="{{ $item['quantity'] + 1 }}">
+                                                    <button type="submit" class="btn btn-plus">
+                                                        <i class="fa-solid fa-plus"></i>
+                                                    </button>
+                                                </form>
                                             </div>
                                         </div>
-
                                     </td>
+
                                     <td>
                                         <div class="tabel-text">
                                             <h6>${{ number_format($total, 2) }}</h6>
@@ -464,13 +469,33 @@
                                         <!-- Столбец с кнопками для изменения количества товара -->
                                         <td>
                                             <div class="tabel-text-btn">
-                                                <div class="grid">
-                                                    <button class="btn btn-minus"><i class="fa-solid fa-minus"></i></button>
-                                                    <div class="column product-qty">{{ $item['quantity'] }}</div>
-                                                    <button class="btn btn-plus"><i class="fa-solid fa-plus"></i></button>
+                                                <div class="grid d-flex align-items-center">
+                                                    <!-- Кнопка уменьшения количества -->
+                                                    <form action="{{ route('cart.update', $productId) }}" method="POST" style="display:inline;">
+                                                        @csrf
+                                                        @method('PATCH')
+                                                        <input type="hidden" name="quantity" value="{{ $item['quantity'] - 1 }}">
+                                                        <button type="submit" class="btn btn-minus" @if($item['quantity'] <= 1) disabled @endif>
+                                                            <i class="fa-solid fa-minus"></i>
+                                                        </button>
+                                                    </form>
+
+                                                    <!-- Текущее количество товара -->
+                                                    <div class="column product-qty mx-2">{{ $item['quantity'] }}</div>
+
+                                                    <!-- Кнопка увеличения количества -->
+                                                    <form action="{{ route('cart.update', $productId) }}" method="POST" style="display:inline;">
+                                                        @csrf
+                                                        @method('PATCH')
+                                                        <input type="hidden" name="quantity" value="{{ $item['quantity'] + 1 }}">
+                                                        <button type="submit" class="btn btn-plus">
+                                                            <i class="fa-solid fa-plus"></i>
+                                                        </button>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </td>
+
 
                                         <!-- Столбец с общей стоимостью товара (цена * количество) -->
                                         <td>
@@ -517,15 +542,15 @@
                                 @endforeach
 
                                 </tbody>
-                                <tr>
+                                 <tr>
                                     <td class="details-control">
-                                        <input class="form-check-input" type="checkbox" id="checkboxNoLabel4"
+                                        <input class="form-check-input" type="checkbox" id="checkboxNoLabel-0"
                                                value="" aria-label="...">
                                     </td>
                                     <td>
                                         <div class="tabel-item">
                                             <div class="tabel-img">
-                                                <img src="./images/small/tabel-2-real.png" alt="img">
+                                                <img src="/images/small/tabel-1-real.png" alt="img">
                                             </div>
 
                                         </div>
@@ -544,16 +569,33 @@
                                     </td>
                                     <td>
                                         <div class="tabel-text-btn">
-                                            <div class="grid">
-                                                <button class="btn btn-minus "><i
-                                                        class="fa-solid fa-minus"></i></button>
-                                                <div class="column product-qty">2</div>
-                                                <button class="btn btn-plus "><i
-                                                        class="fa-solid fa-plus"></i></button>
+                                            <div class="grid d-flex align-items-center">
+                                                <!-- Кнопка уменьшения количества -->
+                                                <form action="{{ route('cart.update', $productId) }}" method="POST" style="display:inline;">
+                                                    @csrf
+                                                    @method('POST')
+                                                    <input type="hidden" name="quantity" value="{{ $item['quantity'] - 1 }}">
+                                                    <button type="submit" class="btn btn-minus" @if($item['quantity'] <= 1) disabled @endif>
+                                                        <i class="fa-solid fa-minus"></i>
+                                                    </button>
+                                                </form>
+
+                                                <!-- Текущее количество товара -->
+                                                <div class="column product-qty mx-2">{{ $item['quantity'] }}</div>
+
+                                                <!-- Кнопка увеличения количества -->
+                                                <form action="{{ route('cart.update', $productId) }}" method="POST" style="display:inline;">
+                                                    @csrf
+                                                    @method('PATCH')
+                                                    <input type="hidden" name="quantity" value="{{ $item['quantity'] + 1 }}">
+                                                    <button type="submit" class="btn btn-plus">
+                                                        <i class="fa-solid fa-plus"></i>
+                                                    </button>
+                                                </form>
                                             </div>
                                         </div>
-
                                     </td>
+
                                     <td>
                                         <div class="tabel-text">
                                             <h6>${{ number_format($total, 2) }}</h6>
@@ -570,7 +612,7 @@
                                                                   fill="white" />
                                                         </svg></span> View
                                             </button>
-                                            <a href="">
+                                            <a href="{{ route('cart.remove', $productId) }}">
                                                     <span>
                                                         <svg width="17" height="20" viewBox="0 0 17 20" fill="none"
                                                              xmlns="http://www.w3.org/2000/svg">

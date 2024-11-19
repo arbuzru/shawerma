@@ -11,7 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('products', function (Blueprint $table) {
+            $table->id(); // Автоинкрементируемый id
+            $table->string('name'); // Название продукта
+            $table->decimal('price', 8, 2); // Цена продукта с двумя знаками после запятой
+            $table->text('description')->nullable(); // Описание продукта (необязательно)
+            $table->foreignId('category_id')->constrained()->onDelete('cascade'); // Внешний ключ на таблицу категорий
+            $table->string('image')->nullable(); // Путь к изображению (необязательно)
+            $table->timestamps(); // created_at и updated_at
+        });
     }
 
     /**
@@ -19,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('products');
     }
 };

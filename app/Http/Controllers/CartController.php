@@ -74,6 +74,19 @@ class CartController extends Controller
         // Передаем данные в представление
         return view('cart.view', compact('cart', 'total'));
     }
+    public function update(Request $request, $productId)
+    {
+        $quantity = max(1, $request->input('quantity')); // Убедимся, что количество не меньше 1
+        $cart = session()->get('cart', []);
+
+        if (isset($cart[$productId])) {
+            $cart[$productId]['quantity'] = $quantity;
+            session()->put('cart', $cart);
+        }
+
+        return redirect()->back()->with('success', 'Количество товара обновлено.');
+    }
+
 
 }
 

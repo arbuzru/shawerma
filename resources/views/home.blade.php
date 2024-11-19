@@ -133,7 +133,7 @@
 
                     <div class="col-lg-6">
                         <div class="categories-head-btn">
-                            <a href="all-food.html" class="main-btn">See more</a>
+                            <a href="{{ route('menu') }}" class="main-btn">See more</a>
                         </div>
                     </div>
                 </div>
@@ -345,6 +345,86 @@
                     <!-- Filter Title -->
 
                     <!-- Filter Content -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="tab-content" id="pills-tabContent">
+                                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                                    <div class="row">
+                                        @foreach($products as $product)
+                                            <div class="col-lg-4 col-md-6 res-popular-item-mt-30px">
+                                                <div class="featured-item">
+                                                    <div class="featured-item-img">
+                                                        <!-- Используем путь изображения из базы данных -->
+                                                        <img src="{{ asset('storage/images/thumb/' . $product->image) }}" class="w-100" alt="{{ $product->name }}">
+                                                        <div class="featured-item-img-overlay">
+                                                            <div class="featured-item-img-over-text">
+                                                                <div class="left-text">
+                                                                    <a href="#" class="icon">
+                                                    <span>
+                                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M4.31804 6.31804C3.90017 6.7359 3.5687 7.23198 3.34255 7.77795C3.1164 8.32392 3 8.90909 3 9.50004C3 10.091 3.1164 10.6762 3.34255 11.2221C3.5687 11.7681 3.90017 12.2642 4.31804 12.682L12 20.364L19.682 12.682C20.526 11.8381 21.0001 10.6935 21.0001 9.50004C21.0001 8.30656 20.526 7.16196 19.682 6.31804C18.8381 5.47412 17.6935 5.00001 16.5 5.00001C15.3066 5.00001 14.162 5.47412 13.318 6.31804L12 7.63604L10.682 6.31804C10.2642 5.90017 9.7681 5.5687 9.22213 5.34255C8.67616 5.1164 8.09099 5 7.50004 5C6.90909 5 6.32392 5.1164 5.77795 5.34255C5.23198 5.5687 4.7359 5.90017 4.31804 6.31804V6.31804Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </span>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="right-text">
+                                                                    <h5>20% Off</h5>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="featured-item-text">
+                                                        <div class="text-item">
+                                                            <div class="left">
+                                                                <h3>${{ number_format($product->price, 2) }}</h3>
+                                                            </div>
+                                                            <div class="right">
+                                                                <h5>4.7 (2.5K)</h5>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="text-item-center">
+                                                            <h3><a href="{{ route('menu.food-details', $product->id) }}">{{ $product->name }}</a></h3>
+                                                        </div>
+
+                                                        <div class="text-item-center-item-box">
+                                                            @php
+                                                                $cartItem = $cart[$product->id] ?? null;
+                                                            @endphp
+
+                                                            @if($cartItem)
+                                                                <div class="together-box-inner-btn-btm">
+                                                                    <form action="{{ route('cart.update', $product->id) }}" method="POST">
+                                                                        @csrf
+                                                                        <input type="hidden" name="quantity" value="{{ $cartItem['quantity'] + 1 }}">
+                                                                        <button type="submit" class="main-btn-six btn btn-success" tabindex="-1">
+                                                                            <span>Добавить еще ({{ $cartItem['quantity'] }})</span>
+                                                                        </button>
+                                                                    </form>
+                                                                </div>
+                                                            @else
+                                                                <div class="together-box-inner-btn-btm">
+                                                                    <form action="{{ route('cart.add') }}" method="POST">
+                                                                        @csrf
+                                                                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                                                        <button type="submit" class="main-btn-six btn btn-primary" tabindex="-1">
+                                                                            <span>Добавить в корзину</span>
+                                                                        </button>
+                                                                    </form>
+                                                                </div>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="row shafull-container">
                         <div class="col-lg-4 col-md-6 shaf-item res-mb-20px  "
                              data-groups='["all", "science", "development", "architecture","engineering", "Vegetarian" ]'>
@@ -399,7 +479,7 @@
                                     </div>
 
                                     <div class="text-item-center">
-                                        <h3><a href="all-food.html">Baked Chicken Wings and Legs</a></h3>
+                                        <h3><a href="{{ route('menu') }}">Baked Chicken Wings and Legs</a></h3>
                                     </div>
 
                                     <div class="text-item-center-item-box">
@@ -518,7 +598,7 @@
                                     </div>
 
                                     <div class="text-item-center">
-                                        <h3><a href="all-food.html">BBQ Pulled Pork Sandwich</a></h3>
+                                        <h3><a href="{{ route('menu') }}">BBQ Pulled Pork Sandwich</a></h3>
                                     </div>
 
                                     <div class="text-item-center-item-box">
@@ -637,7 +717,7 @@
                                     </div>
 
                                     <div class="text-item-center">
-                                        <h3><a href="all-food.html">Pork Chop with Apple Chutney</a></h3>
+                                        <h3><a href="{{ route('menu') }}">Pork Chop with Apple Chutney</a></h3>
                                     </div>
 
                                     <div class="text-item-center-item-box">
@@ -755,7 +835,7 @@
                                     </div>
 
                                     <div class="text-item-center">
-                                        <h3><a href="all-food.html">Eggplant Parmesan & Linguine</a></h3>
+                                        <h3><a href="{{ route('menu') }}">Eggplant Parmesan & Linguine</a></h3>
                                     </div>
 
                                     <div class="text-item-center-item-box">
@@ -872,7 +952,7 @@
                                     </div>
 
                                     <div class="text-item-center">
-                                        <h3><a href="all-food.html">Fish Tacos with Chipotle Crema</a></h3>
+                                        <h3><a href="{{ route('menu') }}">Fish Tacos with Chipotle Crema</a></h3>
                                     </div>
 
                                     <div class="text-item-center-item-box">
@@ -989,7 +1069,7 @@
                                     </div>
 
                                     <div class="text-item-center">
-                                        <h3><a href="all-food.html">Quinoa-Stuffed Bell Pepper</a></h3>
+                                        <h3><a href="{{ route('menu') }}">Quinoa-Stuffed Bell Pepper</a></h3>
                                     </div>
 
                                     <div class="text-item-center-item-box">
@@ -1029,7 +1109,7 @@
                                         </div>
 
                                         <div class="featured-item-btn">
-                                            <a href="shopping-cart.html" class="main-btn-three">
+                                            <a href="{{ route('cart.add') }}" class="main-btn-three">
                                                 <span>
                                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
                                                          xmlns="http://www.w3.org/2000/svg">
@@ -1065,7 +1145,7 @@
 
                         <div class="col-lg-12">
                             <div class="traditional-btn">
-                                <a href="all-food.html" class="main-btn-four">Browser All</a>
+                                <a href="{{ route('menu') }}" class="main-btn-four">Browser All</a>
                             </div>
                         </div>
 
