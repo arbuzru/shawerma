@@ -26,11 +26,17 @@ class AddressController extends Controller
             'city' => 'required|string|max:255',
             'state' => 'required|string|max:255',
             'zip_code' => 'required|string|max:10',
+            'country' => 'required|string|max:100',
+            'phone' => 'nullable|string|max:20',
+            'address' => 'nullable|string|max:255',
         ]);
 
+        // Сохраняем новый адрес для пользователя
         $user->addresses()->create($validated);
+
         return redirect()->route('addresses.index', $user)->with('success', 'Address added successfully.');
     }
+
 
     public function edit(Address $address)
     {
@@ -44,11 +50,16 @@ class AddressController extends Controller
             'city' => 'required|string|max:255',
             'state' => 'required|string|max:255',
             'zip_code' => 'required|string|max:10',
+            'country' => 'required|string|max:100',
+            'phone' => 'nullable|string|max:20',
+            'address' => 'nullable|string|max:255',
         ]);
 
         $address->update($validated);
+
         return redirect()->route('addresses.index', $address->user)->with('success', 'Address updated successfully.');
     }
+
 
     public function destroy(Address $address)
     {

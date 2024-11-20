@@ -11,6 +11,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\WishlistController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ShoppingCartAddressController;
 
 // Админские маршруты
 Route::prefix('admin')->name('admin.')->group(function () {
@@ -25,7 +26,7 @@ Route::get('/about', [AboutController::class, 'index'])->name('about');
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist.index');
 Route::get('/food-details', [FoodController::class, 'foodDetails'])->name('food-details');
-/* карзина */
+/* корзина */
 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
 Route::get('/cart', [CartController::class, 'view'])->name('cart.view');
 Route::post('/cart/update/{productId}', [CartController::class, 'update'])->name('cart.update');
@@ -35,7 +36,11 @@ Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.s
 Route::delete('/cart/{id}', [CartController::class, 'remove'])->name('cart.remove');
 
 
+// Отображение формы адреса
+Route::get('/shopping-cart-address', [ShoppingCartAddressController::class, 'index'])->name('shopping-cart-address.index');
 
+// Обработка отправки адреса
+Route::post('/shopping-cart-address', [ShoppingCartAddressController::class, 'store'])->name('shopping-cart-address.store');
 
 
 // Меню и детали продукта

@@ -8,8 +8,10 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     *
+     * @return void
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
@@ -19,6 +21,8 @@ return new class extends Migration
             $table->string('state');
             $table->string('zip_code');
             $table->string('country');
+            $table->string('phone')->nullable(); // добавление нового поля для телефона
+            $table->text('address')->nullable(); // добавление полного адреса
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
@@ -27,8 +31,10 @@ return new class extends Migration
 
     /**
      * Reverse the migrations.
+     *
+     * @return void
      */
-    public function down(): void
+    public function down()
     {
         Schema::dropIfExists('addresses');
     }

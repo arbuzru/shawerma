@@ -2,36 +2,11 @@
 
 @section('content')
     <h1>Оформление заказа</h1>
-    @if(count($cart) > 0)
-        <table class="table">
-            <thead>
-            <tr>
-                <th>Продукт</th>
-                <th>Цена</th>
-                <th>Количество</th>
-                <th>Итого</th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach($cart as $item)
-                <tr>
-                    <td>{{ $item['name'] }}</td>
-                    <td>${{ number_format($item['price'], 2) }}</td>
-                    <td>{{ $item['quantity'] }}</td>
-                    <td>${{ number_format($item['price'] * $item['quantity'], 2) }}</td>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
-        <p>Общая сумма: ${{ number_format($total, 2) }}</p>
-        <form action="{{ route('checkout.store') }}" method="POST">
-            @csrf
-            <!-- Добавьте необходимые поля формы для оформления заказа -->
-            <button type="submit" class="btn btn-primary">Подтвердить заказ</button>
-        </form>
-    @else
-        <p>В вашей корзине нет товаров для оформления.</p>
-    @endif
+
+    @foreach($cart as $item)
+
+    @endforeach
+
 
 
 
@@ -49,7 +24,7 @@
 
                     <div class="inner-banner-item">
                         <div class="left">
-                            <a href="index.html">Home</a>
+                            <a href="{{ route('home') }}">Home</a>
                         </div>
                         <div class="icon">
                                 <span>
@@ -253,57 +228,67 @@
 
                             <div class="apply-coupon-btn">
                                 <div class="apply-coupon-form">
-                                    <input type="email" class="form-control" id="exampleFormControlInput6"
-                                           placeholder="Coupon">
+                                    <input type="email" class="form-control" id="exampleFormControlInput6" placeholder="Coupon">
                                 </div>
                                 <div class="apply-coupon-btn-two">
                                     <a href="#">Apply</a>
                                 </div>
                             </div>
 
-
                             <div class="apply-coupon-box">
+                                <!-- Список товаров из корзины -->
                                 <div class="shopping-cart-list">
-                                    <div class="shopping-cart-list-text">
-                                        <h4>Subtotal</h4>
-                                        <a href="#">${{ number_format($total, 2) }}</a>
-                                    </div>
-                                    <div class="shopping-cart-list-text">
-                                        <h4>Discount</h4>
-                                        <a href="#">-$12.00</a>
-                                    </div>
-                                    <div class="shopping-cart-list-text">
-                                        <h4>Delivery Charges</h4>
-                                        <a href="#">+$10.00</a>
-                                    </div>
+                                    @foreach($cart as $item)
+                                        <div class="shopping-cart-list-text">
+                                            <h4>{{ $item['name'] }} (x{{ $item['quantity'] }})</h4>
+                                            <a href="#">${{ number_format($item['price'] * $item['quantity'], 2) }}</a>
+                                        </div>
+                                    @endforeach
                                 </div>
-                                <div class="shopping-cart-list shopping-cart-list-btm ">
+
+                                <!-- Подытог, скидка и доставка -->
+                                <div class="shopping-cart-list-text">
+                                    <h4>Subtotal</h4>
+                                    <a href="#">${{ number_format($total, 2) }}</a>
+                                </div>
+                                <div class="shopping-cart-list-text">
+                                    <h4>Discount</h4>
+                                    <a href="#">-$12.00</a> <!-- Здесь можно заменить скидку на переменную -->
+                                </div>
+                                <div class="shopping-cart-list-text">
+                                    <h4>Delivery Charges</h4>
+                                    <a href="#">+$10.00</a> <!-- Здесь можно заменить стоимость доставки на переменную -->
+                                </div>
+
+                                <!-- Итоговая сумма -->
+                                <div class="shopping-cart-list shopping-cart-list-btm">
                                     <div class="shopping-cart-list-text">
-                                        <h4>Subtotal</h4>
-                                        <a href="#">$120</a>
+                                        <h4>Total</h4>
+                                        <a href="#">${{ number_format($total - 12 + 10, 2) }}</a>
                                     </div>
                                 </div>
 
+                                <!-- Кнопка оформления заказа -->
                                 <div class="shopping-cart-list-btn">
-                                    <a href="shopping-cart-address.html" class="main-btn-six">
+                                    <a href="{{ route('shopping-cart-address.index') }}" class="main-btn-six">
                                         Place Order
-
                                         <span>
-                                                <svg width="14" height="10" viewBox="0 0 14 10" fill="none"
-                                                     xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M9 9L13 5M13 5L9 1M13 5L1 5" stroke-width="1.5"
-                                                          stroke-linecap="round" stroke-linejoin="round" />
-                                                </svg>
-                                            </span>
+                                            <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M9 9L13 5M13 5L9 1M13 5L1 5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                            </svg>
+                                        </span>
                                     </a>
                                 </div>
                             </div>
-
-
-
-
-
                         </div>
+
+
+
+
+
+
+
+                    </div>
 
 
 
@@ -318,7 +303,7 @@
 
 
             </div>
-        </div>
+
     </section>
 
 
