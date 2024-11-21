@@ -38,7 +38,7 @@ Route::delete('/cart/{id}', [CartController::class, 'remove'])->name('cart.remov
 
 
 // Отображение формы адреса
-Route::get('/shopping-cart-address', [ShoppingCartAddressController::class, 'index'])->name('shopping-cart-address.index');
+Route::get('/shopping-cart-address', [ShoppingCartAddressController::class, 'show'])->name('shopping-cart-address.index');
 Route::post('/shopping-cart-address', [ShoppingCartAddressController::class, 'store'])->name('shopping-cart-address.store');
 
 // Обработка отправки адреса

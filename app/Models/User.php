@@ -17,7 +17,7 @@ class User extends Model
     }
 
     // Связь с адресами
-    public function addresses(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function addresses()
     {
         return $this->hasMany(Address::class);
     }

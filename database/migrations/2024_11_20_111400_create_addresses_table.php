@@ -15,18 +15,20 @@ return new class extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('user_id');
             $table->string('address_line');
             $table->string('city');
-            $table->string('state');
+            $table->string('state')->nullable();
             $table->string('zip_code');
             $table->string('country');
-            $table->string('phone')->nullable(); // добавление нового поля для телефона
-            $table->text('address')->nullable(); // добавление полного адреса
+            $table->string('phone')->nullable();
+            $table->text('address')->nullable();
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->index('user_id');
         });
+
     }
 
     /**
