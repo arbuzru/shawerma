@@ -12,6 +12,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\WishlistController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShoppingCartAddressController;
+use App\Http\Controllers\AddressController;
 
 // Админские маршруты
 Route::prefix('admin')->name('admin.')->group(function () {
@@ -38,8 +39,20 @@ Route::delete('/cart/{id}', [CartController::class, 'remove'])->name('cart.remov
 
 // Отображение формы адреса
 Route::get('/shopping-cart-address', [ShoppingCartAddressController::class, 'index'])->name('shopping-cart-address.index');
+Route::post('/shopping-cart-address', [ShoppingCartAddressController::class, 'store'])->name('shopping-cart-address.store');
 
 // Обработка отправки адреса
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/users/{user}/addresses', [AddressController::class, 'index'])->name('addresses.index');
+    Route::get('/users/{user}/addresses/create', [AddressController::class, 'create'])->name('addresses.create');
+    Route::post('/users/{user}/addresses', [AddressController::class, 'store'])->name('addresses.store');
+    Route::get('/addresses/{address}/edit', [AddressController::class, 'edit'])->name('addresses.edit');
+    Route::put('/addresses/{address}', [AddressController::class, 'update'])->name('addresses.update');
+    Route::delete('/addresses/{address}', [AddressController::class, 'destroy'])->name('addresses.destroy');
+});
+
 Route::post('/shopping-cart-address', [ShoppingCartAddressController::class, 'store'])->name('shopping-cart-address.store');
 
 
