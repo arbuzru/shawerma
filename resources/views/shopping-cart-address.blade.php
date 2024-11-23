@@ -1,4 +1,43 @@
 @extends('layouts.app')
+@if (!auth()->check())
+    <p>Вы должны быть авторизованы, чтобы увидеть адреса.</p>
+@else
+    <div class="row">
+        @forelse($addresses as $address)
+            <div class="col-lg-6">
+                <div class="shopping-cart-address-one {{ $loop->index % 2 == 1 ? 'shopping-cart-address-two' : '' }}">
+                    <div class="shopping-cart-address-one-item">
+                        <div class="text">
+                            <h4>Address #{{ $loop->iteration }}</h4>
+                        </div>
+                        <div class="delet-btn">
+                            <a href="{{ route('address.delete', ['id' => $address->id]) }}">
+                                <span>
+                                    <!-- Иконка удаления -->
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5 8V18C5 20.2091 6.79086 22 9 22H15C17.2091 22 19 20.2091 19 18V8M14 11V17M10 11L10 17M16 5L14.5937 2.8906C14.2228 2.3342 13.5983 2 12.9296 2H11.0704C10.4017 2 9.7772 2.3342 9.40627 2.8906L8 5M16 5H8M16 5H21M8 5H3" stroke="#F01543" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <address>
+                        Full Name: <b>{{ $address->user->name }}</b><br>
+                        Email: <a href="mailto:{{ $address->user->email }}"><b>{{ $address->user->email }}</b></a><br>
+                        Phone: <a href="tel:{{ $address->phone }}"><b>{{ $address->phone }}</b></a><br>
+                        Country: <a href="#"><b>{{ $address->country }}</b></a><br>
+                        State: <a href="#"><b>{{ $address->state }}</b></a><br>
+                        City: <a href="#"><b>{{ $address->city }}</b></a><br>
+                        Address: <a href="#"><b>{{ $address->address_line }}</b></a>
+                    </address>
+                </div>
+            </div>
+        @empty
+            <p class="text-center">No addresses found.</p>
+        @endforelse
+    </div>
+@endif
 
 
 @section('content')
@@ -76,65 +115,39 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-lg-6">
-                                <div class="shopping-cart-address-one">
-                                    <div class="shopping-cart-address-one-item">
-                                        <div class="text">
-                                            <h4>Address #1</h4>
+                            @forelse($addresses as $address)
+                                <div class="col-lg-6">
+                                    <div class="shopping-cart-address-one {{ $loop->index % 2 == 1 ? 'shopping-cart-address-two' : '' }}">
+                                        <div class="shopping-cart-address-one-item">
+                                            <div class="text">
+                                                <h4>Address #{{ $loop->iteration }}</h4>
+                                            </div>
+                                            <div class="delet-btn">
+                                                <a href="{{ route('address.delete', ['id' => $address->id]) }}">
+                            <span>
+                                <!-- Иконка удаления -->
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5 8V18C5 20.2091 6.79086 22 9 22H15C17.2091 22 19 20.2091 19 18V8M14 11V17M10 11L10 17M16 5L14.5937 2.8906C14.2228 2.3342 13.5983 2 12.9296 2H11.0704C10.4017 2 9.7772 2.3342 9.40627 2.8906L8 5M16 5H8M16 5H21M8 5H3" stroke="#F01543" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span>
+                                                </a>
+                                            </div>
                                         </div>
-                                        <div class="delet-btn">
-                                            <a href="#">
-                                                <span>
-                                                    <!-- Иконка удаления -->
-                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M5 8V18C5 20.2091 6.79086 22 9 22H15C17.2091 22 19 20.2091 19 18V8M14 11V17M10 11L10 17M16 5L14.5937 2.8906C14.2228 2.3342 13.5983 2 12.9296 2H11.0704C10.4017 2 9.7772 2.3342 9.40627 2.8906L8 5M16 5H8M16 5H21M8 5H3" stroke="#F01543" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                                    </svg>
-                                                </span>
-                                            </a>
-                                        </div>
+
+                                        <address>
+                                            Full Name: <b>{{ $address->user->name }}</b><br>
+                                            Email: <a href="mailto:{{ $address->user->email }}"><b>{{ $address->user->email }}</b></a><br>
+                                            Phone: <a href="tel:{{ $address->phone }}"><b>{{ $address->phone }}</b></a><br>
+                                            Country: <a href="#"><b>{{ $address->country }}</b></a><br>
+                                            State: <a href="#"><b>{{ $address->state }}</b></a><br>
+                                            City: <a href="#"><b>{{ $address->city }}</b></a><br>
+                                            Address: <a href="#"><b>{{ $address->address_line }}</b></a>
+                                        </address>
                                     </div>
-
-                                    <address>
-                                        Full Name: <b>{{ $user1->name }}</b><br>
-                                        Email: <a href="mailto:{{ $user1->email }}"><b>{{ $user1->email }}</b></a><br>
-                                        Phone: <a href="tel:{{ $user1->phone }}"><b>{{ $user1->phone }}</b></a><br>
-                                        Country: <a href="#"><b>{{ $user1->country }}</b></a><br>
-                                        State: <a href="#"><b>{{ $user1->state }}</b></a><br>
-                                        City: <a href="#"><b>{{ $user1->city }}</b></a><br>
-                                        Address: <a href="#"><b>{{ $user1->address }}</b></a>
-                                    </address>
                                 </div>
-                            </div>
-
-                            <div class="col-lg-6">
-                                <div class="shopping-cart-address-one shopping-cart-address-two">
-                                    <div class="shopping-cart-address-one-item">
-                                        <div class="text">
-                                            <h4>Address #2</h4>
-                                        </div>
-                                        <div class="delet-btn">
-                                            <a href="#">
-                                                <span>
-                                                    <!-- Иконка удаления -->
-                                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M5 8V18C5 20.2091 6.79086 22 9 22H15C17.2091 22 19 20.2091 19 18V8M14 11V17M10 11L10 17M16 5L14.5937 2.8906C14.2228 2.3342 13.5983 2 12.9296 2H11.0704C10.4017 2 9.7772 2.3342 9.40627 2.8906L8 5M16 5H8M16 5H21M8 5H3" stroke="#F01543" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                                    </svg>
-                                                </span>
-                                            </a>
-                                        </div>
-                                    </div>
-
-                                    <address>
-                                        Full Name: <b>{{ $user2->name }}</b><br>
-                                        Email: <a href="mailto:{{ $user2->email }}"><b>{{ $user2->email }}</b></a><br>
-                                        Phone: <a href="tel:{{ $user2->phone }}"><b>{{ $user2->phone }}</b></a><br>
-                                        Country: <a href="#"><b>{{ $user2->country }}</b></a><br>
-                                        State: <a href="#"><b>{{ $user2->state }}</b></a><br>
-                                        City: <a href="#"><b>{{ $user2->city }}</b></a><br>
-                                        Address: <a href="#"><b>{{ $user2->address }}</b></a>
-                                    </address>
-                                </div>
-                            </div>
+                            @empty
+                                <p class="text-center">No addresses found.</p>
+                            @endforelse
                         </div>
 
 

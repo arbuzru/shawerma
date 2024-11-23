@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class User extends Model
 {
     protected $fillable = [
-        'name', 'email', 'password', 'phone', 'country', 'state', 'city', 'address'
+        'username', 'email', 'password', 'role',
     ];
 
     // Связь с заказами
@@ -17,7 +18,7 @@ class User extends Model
     }
 
     // Связь с адресами
-    public function addresses()
+    public function addresses(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Address::class);
     }
@@ -28,7 +29,7 @@ class User extends Model
         parent::boot();
 
         static::saving(function ($user) {
-            if ($user->password) {
+            if ($user->password && !password_get_info($user->password)['algo']) {
                 $user->password = bcrypt($user->password);
             }
         });

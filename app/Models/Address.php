@@ -15,9 +15,12 @@ class Address extends Model
         'address_line',
         'city',
         'state',
-        'postal_code',
+        'zip_code', // Исправлено
         'country',
+        'phone',
+        'address', // Если нужно
     ];
+
 
     // Связь с таблицей users
     public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo

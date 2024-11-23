@@ -8,11 +8,14 @@ use Illuminate\Http\Request;
 class AddressController extends Controller
 {
         // Отображение всех адресов пользователя
-        public function index(User $user)
-        {
-            $addresses = $user->addresses;
-            return view('addresses.index', compact('addresses', 'user'));
-        }
+    public function index()
+    {
+        // Получить адреса текущего пользователя
+        $user = auth()->user();
+        $addresses = $user->addresses; // Связанные адреса
+
+        return view('shopping-cart-address', compact('user', 'addresses'));
+    }
 
         // Страница для создания нового адреса
         public function create(User $user)
