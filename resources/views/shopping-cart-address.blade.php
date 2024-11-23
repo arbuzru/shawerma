@@ -123,7 +123,7 @@
                                                 <h4>Address #{{ $loop->iteration }}</h4>
                                             </div>
                                             <div class="delet-btn">
-                                                <a href="{{ route('address.delete', ['id' => $address->id]) }}">
+                                                <a href="{{ route('addresses.destroy', ['id' => $address->id]) }}">
                             <span>
                                 <!-- Иконка удаления -->
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
