@@ -31,7 +31,7 @@ Route::get('/food-details', [FoodController::class, 'foodDetails'])->name('food-
 // Маршруты для корзины
 Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
 Route::get('/cart', [CartController::class, 'view'])->name('cart.view');
-Route::post('/cart/update/{productId}', [CartController::class, 'update'])->name('cart.update');
+Route::patch('/cart/update/{productId}', [CartController::class, 'update'])->name('cart.update');
 Route::delete('/cart/{id}', [CartController::class, 'remove'])->name('cart.remove');
 
 // Маршруты для оформления заказа
@@ -62,7 +62,7 @@ Route::middleware(['auth'])->group(function () {
 });
 
 
-
+//логин
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 
