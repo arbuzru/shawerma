@@ -22,14 +22,47 @@ class OrderController extends Controller
 
     public function store(Request $request)
     {
+        // Проводим валидацию данных
         $validated = $request->validate([
-            'user_id' => 'required|exists:users,id',
-            'payment_id' => 'nullable|exists:payments,id',
+            'user_id' => 'required|exists:users,id',  // Убедитесь, что указан правильный пользователь
+            'products' => 'required|array',           // Массив с продуктами
+            'shipping_address' => 'required|string',  // Адрес доставки
         ]);
 
-        Order::create($validated);
+        // Рассчитываем общую сумму заказа
+        $totalAmount = 0;
+        $products = [];
+
+        // Добавляем товары в заказ
+        foreach ($validated['products'] as $product) {
+            $productData = Product::find($product['product_id']);  // Получаем данные продукта по его ID
+
+            if ($productData) {
+                // Добавляем информацию о продукте в массив
+                $products[] = [
+                    'product_id' => $productData->id,
+                    'quantity' => $product['quantity'],  // Количество товара
+                    'price' => $productData->price,      // Цена продукта
+                ];
+                // Рассчитываем общую сумму
+                $totalAmount += $productData->price * $product['quantity'];
+            }
+        }
+
+        // Создаем заказ в базе данных
+        $order = Order::create([
+            'user_id' => $validated['user_id'],
+            'total_amount' => $totalAmount,  // Сохраняем общую сумму заказа
+            'status' => 'new',  // Статус по умолчанию
+            'shipping_address' => $validated['shipping_address'],
+            'payment_status' => 'pending',  // Статус оплаты по умолчанию
+            'products' => json_encode($products),  // Сохраняем продукты в формате JSON
+        ]);
+
+        // Перенаправляем с сообщением об успешном создании
         return redirect()->route('orders.index')->with('success', 'Order created successfully.');
     }
+
 
     public function show(Order $order)
     {

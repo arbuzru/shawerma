@@ -8,6 +8,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\WishlistController;
@@ -33,6 +34,22 @@ Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
 Route::get('/cart', [CartController::class, 'view'])->name('cart.view');
 Route::patch('/cart/update/{productId}', [CartController::class, 'update'])->name('cart.update');
 Route::delete('/cart/{id}', [CartController::class, 'remove'])->name('cart.remove');
+
+
+// Защищенные маршруты для работы с заказами
+Route::middleware(['auth'])->group(function () {
+    // Просмотр всех заказов пользователя
+    Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+
+    // Просмотр деталей конкретного заказа
+    Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
+
+    // Создание нового заказа (обычно после оформления корзины)
+    Route::get('/order/create', [OrderController::class, 'create'])->name('orders.create');
+
+    // Сохранение нового заказа (отправка данных на сервер)
+    Route::post('/order', [OrderController::class, 'store'])->name('orders.store');
+});
 
 // Маршруты для оформления заказа
 Route::get('/checkout', [CheckoutController::class, 'index'])->name('checkout');

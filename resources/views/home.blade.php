@@ -355,7 +355,8 @@
                                                 <div class="featured-item">
                                                     <div class="featured-item-img">
                                                         <!-- Используем путь изображения из базы данных -->
-                                                        <img src="{{ asset('storage/images/thumb/' . $product->image) }}" class="w-100" alt="{{ $product->name }}">
+                                                        <img src="{{ asset('images/thumb/' . $product->image) }}" class="w-100" alt="{{ $product->name }}">
+
                                                         <div class="featured-item-img-overlay">
                                                             <div class="featured-item-img-over-text">
                                                                 <div class="left-text">
