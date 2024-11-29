@@ -1,170 +1,162 @@
 @extends('layouts.app')
 
 @section('content')
-
-    <main>
-        <!-- banner  -->
-        <div class="inner-banner">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="inner-banner-head">
-                            <h1>Shopping Cart</h1>
+    <!-- banner -->
+    <div class="inner-banner">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="inner-banner-head">
+                        <h1>Shopping Cart</h1>
+                    </div>
+                    <div class="inner-banner-item">
+                        <div class="left">
+                            <a href="index.html">Home</a>
+                        </div>
+                        <div class="icon">
+                            <span>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10 7L14 12L10 17" stroke="#E5E6EB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </span>
+                        </div>
+                        <div class="left">
+                            <span>Shopping Cart</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- banner  -->
+    </div>
+    <!-- banner -->
 
-        <!-- Shopping Cart start -->
-        <section class="shopping-cart-two">
-            <div class="container">
-                <div class="row">
-                    <!-- Delivery Info -->
-                    <div class="col-lg-8 col-md-6">
-                        <div class="delivery-time">
-                            <div class="delivery-map">
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.095111337159!2d90.36396657592897!3d23.81521668628379!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c1cad41818e3%3A0x1dea3ec2f7a32054!2sQuomodoSoft!5e0!3m2!1sen!2sbd!4v1695898211446!5m2!1sen!2sbd"
-                                    width="380" height="380" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                                </iframe>
+    <section class="shopping-cart-two">
+        <div class="checkout-container">
+            <div class="cart-items">
+                @if(session()->has('cart') && count(session('cart')) > 0)
+                    @foreach(session('cart') as $id => $item)
+                        <div class="cart-item">
+                            <div class="cart-item-img">
+                                <img src="{{ $item['image'] ?? 'default-image.jpg' }}" alt="{{ $item['name'] }}" class="product-image">
                             </div>
-
-                            <div class="delivery-from">
-                                <div class="delivery-text">
-                                    <h4>Delivery Information</h4>
-                                </div>
-
-                                <!-- Select Delivery Type -->
-                                <div class="delivery-from-item">
-                                    <label for="deliveryType" class="form-label">Delivery Type</label>
-                                    <select class="form-select" name="delivery_type" id="deliveryType">
-                                        <option value="delivery" selected>Delivery</option>
-                                        <option value="pickup">Pickup</option>
-                                    </select>
-                                </div>
-
-                                <!-- If Pickup, specify location -->
-                                <div class="delivery-from-item" id="pickupLocation" style="display: none;">
-                                    <label for="pickupAddress" class="form-label">Pickup Location</label>
-                                    <input type="text" id="pickupAddress" class="form-control" placeholder="Enter Pickup Location">
-                                </div>
-
-                                <!-- Delivery Date -->
-                                <div class="delivery-from-item">
-                                    <label for="deliveryDate" class="form-label">Delivery Date</label>
-                                    <select class="form-select" id="deliveryDate">
-                                        <option value="today" selected>Today</option>
-                                        <option value="tomorrow">Tomorrow</option>
-                                        <option value="next_week">Next Week</option>
-                                    </select>
-                                </div>
-
-                                <!-- Time Schedule -->
-                                <div class="delivery-from-item">
-                                    <label for="timeSchedule" class="form-label">Time Schedule</label>
-                                    <select class="form-select" id="timeSchedule">
-                                        <option value="03:30-04:00" selected>03:30 PM - 04:00 PM</option>
-                                        <option value="04:30-05:00">04:30 PM - 05:00 PM</option>
-                                        <option value="05:30-06:00">05:30 PM - 06:00 PM</option>
-                                    </select>
-                                </div>
+                            <div class="cart-item-info">
+                                <h4 class="product-name">{{ $item['name'] }}</h4>
+                                <p class="product-size"><span>Size:</span> {{ $item['size'] ?? 'Не задано' }}</p>
+                                <p class="product-price">${{ $item['price'] }}</p>
+                                <form action="{{ route('cart.remove', $id) }}" method="POST" class="remove-item-form">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="remove-item-btn">
+                                        <i class="fa fa-trash"></i> Удалить
+                                    </button>
+                                </form>
                             </div>
                         </div>
+                    @endforeach
+                @else
+                    <p class="empty-cart-message">Корзина пуста.</p>
+                @endif
+            </div>
+
+            <!-- Форма для выбора типа доставки -->
+            <div class="delivery-options">
+                <h3>Выберите способ доставки</h3>
+                <div class="delivery-type-selector">
+                    <label>
+                        <input type="radio" name="delivery_type" value="Delivery" checked>
+                        Доставка
+                    </label>
+                    <label>
+                        <input type="radio" name="delivery_type" value="Pickup">
+                        Самовывоз
+                    </label>
+                </div>
+
+                <!-- Форма для доставки -->
+                <div class="delivery-fields">
+                    <div class="field" id="delivery-address">
+                        <label for="shipping_address">Адрес доставки:</label>
+                        <input type="text" id="shipping_address" name="shipping_address" placeholder="Введите адрес">
+                    </div>
+                    <div class="field" id="delivery-floor">
+                        <label for="floor">Этаж:</label>
+                        <input type="number" id="floor" name="floor" placeholder="Введите этаж">
+                    </div>
+                    <div class="field">
+                        <label for="comment">Комментарий к заказу:</label>
+                        <textarea id="comment" name="comment" placeholder="Ваши комментарии"></textarea>
                     </div>
 
-                    <!-- Cart Summary -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="cart-summary-box">
-                            <div class="cart-summary-box-text">
-                                <h3>Cart Summary</h3>
-                            </div>
+                    <!-- Интеграция с картой -->
+                    <div class="field">
+                        <label for="map-location">Выберите место на карте:</label>
+                        <div id="map" style="height: 400px; width: 100%;"></div>
+                    </div>
 
-                            <!-- Shopping Cart Items -->
-                            <div class="cart-summary-box-item-top">
-                                @foreach($cart as $item)
-                                    <div class="cart-summary-box-item">
-                                        <a href="#">
-                                            <div class="cart-summary-box-inner">
-                                                <div class="cart-summary-box-img">
-                                                    <img src="{{ $item['image'] ?? '/images/default.png' }}" alt="item">
-                                                </div>
-                                                <div class="cart-summary-box-text-two">
-                                                    <h4>{{ $item['name'] }}</h4>
-                                                    <h5><span>Size :</span> {{ $item['size'] ?? 'Default' }}</h5>
-                                                    <p>${{ number_format($item['price'], 2) }}</p>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </div>
-                                @endforeach
-                            </div>
+                    <input type="hidden" id="latitude" name="latitude">
+                    <input type="hidden" id="longitude" name="longitude">
+                </div>
 
-                            <!-- Coupon and Pricing -->
-                            <div class="apply-coupon">
-                                <div class="apply-coupon-taitel">
-                                    <h4>Apply Coupon</h4>
-                                </div>
-
-                                <div class="apply-coupon-btn">
-                                    <div class="apply-coupon-form">
-                                        <input type="text" class="form-control" placeholder="Coupon Code">
-                                    </div>
-                                    <div class="apply-coupon-btn-two">
-                                        <a href="#">Apply</a>
-                                    </div>
-                                </div>
-
-                                <!-- Pricing Details -->
-                                <div class="apply-coupon-box">
-                                    <div class="shopping-cart-list-text">
-                                        <h4>Subtotal</h4>
-                                        <a href="#">${{ number_format($subtotal, 2) }}</a>
-                                    </div>
-                                    <div class="shopping-cart-list-text">
-                                        <h4>Discount</h4>
-                                        <a href="#">-${{ number_format($discount, 2) }}</a>
-                                    </div>
-                                    <div class="shopping-cart-list-text">
-                                        <h4>Delivery Charges</h4>
-                                        <a href="#">+${{ number_format($delivery_charges, 2) }}</a>
-                                    </div>
-                                    <div class="shopping-cart-list shopping-cart-list-btm">
-                                        <div class="shopping-cart-list-text">
-                                            <h4>Total</h4>
-                                            <a href="#">${{ number_format($total, 2) }}</a>
-                                        </div>
-                                    </div>
-                                    <div class="shopping-cart-list-btn">
-                                        <a href="{{ route('shopping-cart-address.index') }}" class="main-btn-six">
-                                            Place Order
-                                            <span>
-                                            <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M9 9L13 5M13 5L9 1M13 5L1 5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
-                                        </span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <!-- Форма для самовывоза -->
+                <div class="pickup-fields">
+                    <div class="field">
+                        <label for="pickup_point">Пункт самовывоза:</label>
+                        <input type="text" id="pickup_point" name="pickup_point" placeholder="Укажите пункт самовывоза">
                     </div>
                 </div>
             </div>
-        </section>
-        <!-- Shopping Cart end -->
-    </main>
 
+            <button type="submit" class="checkout-btn">Оформить заказ</button>
+        </div>
+    </section>
+
+    <!-- Scripts to toggle forms and handle map -->
     <script>
-        document.getElementById('deliveryType').addEventListener('change', function () {
-            const pickupLocation = document.getElementById('pickupLocation');
-            if (this.value === 'pickup') {
-                pickupLocation.style.display = 'block';
-            } else {
-                pickupLocation.style.display = 'none';
-            }
+        document.querySelectorAll('input[name="delivery_type"]').forEach((radio) => {
+            radio.addEventListener('change', function() {
+                if (this.value === 'Delivery') {
+                    document.getElementById('shipping_address').style.display = 'block';
+                    document.getElementById('delivery-floor').style.display = 'block';
+                    document.getElementById('map').style.display = 'block';
+                    document.getElementById('pickup_point').style.display = 'none';
+                } else if (this.value === 'Pickup') {
+                    document.getElementById('shipping_address').style.display = 'none';
+                    document.getElementById('delivery-floor').style.display = 'none';
+                    document.getElementById('map').style.display = 'none';
+                    document.getElementById('pickup_point').style.display = 'block';
+                }
+            });
         });
+
+        // Инициализация карты
+        function initMap() {
+            const defaultLocation = { lat: 55.7558, lng: 37.6176 }; // Москва
+
+            const map = new google.maps.Map(document.getElementById("map"), {
+                center: defaultLocation,
+                zoom: 12,
+            });
+
+            const marker = new google.maps.Marker({
+                position: defaultLocation,
+                map: map,
+                title: "Выберите ваш адрес",
+            });
+
+            map.addListener("click", function(event) {
+                const clickedLocation = event.latLng;
+                marker.setPosition(clickedLocation);
+
+                document.getElementById("latitude").value = clickedLocation.lat();
+                document.getElementById("longitude").value = clickedLocation.lng();
+            });
+        }
+
+        // Загрузить карту при загрузке страницы
+        window.onload = function() {
+            initMap();
+        };
     </script>
 
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
 @endsection

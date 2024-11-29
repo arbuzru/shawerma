@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Order;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -24,45 +25,47 @@ class OrderController extends Controller
     {
         // Проводим валидацию данных
         $validated = $request->validate([
-            'user_id' => 'required|exists:users,id',  // Убедитесь, что указан правильный пользователь
-            'products' => 'required|array',           // Массив с продуктами
-            'shipping_address' => 'required|string',  // Адрес доставки
+            'user_id' => 'required|exists:users,id',        // Привязка к пользователю
+            'products' => 'required|array',               // Массив товаров
+            'shipping_address' => 'nullable|string',      // Адрес доставки
+            'delivery_type' => 'required|string',         // Тип доставки (Delivery / Pickup)
+            'pickup_point' => 'nullable|string',          // Пункт самовывоза, если выбран самовывоз
         ]);
 
-        // Рассчитываем общую сумму заказа
         $totalAmount = 0;
         $products = [];
 
-        // Добавляем товары в заказ
+        // Обработка списка товаров
         foreach ($validated['products'] as $product) {
-            $productData = Product::find($product['product_id']);  // Получаем данные продукта по его ID
+            $productData = Product::find($product['product_id']);  // Получаем данные продукта
 
             if ($productData) {
-                // Добавляем информацию о продукте в массив
                 $products[] = [
                     'product_id' => $productData->id,
-                    'quantity' => $product['quantity'],  // Количество товара
-                    'price' => $productData->price,      // Цена продукта
+                    'quantity' => $product['quantity'],
+                    'price' => $productData->price,
                 ];
-                // Рассчитываем общую сумму
                 $totalAmount += $productData->price * $product['quantity'];
             }
         }
 
-        // Создаем заказ в базе данных
+        // Создание заказа
         $order = Order::create([
             'user_id' => $validated['user_id'],
-            'total_amount' => $totalAmount,  // Сохраняем общую сумму заказа
-            'status' => 'new',  // Статус по умолчанию
-            'shipping_address' => $validated['shipping_address'],
-            'payment_status' => 'pending',  // Статус оплаты по умолчанию
-            'products' => json_encode($products),  // Сохраняем продукты в формате JSON
+            'total_amount' => $totalAmount,
+            'status' => 'new',
+            'shipping_address' => $validated['shipping_address'] ?? null, // Только для доставки
+            'delivery_type' => $validated['delivery_type'],             // Pickup или Delivery
+            'pickup_point' => $validated['pickup_point'] ?? null,       // Только для самовывоза
         ]);
 
-        // Перенаправляем с сообщением об успешном создании
+        // Сохранение товаров в заказ
+        foreach ($products as $product) {
+            $order->orderItems()->create($product);
+        }
+
         return redirect()->route('orders.index')->with('success', 'Order created successfully.');
     }
-
 
     public function show(Order $order)
     {
@@ -79,10 +82,14 @@ class OrderController extends Controller
     {
         $validated = $request->validate([
             'user_id' => 'required|exists:users,id',
-            'payment_id' => 'nullable|exists:payments,id',
+            'delivery_type' => 'required|string',
+            'pickup_point' => 'nullable|string',
+            'shipping_address' => 'nullable|string',
+            'status' => 'required|string',
         ]);
 
         $order->update($validated);
+
         return redirect()->route('orders.index')->with('success', 'Order updated successfully.');
     }
 
@@ -92,4 +99,3 @@ class OrderController extends Controller
         return redirect()->route('orders.index')->with('success', 'Order deleted successfully.');
     }
 }
-

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ asset('css/aos.css') }}">
     <link rel="stylesheet" href="{{ asset('css/slick.css') }}">
     <link rel="stylesheet" href="{{ asset('css/venobox.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/order.css') }}">
 </head>
 <body>
 
@@ -29,5 +30,6 @@
     <script src="{{ asset('js/slick.min.js') }}"></script>
     <script src="{{ asset('js/venobox.min.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
+     <script src="{{ asset('js/checkout.js') }}"></script>
 </body>
 </html>
