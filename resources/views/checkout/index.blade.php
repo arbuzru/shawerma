@@ -12,7 +12,7 @@
 
                     <div class="inner-banner-item">
                         <div class="left">
-                            <a href="index.html">Home</a>
+                            <a href="{{ route('home') }}">Home</a>
                         </div>
                         <div class="icon">
                             <span>
@@ -117,7 +117,7 @@
                     </div>
 
                     <!-- Вкладка "Самовывоз" -->
-                    <div id="pickup" class="tab-content">
+                    <div id="pickup" class="special-tab-content">
                         <div class="form-row">
                             <div class="form-group half-width">
                                 <label for="pickup-name">Ваше имя</label>

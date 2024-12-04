@@ -215,7 +215,7 @@
                                                 <!-- Кнопка уменьшения количества -->
                                                 <form action="{{ route('cart.update', $productId) }}" method="POST" style="display:inline;">
                                                     @csrf
-                                                    @method('PATCH')
+                                                    @method('POST')
                                                     <input type="hidden" name="quantity" value="{{ $item['quantity'] - 1 }}">
                                                     <button type="submit" class="btn btn-minus" @if($item['quantity'] <= 1) disabled @endif>
                                                         <i class="fa-solid fa-minus"></i>
@@ -228,7 +228,7 @@
                                                 <!-- Кнопка увеличения количества -->
                                                 <form action="{{ route('cart.update', $productId) }}" method="POST" style="display:inline;">
                                                     @csrf
-                                                    @method('PATCH')
+                                                    @method('POST')
                                                     <input type="hidden" name="quantity" value="{{ $item['quantity'] + 1 }}">
                                                     <button type="submit" class="btn btn-plus">
                                                         <i class="fa-solid fa-plus"></i>
@@ -299,7 +299,7 @@
                                                 <!-- Кнопка уменьшения количества -->
                                                 <form action="{{ route('cart.update', $productId) }}" method="POST" style="display:inline;">
                                                     @csrf
-                                                    @method('PATCH')
+                                                    @method('POST')
                                                     <input type="hidden" name="quantity" value="{{ $item['quantity'] - 1 }}">
                                                     <button type="submit" class="btn btn-minus" @if($item['quantity'] <= 1) disabled @endif>
                                                         <i class="fa-solid fa-minus"></i>
@@ -312,7 +312,7 @@
                                                 <!-- Кнопка увеличения количества -->
                                                 <form action="{{ route('cart.update', $productId) }}" method="POST" style="display:inline;">
                                                     @csrf
-                                                    @method('PATCH')
+                                                    @method('POST')
                                                     <input type="hidden" name="quantity" value="{{ $item['quantity'] + 1 }}">
                                                     <button type="submit" class="btn btn-plus">
                                                         <i class="fa-solid fa-plus"></i>
@@ -381,7 +381,7 @@
                                                 <!-- Кнопка уменьшения количества -->
                                                 <form action="{{ route('cart.update', $productId) }}" method="POST" style="display:inline;">
                                                     @csrf
-                                                    @method('PATCH')
+                                                    @method('POST')
                                                     <input type="hidden" name="quantity" value="{{ $item['quantity'] - 1 }}">
                                                     <button type="submit" class="btn btn-minus" @if($item['quantity'] <= 1) disabled @endif>
                                                         <i class="fa-solid fa-minus"></i>
@@ -394,7 +394,7 @@
                                                 <!-- Кнопка увеличения количества -->
                                                 <form action="{{ route('cart.update', $productId) }}" method="POST" style="display:inline;">
                                                     @csrf
-                                                    @method('PATCH')
+                                                    @method('POST')
                                                     <input type="hidden" name="quantity" value="{{ $item['quantity'] + 1 }}">
                                                     <button type="submit" class="btn btn-plus">
                                                         <i class="fa-solid fa-plus"></i>
@@ -473,7 +473,7 @@
                                                     <!-- Кнопка уменьшения количества -->
                                                     <form action="{{ route('cart.update', $productId) }}" method="POST" style="display:inline;">
                                                         @csrf
-                                                        @method('PATCH')
+                                                        @method('POST')
                                                         <input type="hidden" name="quantity" value="{{ $item['quantity'] - 1 }}">
                                                         <button type="submit" class="btn btn-minus" @if($item['quantity'] <= 1) disabled @endif>
                                                             <i class="fa-solid fa-minus"></i>
@@ -486,7 +486,7 @@
                                                     <!-- Кнопка увеличения количества -->
                                                     <form action="{{ route('cart.update', $productId) }}" method="POST" style="display:inline;">
                                                         @csrf
-                                                        @method('PATCH')
+                                                        @method('POST')
                                                         <input type="hidden" name="quantity" value="{{ $item['quantity'] + 1 }}">
                                                         <button type="submit" class="btn btn-plus">
                                                             <i class="fa-solid fa-plus"></i>
@@ -586,7 +586,7 @@
                                                 <!-- Кнопка увеличения количества -->
                                                 <form action="{{ route('cart.update', $productId) }}" method="POST" style="display:inline;">
                                                     @csrf
-                                                    @method('PATCH')
+                                                    @method('POST')
                                                     <input type="hidden" name="quantity" value="{{ $item['quantity'] + 1 }}">
                                                     <button type="submit" class="btn btn-plus">
                                                         <i class="fa-solid fa-plus"></i>
