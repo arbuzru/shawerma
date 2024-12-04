@@ -30,6 +30,7 @@
     <script src="{{ asset('js/slick.min.js') }}"></script>
     <script src="{{ asset('js/venobox.min.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
-     <script src="{{ asset('js/checkout.js') }}"></script>
+    <script src="{{ asset('js/checkout.js') }}"></script>
+  <script src="https://api-maps.yandex.ru/2.1/?apikey=55f74cab-8285-4c71-b9a3-3a0b4f72bfa7&lang=ru_RU" type="text/javascript"></script>
 </body>
 </html>

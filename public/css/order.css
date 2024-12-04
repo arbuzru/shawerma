@@ -211,3 +211,55 @@ body {
 .form-group.third-width {
     flex: 0 0 31%;  /* Для трех колонок */
 }
+.hidden {
+    display: none;
+}
+
+#map-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.map-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#map-container-popup {
+    height: 400px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.map-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.map-actions textarea {
+    width: 70%;
+    height: 50px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.map-actions button {
+    padding: 10px 20px;
+    background-color: #388e3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

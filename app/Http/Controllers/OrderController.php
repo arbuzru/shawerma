@@ -20,18 +20,24 @@ class OrderController extends Controller
         $users = User::all();
         return view('orders.create', compact('users'));
     }
-
     public function store(Request $request)
     {
         // Проводим валидацию данных
         $validated = $request->validate([
-            'user_id' => 'required|exists:users,id',        // Привязка к пользователю
-            'products' => 'required|array',               // Массив товаров
-            'shipping_address' => 'nullable|string',      // Адрес доставки
-            'delivery_type' => 'required|string',         // Тип доставки (Delivery / Pickup)
-            'pickup_point' => 'nullable|string',          // Пункт самовывоза, если выбран самовывоз
+            'name' => 'required|string',                   // Имя
+            'phone' => 'required|string',                  // Телефон
+            'shipping_address' => 'nullable|string',       // Адрес доставки
+            'delivery_type' => 'required|string',          // Тип доставки (Delivery / Pickup)
+            'pickup_point' => 'nullable|string',           // Пункт самовывоза, если выбран самовывоз
+            'latitude' => 'nullable|numeric',              // Широта для карты
+            'longitude' => 'nullable|numeric',             // Долгота для карты
+            'persons' => 'required|integer|min:1',         // Количество персон
+            'products' => 'required|array',                // Список продуктов
+            'products.*.product_id' => 'required|exists:products,id', // Проверка существования продукта
+            'products.*.quantity' => 'required|integer|min:1', // Количество товара
         ]);
 
+        // Переменная для хранения общей суммы
         $totalAmount = 0;
         $products = [];
 
@@ -40,32 +46,43 @@ class OrderController extends Controller
             $productData = Product::find($product['product_id']);  // Получаем данные продукта
 
             if ($productData) {
+                // Добавляем товар в массив
                 $products[] = [
                     'product_id' => $productData->id,
                     'quantity' => $product['quantity'],
                     'price' => $productData->price,
                 ];
+                // Добавляем стоимость товара в общую сумму
                 $totalAmount += $productData->price * $product['quantity'];
             }
         }
 
-        // Создание заказа
+        // Создаём заказ
         $order = Order::create([
-            'user_id' => $validated['user_id'],
-            'total_amount' => $totalAmount,
-            'status' => 'new',
-            'shipping_address' => $validated['shipping_address'] ?? null, // Только для доставки
-            'delivery_type' => $validated['delivery_type'],             // Pickup или Delivery
-            'pickup_point' => $validated['pickup_point'] ?? null,       // Только для самовывоза
+            'user_id' => auth()->id(),                         // Пользователь, который сделал заказ
+            'total_amount' => $totalAmount,                     // Общая стоимость
+            'status' => 'new',                                  // Статус нового заказа
+            'shipping_address' => $validated['shipping_address'] ?? null, // Адрес доставки
+            'delivery_type' => $validated['delivery_type'],     // Тип доставки
+            'pickup_point' => $validated['pickup_point'] ?? null, // Пункт самовывоза
+            'latitude' => $validated['latitude'] ?? null,       // Широта
+            'longitude' => $validated['longitude'] ?? null,     // Долгота
+            'persons' => $validated['persons'],                 // Количество персон
         ]);
 
-        // Сохранение товаров в заказ
+        // Сохраняем товарные позиции для заказа
         foreach ($products as $product) {
-            $order->orderItems()->create($product);
+            $order->orderItems()->create([
+                'product_id' => $product['product_id'],
+                'quantity' => $product['quantity'],
+                'price' => $product['price'],
+            ]);
         }
 
+        // Возвращаем успешный ответ или редирект
         return redirect()->route('orders.index')->with('success', 'Order created successfully.');
     }
+
 
     public function show(Order $order)
     {
@@ -81,21 +98,26 @@ class OrderController extends Controller
     public function update(Request $request, Order $order)
     {
         $validated = $request->validate([
-            'user_id' => 'required|exists:users,id',
+            'name' => 'required|string',
+            'phone' => 'required|string',
+            'shipping_address' => 'nullable|string',
             'delivery_type' => 'required|string',
             'pickup_point' => 'nullable|string',
-            'shipping_address' => 'nullable|string',
+            'latitude' => 'nullable|numeric',
+            'longitude' => 'nullable|numeric',
             'status' => 'required|string',
+            'persons' => 'required|integer|min:1',
         ]);
 
         $order->update($validated);
 
-        return redirect()->route('orders.index')->with('success', 'Order updated successfully.');
+        return redirect()->route('orders.index')->with('success', 'Заказ обновлен успешно.');
     }
 
     public function destroy(Order $order)
     {
         $order->delete();
-        return redirect()->route('orders.index')->with('success', 'Order deleted successfully.');
+        return redirect()->route('orders.index')->with('success', 'Заказ удален успешно.');
     }
 }
+
